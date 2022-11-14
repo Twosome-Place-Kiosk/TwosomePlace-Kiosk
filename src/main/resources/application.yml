@@ -4,3 +4,19 @@ server:
 spring:
   mvc:
     static-path-pattern: /static/**
+
+    datasource:
+      driver-class-name: org.mariadb.jdbc.Driver
+
+      url: jdbc:mariadb://database-1.capupdxbvgd1.ap-northeast-2.rds.amazonaws.com:3306/twosomeplace20221114
+      username: admin
+      password: 1q2w3e4r
+
+      security:
+        user:
+          name: test@naver.com
+          password: 1q2w3e4r1!
+
+    mybatis:
+      mapper-locations:
+        - /mappers/*.xml

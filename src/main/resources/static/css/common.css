@@ -1,0 +1,13 @@
+.btn {
+    width: 200px;
+    height: 40px;
+
+    background-color: rgb(red, green, blue);
+}
+
+.btn-box {
+    display: flex;
+    justify-content: space-around;
+    
+    
+}

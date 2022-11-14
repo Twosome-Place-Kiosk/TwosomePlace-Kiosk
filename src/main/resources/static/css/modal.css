@@ -14,5 +14,40 @@
 }
 
 /* 팝업 스타일 */
-.modal-bg {display:none;width:100%;height:100%;position:fixed;top:0;left:0;right:0;background: rgba(0, 0, 0, 0.6);z-index:999;}
-.modal-wrap {display:none;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:500px;height:550px;background:#fff;z-index:1000;}
+.modal-bg {
+    display:none;
+    width:100%;
+    height:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    background: rgba(0, 0, 0, 0.6);z-index:999;
+}
+
+.modal-wrap {
+    display:none;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:500px;
+    height:550px;
+    background:#fff;z-index:1000;
+}
+
+.modal-header {
+    color: white;
+    background-color: rgb(238, 14, 96);
+    width: 100%;
+    height: 10%;
+    display: block;
+    vertical-align: middle;
+    text-align: center;
+    justify-content: center;
+
+    font-weight: 500px;
+    font-size: x-large;
+}
+
+.modal-
