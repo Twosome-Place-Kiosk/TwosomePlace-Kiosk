@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/modal.css">
+    
+</head>
+<body>
+     <!-- 전체 레이아웃 -->
+     <div id="wrap">
+        <!-- Content -->
+        <section class="content">
+            <div class="container">
+                <!-- 팝업용 임시 버튼입니다. -->
+                <div class="btn-box">
+                    <a href="#" class="btn-open" onClick="javascript:popOpen();">
+                        <span>열기</span>
+                    </a>
+                </div>
+                <!-- //팝업용 임시 버튼입니다. -->
+            </div>
+        </section>
+        <!-- //Content -->       
+    </div>
+<!-- //전체 레이아웃 -->
+
+    <!-- modal 영역 -->
+<div class="modal-bg" onClick="javascript:popClose();"></div>
+<div class="modal-wrap">
+modal sample
+<button class="modal-close" onClick="javascript:popClose();">닫기</button>
+    </div>
+    <!-- //modal 영역 -->
+    
+    <script src=/static/js/modal.js></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+</body>
+
+
+</html>
