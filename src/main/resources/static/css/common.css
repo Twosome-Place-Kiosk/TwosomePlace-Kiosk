@@ -1,3 +1,20 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(135, 132, 132);
+}
+
+a:hover {
+    color: rgb(238, 14, 96);
+    
+}
 .btn {
     width: 200px;
     height: 40px;
