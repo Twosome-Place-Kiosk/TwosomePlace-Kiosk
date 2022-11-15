@@ -1,0 +1,55 @@
+p{
+    margin: 0px;
+    
+}
+.modal-choice{
+    line-height: 55px;
+    text-align: center;
+    font-size: 25px;
+    color: red;
+    font-weight: 900px;
+}
+
+.modal-membership{
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 20px;
+}
+
+.membership-button{
+    width: 200px;
+    background-color: white;
+    border: 1px solid rgb(218, 218, 218);
+}
+
+
+
+.membership-img{
+    padding: 10px 0px;
+    width: 45%;
+    border-radius: 25px;
+}
+
+.membership-Rimg{
+    padding: 10px 0px;
+    margin-bottom: 23px;
+    width: 45%;
+
+}
+
+.membership-top{
+    font-size: 23px;
+    background-color: red;
+    color: white;
+    padding: 5px 0px;
+}
+
+.membership-G{
+    padding: 10px 0px;
+    font-size: 18px;
+}
+
+.membership-T{
+    font-size: 18px;
+    padding-bottom: 20px;
+}

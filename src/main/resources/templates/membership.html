@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/modal.css">
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/membership.css">
+    
+</head>
+<body>
+     <!-- 전체 레이아웃 -->
+     <div id="wrap">
+        <!-- Content -->
+        <section class="content">
+            <div class="container">
+                <!-- 팝업용 임시 버튼입니다. -->
+                <div class="btn-box">
+                    <a href="#" class="btn-open" onClick="javascript:popOpen();">
+                        <span>열기</span>
+                    </a>
+                </div>
+                <!-- //팝업용 임시 버튼입니다. -->
+            </div>
+        </section>
+        <!-- //Content -->       
+    </div>
+<!-- //전체 레이아웃 -->
+
+    <!-- modal 영역 -->
+<div class="modal-bg" onClick="javascript:popClose();"></div>
+<div class="modal-wrap">
+    <div class="modal-header">STEP1. 공차 멤버십 및 제휴 혜택</div>
+    <!-- 상품 들어갈곳-->
+    <div class="modal-choice">
+        <div>공차 멤버십 쿠폰 또는 제휴 할인을 선택해주세요</div>
+    </div>
+
+
+    <div class="modal-membership">
+            <button class="membership-button">
+                <div class="membership-top">공차 멤버십</div>
+                    <img src="/static/images/Gongcha.png.png" class="membership-img">
+                <div class="membership-G">
+                    <p>공차 멤버십</p><p>(쿠폰 사용)</p>
+                </div>
+            </button>
+
+            <button class="membership-button">
+                <div class="membership-top">T멤버십</div>
+                    <img src="/static/images/Tmembership.png" class="membership-Rimg">
+                <div class="membership-T">
+                    <p>SKT 10% 할인/적립</p>
+                </div>
+    </div>
+
+
+    <div class="btn-box">
+        <button class="btn modal-close" onClick="javascript:popClose();">이전단계</button>
+        <button class="btn modal-pay" onClick="javascript:popClose();">선택안함</button>
+    </div>
+    </div>
+    <!-- //modal 영역 -->
+    
+    <script src=/static/js/modal.js></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+</body>
+
+
+</html>

@@ -1,0 +1,11 @@
+p{
+    margin: 0px;
+    
+}
+.modal-choice{
+    line-height: 55px;
+    text-align: center;
+    font-size: 25px;
+    color: red;
+    font-weight: 900px;
+}
