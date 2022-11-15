@@ -1,0 +1,55 @@
+.main-container{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+
+.main-box {
+
+    padding: 80px 0px;
+
+    width: 300px;
+    height: 100%;
+
+    text-align: left;
+    
+}
+
+.greeting-box {
+    text-align: center;
+}
+
+.img-box {
+    align-items: center;
+    width: 300px;
+}
+
+.logo-img{
+    width: 300px;
+}
+
+.id-input,.pw-input {
+    margin-bottom: 20px;
+    width: 300px;
+    height: 20px;
+    
+    border: rgba(165, 162, 162, 0.897) solid 1px;
+    border-radius: 2px;
+}
+
+.login-btnzone {
+    text-align: right;
+
+}
+
+.login-btn {
+    height: 25px;
+
+    border: none;
+    border-radius: 2px;
+    color:white;
+    background-color: rgb(214, 35, 35);
+}
