@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/modal.css">
+    <link rel="stylesheet" href="/static/css/pay.css">
+    
+    
+</head>
+<body>
+     <!-- 전체 레이아웃 -->
+     <div id="wrap">
+        <!-- Content -->
+        <section class="content">
+            <div class="container">
+                <!-- 팝업용 임시 버튼입니다. -->
+                <div class="btn-box">
+                    <a href="#" class="btn-open" onClick="javascript:popOpen();">
+                        <span>열기</span>
+                    </a>
+                </div>
+                <!-- //팝업용 임시 버튼입니다. -->
+            </div>
+        </section>
+        <!-- //Content -->       
+    </div>
+<!-- //전체 레이아웃 -->
+
+    <!-- modal 영역 -->
+<div class="modal-bg" onClick="javascript:popClose();"></div>
+<div class="modal-wrap">
+    <div class="modal-header">
+        <div class="modal-title">신용카드 결제</div>
+    </div>
+    <div class="modal-warning"> 결제가 완료될때까지 카드를 빼지 마세요!</div>
+    <div class="modal-table-cardbox">
+        <table>
+            <tr>
+                <td>카드번호</td>
+                <td colspan="2"></td>
+            </tr>
+            <tr>
+                <td>카드사</td>
+                <td colspan="2"></td>
+            </tr>
+            <tr>
+                <td>유효기간</td>
+                <td colspan="2"> &nbsp;&nbsp;년 &nbsp;&nbsp;월 </td>
+            </tr>
+            <tr>
+                <td>할부개월수</td>
+                <td colspan="2"></td>
+            </tr>
+            <tr>
+                <td>결제금액</td>
+                <td colspan="2"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="modal-keybox">
+        <table>
+            <tr>
+                <td colspan="2"> Clear </td>
+                <td>&lt;-</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>0</td>
+                <td>00</td>
+                <td>000</td>
+            </tr>
+
+
+   
+            
+        </table>
+    </div>
+    <div class="modal-pay-imgbox">
+        <img src="#">
+    </div>
+
+    </div>
+    <!-- //modal 영역 -->
+    
+    <script src=/static/js/modal.js></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+</body>
+
+
+</html>

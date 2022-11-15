@@ -1,0 +1,69 @@
+*{
+    padding : 5px 5px;
+}
+
+.option-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-imagebox{
+    width: 100px;
+}
+
+.modal-main-image {
+    width: 80px;
+    height: 100px;
+}
+
+.modal-titlebox{
+    width: 400px;
+}
+
+.modal-pdtname {
+    padding-right: 60px;
+    font-size: x-large;
+}
+
+.modal-price {
+    font-size: x-large;
+    font-weight: 600;
+}
+
+.modal-option{
+    padding-right: 160px;
+}
+
+p{
+    font-size: 18px;
+    font-weight: 300;
+    color : rgb(242, 26, 112);
+
+    margin: 5px;
+}
+
+.cup, .ice, .suger, .topping{
+    display: inline-block;
+    width: 70px;
+    height: 90px;
+
+    font-size: 12px;
+    text-align: center;
+}
+
+.option-img {
+    width: 100%;
+    height: 60px;
+}
+
+.modal-cancle {
+    color : rgb(242, 26, 112);    
+    border: 1px solid rgb(242, 26, 112);
+}
+
+.modal-addcart {
+    background-color: rgb(242, 26, 112);
+    color: white;
+    border: 1px solid rgb(203, 36, 103);
+}

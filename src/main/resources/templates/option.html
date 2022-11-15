@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Option</title>
+    <link rel="stylesheet" href="/static/css/modal.css">
+    <link rel="stylesheet" href="/static/css/option.css">
+    <link rel="stylesheet" href="/static/css/common.css">
+    
+</head>
+<body>
+     <!-- 전체 레이아웃 -->
+     <div id="wrap">
+        <!-- Content -->
+        <section class="content">
+            <div class="container">
+                <!-- 팝업용 임시 버튼입니다. -->
+                <div class="btn-box">
+                    <a href="#" class="btn-open" onClick="javascript:popOpen();">
+                        <span>열기</span>
+                    </a>
+                </div>
+                <!-- //팝업용 임시 버튼입니다. -->
+            </div>
+        </section>
+        <!-- //Content -->       
+    </div>
+<!-- //전체 레이아웃 -->
+
+    <!-- modal 영역 -->
+<div class="modal-bg" onClick="javascript:popClose();"></div>
+<div class="modal-wrap">
+
+    <div class="option-header">
+        <div class="modal-imagebox">
+            <img class="modal-main-image" src="#">
+        </div>
+        <div class="modal-titlebox">
+            <span class="modal-pdtname">타로 밀크티 + 펄L</span>
+            <span class="modal-price">5600원</span>
+        
+        </div>
+    </div>
+
+    <div class="modal-optionbox"> 
+        <span class="modal-option">옵션 : COLD(포장)/Regular Ice/50%</span>
+        <span class="modal-option-price"> 0원</span>
+    </div>
+    
+    <div class="modal-coldhotbox">
+        <p>COLD/HOT (필수,1/1)</p>
+        <span class="cup in-cold"><img class="option-img" src="#">COLD(매장)</span>
+        <span class="cup out-cold"><img class="option-img" src="#">COLD(포장)</span>
+        <span class="cup in-hot"><img class="option-img" src="#">HOT(매장)</span>
+        <span class="cup out-hot"><img class="option-img" src="#">HOT(포장)</span>
+    </div>
+
+    <div class="modal-icebox">
+        <p>ICE (필수,1/1)</p>
+        <span class="ice less-ice"><img class="option-img" src="#">Less Ice</span>
+        <span class="ice regular-ice"><img class="option-img" src="#">Regular Ice</span>
+        <span class="ice full-ice"><img class="option-img" src="#">Full Ice</span>
+    </div>
+
+    <div class="modal-sugerbox">
+        <p>Suger (필수,1/1)</p>
+        <span class="suger suger-0"><img class="option-img" src="#">0%</span>
+        <span class="suger suger-30"><img class="option-img" src="#">30%</span>
+        <span class="suger suger-50"><img class="option-img" src="#">50%</span>
+        <span class="suger suger-70"><img class="option-img" src="#">70%</span>
+        <span class="suger suger-100"><img class="option-img" src="#">100%</span>
+    </div>
+
+    <div class="modal-toppingbox">
+        <p>Topping(선택,0/2)</p>
+        <span class="moving-tap">&lt;</span>
+        <span class="topping topping-"><img class="option-img" src="#">퍼어얼&nbsp; +700</span>
+        <span class="topping topping-"><img class="option-img" src="#">알로에&nbsp; +700</span>
+        <span class="topping topping-"><img class="option-img" src="#">코코넛&nbsp; +700</span>
+        <span class="topping topping-"><img class="option-img" src="#">화이트펄 +700</span>
+        <span class="topping topping-"><img class="option-img" src="#">밀크폼&nbsp; +700</span>
+        <span class="topping topping-"><img class="option-img" src="#">치즈폼&nbsp; +900</span>
+        <span class="topping topping-"><img class="option-img" src="#">펄x2&nbsp;&nbsp; +1400</span>
+        <span class="topping topping-"><img class="option-img" src="#">알로에x2 +1400</span>
+        <span class="topping topping-"><img class="option-img" src="#">코코넛x2 +1400</span>
+        <span class="topping topping-"><img class="option-img" src="#">화이트펄x2 +1400</span>
+        <span class="topping topping-"><img class="option-img" src="#">밀크폼x2 +1400</span>
+        <span class="topping topping-"><img class="option-img" src="#">치즈폼x2 +1800</span>
+        <span class="moving-tap">&gt;</span>
+    </div>
+
+    <div class="btn-box">
+        <button class="btn modal-cancle" onClick="javascript:popClose();">취소</button>
+        <button class="btn modal-addcart" onClick="javascript:popClose();">주문담기</button>
+    </div>
+    </div>
+    <!-- //modal 영역 -->
+    
+    <script src=/static/js/modal.js></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+</body>
+
+
+</html>

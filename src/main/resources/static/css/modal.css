@@ -38,6 +38,7 @@ p{
     width:650px;
     height:750px;
     background:#fff;z-index:1000;
+<<<<<<< HEAD
     
 }
 
@@ -50,15 +51,33 @@ p{
 
     border-bottom: 4px solid red;
 
+=======
+
+    overflow :scroll;
+}
+
+.modal-header {
+    border-bottom: 3px solid rgb(238, 14, 96);
+>>>>>>> KYJ
     width: 100%;
     height: 10%;
 
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+}
+
+.modal-title {
     font-weight: 500px;
     font-size: x-large;
 }
 
 
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> KYJ
