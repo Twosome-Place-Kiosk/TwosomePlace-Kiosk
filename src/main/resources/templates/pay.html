@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pay</title>
     <link rel="stylesheet" href="/static/css/modal.css">
     <link rel="stylesheet" href="/static/css/pay.css">
+    
     
     
 </head>
@@ -36,35 +37,37 @@
         <div class="modal-title">신용카드 결제</div>
     </div>
     <div class="modal-warning"> 결제가 완료될때까지 카드를 빼지 마세요!</div>
+    
+    <div class="modal-pay-box">
     <div class="modal-table-cardbox">
-        <table>
+        <table class="card-table">
             <tr>
-                <td>카드번호</td>
-                <td colspan="2"></td>
+                <th>카드번호</th>
+                <td ></td>
             </tr>
             <tr>
-                <td>카드사</td>
-                <td colspan="2"></td>
+                <th>카드사</th>
+                <td ></td>
             </tr>
             <tr>
-                <td>유효기간</td>
-                <td colspan="2"> &nbsp;&nbsp;년 &nbsp;&nbsp;월 </td>
+                <th>유효기간</th>
+                <td > &nbsp;&nbsp;년 &nbsp;&nbsp;월 </td>
             </tr>
             <tr>
-                <td>할부개월수</td>
-                <td colspan="2"></td>
+                <th>할부개월수</th>
+                <td ></td>
             </tr>
             <tr>
-                <td>결제금액</td>
-                <td colspan="2"></td>
+                <th>결제금액</th>
+                <td >5600원</td>
             </tr>
         </table>
     </div>
     <div class="modal-keybox">
-        <table>
+        <table class="key-table">
             <tr>
-                <td colspan="2"> Clear </td>
-                <td>&lt;-</td>
+                <th class="clear-btn" colspan="2"> Clear </td>
+                <th class="backspace-btn">←</td>
             </tr>
             <tr>
                 <td>7</td>
@@ -86,14 +89,15 @@
                 <td>00</td>
                 <td>000</td>
             </tr>
-
-
-   
-            
         </table>
     </div>
+</div>
+
+    <div class="modal-pbox">
+        <p class="pay-able">카카오페이, 삼성페이 결제가능<p>
+    </div>
     <div class="modal-pay-imgbox">
-        <img src="#">
+        <img class ="paying-img" src="#">
     </div>
 
     </div>

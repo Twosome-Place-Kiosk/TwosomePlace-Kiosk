@@ -39,20 +39,20 @@ p{
     transform:translate(-50%,-50%);
     width:650px;
     height:600px;
-    background:#fff;
-    z-index:1000;
+    background:#fff;z-index:1000;
     overflow :scroll;
+
+    
 }
 
 .modal-header {
-    display: block;
+    display: block; 
     justify-content: center;
     text-align: center;
     line-height: 55px;
     font-size: 25px;
     
     border-bottom: 4px solid rgb(193, 8, 8);
-
 }
 
 .modal-title {
