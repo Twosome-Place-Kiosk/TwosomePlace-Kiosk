@@ -1,0 +1,30 @@
+.banner-header {
+    width: 100%;
+
+    background-color:rgba(6, 6, 6, 0.814);
+    color: white;
+
+    text-align: center;
+
+    padding: 25px;
+    word-break: keep-all;
+
+}
+
+.banner-header div {
+    margin: -5px;
+}
+
+.banner-image img{
+    width: 100%;
+}
+
+.text1 {
+    font-size: 40px;
+}
+.text2 {
+    font-size: 24px;
+}
+.text3 {
+    font-size: 24px;
+}
