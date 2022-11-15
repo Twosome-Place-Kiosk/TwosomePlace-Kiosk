@@ -1,8 +1,90 @@
 .modal-warning {
-    padding : 20px;
+    padding : 30px;
 
-    color :  rgb(242, 26, 112);
-    font-size: 20px;
+    color :  rgb(214, 35, 35);
+    font-size: 30px;
     font-weight: 500;
     text-align: center;
 }
+
+.modal-pay-box {
+    padding-top: 30px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+ 
+}
+
+.modal-table-cardbox {
+    width : 300px;
+    height: 200px;
+}
+
+.modal-keybox {
+    width: 250px;
+}
+
+.card-table{
+    height: 200px;
+    border-top: black solid 2px;
+}
+
+
+.card-table th {
+    background-color: gainsboro;
+}
+
+.card-table td {
+    width : 200px;
+    border-bottom: gainsboro solid 1px;
+}
+
+.key-table {
+    width:  250px;
+    height: 200px;
+    text-align: center;
+    
+}
+
+.clear-btn, .backspace-btn {
+    background-color: rgb(59, 59, 59);
+    color: white;
+    font-weight: 200;
+    border-radius: 2px;
+
+}
+
+
+.key-table td {
+    background-color: rgba(188, 188, 188, 0.993);
+    color : white;
+    border-radius: 2px;
+    width: 83px;
+}
+
+.modal-pay-imgbox, .modal-pbox {
+    padding: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.pay-able {
+    font-size: 20px;
+    font-weight: 500;
+    color :  rgb(214, 35, 35);
+}
+
+.paying-img {
+    width: 200px;
+    height: 150px;
+}
+
+ 
+
+
+
+
