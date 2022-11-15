@@ -14,7 +14,8 @@ p{
 .modal-membership{
     display: flex;
     justify-content: space-around;
-    padding-bottom: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 
 .membership-button{
@@ -54,4 +55,24 @@ p{
 .membership-T{
     font-size: 18px;
     padding-bottom: 20px;
+}
+
+.modal-pay {
+    width: 300px;
+    height: 50px;
+    font-size: 25px;
+
+    border: none;
+    background-color: rgb(214, 35, 35);;
+    color: white;
+}
+
+.modal-close{
+    width: 300px;
+    height: 50px;
+    font-size: 25px;
+
+    border: none;
+    background-color: rgb(175, 175, 175);;
+    color: white;
 }

@@ -5,7 +5,148 @@ p{
 .modal-choice{
     line-height: 55px;
     text-align: center;
-    font-size: 25px;
+    font-size: 30px;
     color: red;
     font-weight: 900px;
+    padding-bottom: 20px;
+}
+
+.modal-order{
+    padding: 0px 20px;
+}
+
+
+.orderC-table{
+    width: 100%;
+    background-color: rgb(239, 239, 239);
+
+    border-top: 4px solid black;
+    padding: 10px 0px;
+}
+
+.orderC-product{
+    width: 50%;
+    font-size: 20px;
+    text-align: left;
+}
+
+.orderC-number{
+    width: 25%;
+    font-size: 20px;
+    text-align: center;
+}
+
+.orderC-price{
+    width: 25%;
+    font-size: 20px;
+    text-align: right;
+}
+
+
+.order-product{
+    width: 50%;
+    font-size: 20px;
+    text-align: left;
+}
+
+.order-number{
+    width: 25%;
+    font-size: 20px;
+    text-align: center;
+}
+
+.order-price{
+    width: 25%;
+    font-size: 20px;
+    text-align: right;
+}
+
+
+
+.order-talbe{
+    width: 100%;
+    padding: 10px 0px;
+    border: 1px solid rgb(239, 239, 239);
+
+}
+
+.order-option{
+    padding: 10px 0px;
+    border: 1px solid rgb(239, 239, 239);
+    width: 100%;
+    font-size: 20px;
+    color: rgb(214, 35, 35);
+    font-weight: 600;
+}
+
+
+
+hr{
+    margin: 0;
+    border: 0.5px solid black;
+}
+
+
+
+.order-last{
+padding-bottom: 10px;
+padding-top: 20px;
+}
+
+
+.order-last-table{
+    width: 100%;
+    background-color: rgb(255, 232, 232);;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 5px 0px;
+}
+
+
+.order-last-productC{
+    width: 15%;
+}
+.order-last-product{
+    width: 35%;
+    text-align: right;
+    padding-right: 5px;
+}
+
+.order-last-priceC{
+    padding-left: 5px;
+    width: 15%;
+}
+
+.order-last-price{
+    width: 35%;
+    text-align: right;
+}
+
+
+
+.order-choice{
+    line-height: 55px;
+    text-align: center;
+    font-size: 25px;
+    color: rgb(214, 35, 35);
+    font-weight: 700px;
+    border-top: 4px solid;
+}
+
+
+
+
+.order-choices{
+    padding-bottom: 10px;
+}
+
+.orderCard-button{
+    width: 30%;
+    background-color: white;
+    border: 1px solid rgb(239, 239, 239);
+
+}
+
+.orderCard-img{
+    height: 100px;
 }
