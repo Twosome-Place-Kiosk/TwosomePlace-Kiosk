@@ -37,9 +37,10 @@ p{
     left:50%;
     transform:translate(-50%,-50%);
     width:650px;
-    height:750px;
-    background:#fff;z-index:1000;
-
+    height:600px;
+    background:#fff;
+    z-index:1000;
+    overflow :scroll;
     
 }
 
@@ -51,7 +52,7 @@ p{
     
     border-bottom: 4px solid rgb(193, 8, 8);
 
-    overflow :scroll;
+   
 }
 
 .modal-title {
