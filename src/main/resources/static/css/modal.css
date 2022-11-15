@@ -22,7 +22,8 @@
     top:0;
     left:0;
     right:0;
-    background: rgba(0, 0, 0, 0.6);z-index:999;
+    background: rgba(0, 0, 0, 0.6);
+    z-index:999;
 }
 
 p{
@@ -38,9 +39,9 @@ p{
     transform:translate(-50%,-50%);
     width:650px;
     height:750px;
-    background:#fff;z-index:1000;
-
-    
+    background:#fff;
+    z-index:1000;
+    overflow :scroll;
 }
 
 .modal-header {
@@ -48,10 +49,11 @@ p{
     justify-content: center;
     text-align: center;
     line-height: 55px;
+    font-size: 20;
     
     border-bottom: 4px solid rgb(193, 8, 8);
 
-    overflow :scroll;
+
 }
 
 .modal-title {

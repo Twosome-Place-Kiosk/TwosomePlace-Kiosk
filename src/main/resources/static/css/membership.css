@@ -6,7 +6,8 @@ p{
     line-height: 55px;
     text-align: center;
     font-size: 25px;
-    color: red;
+    color: rgb(214, 35, 35);
+    ;
     font-weight: 900px;
 }
 
@@ -17,7 +18,7 @@ p{
 }
 
 .membership-button{
-    width: 200px;
+    width: 300px;
     background-color: white;
     border: 1px solid rgb(218, 218, 218);
 }
@@ -39,7 +40,8 @@ p{
 
 .membership-top{
     font-size: 23px;
-    background-color: red;
+    background-color: rgb(214, 35, 35);
+    ;
     color: white;
     padding: 5px 0px;
 }
