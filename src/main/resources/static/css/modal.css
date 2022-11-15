@@ -34,20 +34,25 @@
     width:500px;
     height:550px;
     background:#fff;z-index:1000;
+
+    overflow :scroll;
 }
 
 .modal-header {
-    color: white;
-    background-color: rgb(238, 14, 96);
+    border-bottom: 3px solid rgb(238, 14, 96);
     width: 100%;
     height: 10%;
-    display: block;
-    vertical-align: middle;
-    text-align: center;
-    justify-content: center;
 
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+}
+
+.modal-title {
     font-weight: 500px;
     font-size: x-large;
 }
 
-.modal-
+
+
