@@ -1,3 +1,9 @@
+const products = document.querySelectorAll(".product");
+
+products.onclick() = () => {
+    
+}
+
 function popOpen() {
     var modalPop = $('.modal-wrap');
     var modalBg = $('.modal-bg');

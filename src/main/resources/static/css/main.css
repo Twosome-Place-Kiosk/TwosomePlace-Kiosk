@@ -20,16 +20,14 @@
     
     display: flex;
     justify-content: space-between;
-    
-    
 }
 .navbar-menu li {
     margin: 20px;
+    word-break: keep-all;
 
 }
-.navbar-menu li a{
+.navbar-menu li a {
     font-weight: 1000;
-
 }
 
 .main {
@@ -118,7 +116,7 @@
     font-weight: 500;
 }
 .circles {
-    font-size: ;
+    /* font-size: ; */
 }
 
 .circle1 {
