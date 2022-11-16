@@ -45,10 +45,10 @@ p{
 
 .cup, .ice, .suger, .topping{
     display: inline-block;
-    width: 70px;
-    height: 90px;
+    width: 100px;
+    height: 120px;
 
-    font-size: 12px;
+    font-size: 10px;
     text-align: center;
 }
 
