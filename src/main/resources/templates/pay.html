@@ -39,71 +39,91 @@
     <div class="modal-warning"> 결제가 완료될때까지 카드를 빼지 마세요!</div>
     
     <div class="modal-pay-box">
-    <div class="modal-table-cardbox">
-        <table class="card-table">
-            <tr>
-                <th>카드번호</th>
-                <td ></td>
-            </tr>
-            <tr>
-                <th>카드사</th>
-                <td ></td>
-            </tr>
-            <tr>
-                <th>유효기간</th>
-                <td > &nbsp;&nbsp;년 &nbsp;&nbsp;월 </td>
-            </tr>
-            <tr>
-                <th>할부개월수</th>
-                <td ></td>
-            </tr>
-            <tr>
-                <th>결제금액</th>
-                <td >5600원</td>
-            </tr>
-        </table>
+        <div class="modal-table-cardbox">
+            <table class="card-table">
+                <tr>
+                    <th>카드번호</th>
+                    <td ></td>
+                </tr>
+                <tr>
+                    <th>카드사</th>
+                    <td ></td>
+                </tr>
+                <tr>
+                    <th>유효기간</th>
+                    <td > &nbsp;&nbsp;년 &nbsp;&nbsp;월 </td>
+                </tr>
+                <tr>
+                    <th>할부개월수</th>
+                    <td ></td>
+                </tr>
+                <tr>
+                    <th>결제금액</th>
+                    <td >5600원</td>
+                </tr>
+            </table>
+        </div>
+        <div class="modal-keybox">
+            <table class="key-table">
+                <tr>
+                    <th class="clear-btn" colspan="2"> Clear </td>
+                    <th class="backspace-btn">←</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>8</td>
+                    <td>9</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>0</td>
+                    <td>00</td>
+                    <td>000</td>
+                </tr>
+            </table>
+        </div>
     </div>
-    <div class="modal-keybox">
-        <table class="key-table">
-            <tr>
-                <th class="clear-btn" colspan="2"> Clear </td>
-                <th class="backspace-btn">←</td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>8</td>
-                <td>9</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-            </tr>
-            <tr>
-                <td>0</td>
-                <td>00</td>
-                <td>000</td>
-            </tr>
-        </table>
-    </div>
-</div>
 
     <div class="modal-pbox">
         <p class="pay-able">카카오페이, 삼성페이 결제가능<p>
     </div>
+
     <div class="modal-pay-imgbox">
-        <img class ="paying-img" src="#">
+        <img class ="paying-img" src="/static/images/creditCard.png" onClick="javascript:payCheckOpen();">
+    </div>
+    
+    <!-- <div class="pay-modal-bg" onClick="javascript:payCheckClose();"></div> -->
+    <div class="pay-modal-wrap">
+        <div class="pay-modal">
+            <div class="pay-modal-header">
+
+            </div>
+            <div class="pay-modal-msg">
+                영수증을 출력하시겠습니까?
+            </div>
+            <div class="pay-modal-btnbox">
+                <div>
+                    <button class="btn pay-yes-btn" type="button" onClick="javascript:payCheckClose();">예</button>
+                    <button class="btn pay-no-btn" type="button" onClick="javascript:payCheckClose();">아니오</button>
+                </div>
+            </div>
+        </div>
     </div>
 
-    </div>
+</div>
     <!-- //modal 영역 -->
     
     <script src=/static/js/modal.js></script>
+    <script src="/static/js/pay.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
 </body>
