@@ -7,7 +7,6 @@ p{
     text-align: center;
     font-size: 25px;
     color: rgb(214, 35, 35);
-    ;
     font-weight: 900px;
 }
 
@@ -63,7 +62,7 @@ p{
     font-size: 25px;
 
     border: none;
-    background-color: rgb(214, 35, 35);;
+    background-color: rgb(214, 35, 35);
     color: white;
 }
 

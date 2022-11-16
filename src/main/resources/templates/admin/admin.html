@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/770fb89c8e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/admin/admin.css">
+    <title>admin</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div>
+                관리자 페이지
+            </div>
+            <div>
+                <i class="fa-sharp fa-solid fa-house"> 메인페이지 돌아가기</i>
+            </div>
+        </div>
+        <div class="product-registration">
+            <div class="product-img">
+                    <!--사진-->
+                <form enctype="multipart/form-data">
+                    <input type="file" class="files-input" name="files" multiple> 
+                </form>
+            
+                <button class="btn registe-button img-add-button">사진등록</button>
+                <ul class="file-list"></ul>
+            
+            </div>
+
+            <section>
+                <!--상품 카테도리선택-->
+                <div class="category">
+                <div class="label-category">
+                    <label for="product-select">카테고리</label>
+                    <select id="product-category" class="product-category">
+                        <option value="category">상품선택</option>
+                            <option value="">EVENT</option>
+                            <option value="">시즌스페셜</option>
+                            <option value="">베스트콤비</option>
+                            <option value="">밀크티</option>
+                            <option value="">쥬얼리</option>
+                            <option value="">스무디</option>
+                            <option value="">오리지널티</option>
+                            <option value="">커피</option>
+                            <option value="">병음료</option>
+                        </select>
+                    </select>
+                </div>
+
+
+                <!--상품명(사이즈)-->
+                <div class="label-category">
+                    <label for="product-name" class="product-list-name">상품명</label>
+                        <input type="text" id="product-name" class="product-name">
+                </div>
+
+
+                <!--가격-->
+                <div class="label-category">
+                    <label for="product-price">가격</label>
+                    <input type="number" min="100" step="100" id="product-price" class="product-price">
+                </div>
+            </div>
+
+                <button class="btn regist-button uplaod-button">추가</button>
+
+            </section>
+        </div>
+
+
+
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+.header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    height: 50px;
+
+    background-color: rgb(214, 35, 35);
+    color: white;
+
+    font-size: 20px;
+    font-weight: 1000;
+}
+
+.btn{
+    font-size: 25px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(214, 35, 35);
+}
+
