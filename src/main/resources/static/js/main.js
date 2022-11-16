@@ -1,7 +1,14 @@
 const products = document.querySelectorAll(".product");
 
-products.onclick() = () => {
-    
+for(const product of products) {
+    product.addEventListener('click', function(event){
+        
+        var modalPop = $('.modal-wrap');
+        var modalBg = $('.modal-bg');
+
+        $(modalPop).show();
+        $(modalBg).show();
+    })
 }
 
 function popOpen() {
@@ -10,7 +17,6 @@ function popOpen() {
 
     $(modalPop).show();
     $(modalBg).show();
-
 }
 
 function popClose() {
