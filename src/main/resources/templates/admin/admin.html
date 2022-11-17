@@ -13,6 +13,10 @@
     <div class="container">
         <div class="header">
             <div>
+                <img class="main-logo" src="#">
+            </div>
+
+            <div>
                 관리자 페이지
             </div>
             <div>
@@ -20,11 +24,9 @@
             </div>
         </div>
         <div class="product-registration">
-
-
-            <section>
-                <!--상품 카테도리선택-->
-                <div class="category">
+            <div class="regist-box">
+                <!--상품 카테고리선택-->
+            
                 <div class="label-category">
                     <label for="product-select">카테고리</label>
                     <select id="product-category" class="product-category">
@@ -41,37 +43,73 @@
                         </select>
                     </select>
                 </div>
-
+                
                 <!--상품명(사이즈)-->
                 <div class="label-category">
                     <label for="product-name" class="product-list-name">상품명</label>
                         <input type="text" id="product-name" class="product-name">
                 </div>
 
-
                 <!--가격-->
                 <div class="label-category">
                     <label for="product-price">가격</label>
                     <input type="number" min="100" step="100" id="product-price" class="product-price">
                 </div>
-            </div>
-
-                <button class="btn regist-button uplaod-button">추가</button>
-
-            </section>
-
-
-            <div class="product-img">
-                    <!--사진-->
+                
+                
+                <!--사진-->
                 <form enctype="multipart/form-data">
-                    <input type="file" class="files-input" name="files" multiple> 
+                    <label for="product-image">대표 사진</label>
+                    <input type="file" class="files-input" name="files" id="product-image"> 
                 </form>
-            
-                <button class="btn registe-button img-add-button">사진등록</button>
-                <ul class="file-list"></ul>
+                
+                <div class="regibtn-box"><button class="regist-button" id="regi-btn">등록</button></div>               
             </div>
-
+    
         </div>
+    
+    
+        <div class="product-mst">
+        <div class="list-container">
+            <div class="option-container">
+                <ul class="page-number-list">
+                    <a href=" "> <li>&#60</li> </a>
+                    <a href=" "> <li>1</li> </a>
+                                <a href=" "> <li>2</li> </a>
+                                <a href=" "> <li>3</li> </a>
+                                <a href=" "> <li>4</li> </a>
+                                <a href=" "> <li>5</li> </a>
+                                <a href=" "> <li>&#62</li> </a>
+                            </ul>
+                            <div class="search-container">
+                                <input type = "search" class="search-input">
+                                <button type = "button" class = "btn search-button">검색</button>
+                            </div>
+                        </div>
+                            <table class="product-mst-list">
+                                <thead>
+                                <tr>
+                                    <th>상품코드</th>
+                                    <th>상품종류</th>
+                                    <th>상품명</th>
+                                    <th>가격</th>
+                                    <th>수정</th>
+                                    <th>삭제</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>TEES</td>
+                                    <td>테스트 상품1</td>
+                                    <td>100000</td>
+                                    <td><button type="button" class="btn">수정</button></td>
+                                    <td><button type="button" class="btn">삭제</button></td>
+                                </tr>
+                                </tbody>
+
+                            </table>
+                        </div>
 
 
 
