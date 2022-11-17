@@ -45,8 +45,8 @@ p{
 
 .cup, .ice, .suger, .topping{
     display: inline-block;
-    width: 100px;
-    height: 120px;
+    width: 80px;
+    height: 100px;
 
     font-size: 10px;
     text-align: center;
