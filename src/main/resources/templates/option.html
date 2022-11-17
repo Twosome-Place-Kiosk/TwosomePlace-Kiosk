@@ -51,43 +51,157 @@
     
     <div class="modal-coldhotbox">
         <p>COLD/HOT (필수,1/1)</p>
-        <span class="cup in-cold"><img class="option-img" src="/static/images/공차옵션사진/COLD HOT/매장(cold).png">COLD(매장)</span>
-        <span class="cup out-cold"><img class="option-img" src="/static/images/공차옵션사진/COLD HOT/포장(cold).png">COLD(포장)</span>
-        <span class="cup in-hot"><img class="option-img" src="/static/images/공차옵션사진/COLD HOT/매장(hot).png">HOT(매장)</span>
-        <span class="cup out-hot"><img class="option-img" src="/static/images/공차옵션사진/COLD HOT/포장(hot).png">HOT(포장)</span>
+
+        <input type="radio" id="coldhot1" name="coldhots">
+        <label for="coldhot1">
+            <span class="cup in-cold">
+                <img class="option-img" src="/static/images/공차옵션사진/COLD HOT/매장(cold).png">COLD(매장)
+            </span>
+        </label>
+        <input type="radio" id="coldhot2" name="coldhots">
+        <label for="coldhot2">
+            <span class="cup in-cold">
+                <img class="option-img" src="/static/images/공차옵션사진/COLD HOT/포장(cold).png">COLD(포장)
+            </span>
+        </label>
+        <input type="radio" id="coldhot3" name="coldhots">
+        <label for="coldhot3">
+            <span class="cup in-cold">
+                <img class="option-img" src="/static/images/공차옵션사진/COLD HOT/매장(hot).png">HOT(매장)
+            </span>
+        </label>
+        <input type="radio" id="coldhot4" name="coldhots">
+        <label for="coldhot4">
+            <span class="cup in-cold">
+                <img class="option-img" src="/static/images/공차옵션사진/COLD HOT/포장(hot).png">HOT(포장)
+            </span>
+        </label>
     </div>
 
     <div class="modal-icebox">
         <p>ICE (필수,1/1)</p>
-        <span class="ice less-ice" ><img class="option-img" src="/static/images/공차옵션사진/얼음양/Less Ice.png">Less Ice</span>
-        <span class="ice regular-ice" ><img class="option-img" src="/static/images/공차옵션사진/얼음양/Regular Ice.png">Regular Ice</span>
-        <span class="ice full-ice" ><img class="option-img" src="/static/images/공차옵션사진/얼음양/Full Ice.png">Full Ice</span>
+
+        <input type="radio" id="ice1" name="ices">
+        <label for="ice1">
+            <span class="ice less-ice">
+                <img class="option-img" src="/static/images/공차옵션사진/얼음양/Less Ice.png">Less Ice
+            </span>
+        </label>
+        <input type="radio" id="ice2" name="ices">
+        <label for="ice2">
+        <span class="ice regular-ice" >
+            <img class="option-img" src="/static/images/공차옵션사진/얼음양/Regular Ice.png">Regular Ice
+        </span>
+        </label>
+        <input type="radio" id="ice3" name="ices">
+        <label for="ice3">
+            <span class="ice less-ice">
+                <img class="option-img" src="/static/images/공차옵션사진/얼음양/Full Ice.png">Full Ice
+            </span>
+        </label>
     </div>
 
-    <div class="modal-sugerbox">
-        <p>Suger (필수,1/1)</p>
-        <span class="suger suger-0" ><img class="option-img" src="/static/images/공차옵션사진/당도/0%.png">0%</span>
-        <span class="suger suger-30" ><img class="option-img" src="/static/images/공차옵션사진/당도/30%.png">30%</span>
-        <span class="suger suger-50" ><img class="option-img" src="/static/images/공차옵션사진/당도/50%.png">50%</span>
-        <span class="suger suger-70" ><img class="option-img" src="/static/images/공차옵션사진/당도/70%.png">70%</span>
-        <span class="suger suger-100" ><img class="option-img" src="/static/images/공차옵션사진/당도/100%.png">100%</span>
+    <div class="modal-sugarbox">
+        <p>sugar (필수,1/1)</p>
+
+        <input type="radio" id="sugar1" name="sugars">
+        <label for="sugar1">
+            <span class="sugar sugar-0" >
+                <img class="option-img" src="/static/images/공차옵션사진/당도/0%.png">0%
+            </span>
+        </label>
+        <input type="radio" id="sugar2" name="sugars">
+        <label for="sugar2">
+            <span class="sugar sugar-0" >
+                <img class="option-img" src="/static/images/공차옵션사진/당도/30%.png">30%
+            </span>
+        </label>
+        <input type="radio" id="sugar3" name="sugars">
+        <label for="sugar3">
+            <span class="sugar sugar-0" >
+                <img class="option-img" src="/static/images/공차옵션사진/당도/50%.png">50%
+            </span>
+        </label>
+        <input type="radio" id="sugar4" name="sugars">
+        <label for="sugar4">
+            <span class="sugar sugar-0" >
+                <img class="option-img" src="/static/images/공차옵션사진/당도/70%.png">70%
+            </span>
+        </label>
+        <input type="radio" id="sugar5" name="sugars">
+        <label for="sugar5">
+            <span class="sugar sugar-0" >
+                <img class="option-img" src="/static/images/공차옵션사진/당도/100%.png">100%
+            </span>
+        </label>
+
     </div>
 
     <div class="modal-toppingbox">
         <p>Topping(선택,0/2)</p>
+
         <span class="moving-tap">&lt;</span>
-        <span class="topping topping-"><img class="option-img" src="/static/images/공차옵션사진/펄/펄(타피오카).png">펄 +700</span>
-        <span class="topping topping-"><img class="option-img" src="/static/images/공차옵션사진/펄/알로에.png">알로에 +700</span>
-        <span class="topping topping-"><img class="option-img" src="/static/images/공차옵션사진/펄/코코넛.png">코코넛 +700</span>
-        <span class="topping topping-"><img class="option-img" src="/static/images/공차옵션사진/펄/화이트펄.png">화이트펄 +700</span>
-        <span class="topping topping-"><img class="option-img" src="/static/images/공차옵션사진/펄/딸기쥬얼리.png">딸기쥬얼리 +700</span>
-        <span class="topping topping-"><img class="option-img" src="/static/images/공차옵션사진/펄/치즈폼.png">치즈폼 +900</span>
-        <span class="topping topping-"><img class="option-img" src="/static/images/공차옵션사진/펄/펄(타피오카).png">펄x2 +1400</span>
-        <span class="topping topping-"><img class="option-img" src="/static/images/공차옵션사진/펄/알로에.png">알로에x2 +1400</span>
-        <span class="topping topping-"><img class="option-img" src="/static/images/공차옵션사진/펄/코코넛.png">코코넛x2 +1400</span>
-        <span class="topping topping-"><img class="option-img" src="/static/images/공차옵션사진/펄/화이트펄.png">화이트펄x2 +1400</span>
-        <span class="topping topping-"><img class="option-img" src="/static/images/공차옵션사진/펄/딸기쥬얼리.png">딸기쥬얼리x2 +1400</span>
-        <span class="topping topping-"><img class="option-img" src="/static/images/공차옵션사진/펄/치즈폼.png">치즈폼x2 +1800</span>
+
+        <input type="checkbox" id="topping1" name="topping1">
+        <label for="topping1">
+            <span class="topping topping-">
+                <img class="option-img" src="/static/images/공차옵션사진/펄/펄(타피오카).png">펄 +700
+            </span>
+        </label>
+        <input type="checkbox" id="topping2" name="topping1">
+        <label for="topping2">
+            <span class="topping topping-">
+                <img class="option-img" src="/static/images/공차옵션사진/펄/알로에.png">알로에 +700
+            </span>
+        </label>
+        <input type="checkbox" id="topping2" name="topping1">
+        <label for="topping2">
+            <span class="topping topping-">
+                <img class="option-img" src="/static/images/공차옵션사진/펄/코코넛.png">코코넛 +700
+            </span>
+        </label>
+        <input type="checkbox" id="topping2" name="topping1">
+        <label for="topping2">
+            <span class="topping topping-">
+                <img class="option-img" src="/static/images/공차옵션사진/펄/화이트펄.png">화이트펄 +700
+            </span>
+        </label>
+        <input type="checkbox" id="topping2" name="topping1">
+        <label for="topping2">
+            <span class="topping topping-">
+                <img class="option-img" src="/static/images/공차옵션사진/펄/딸기쥬얼리.png">딸기쥬얼리 +700
+            </span>
+        </label>
+        <input type="checkbox" id="topping2" name="topping1">
+        <label for="topping2">
+            <span class="topping topping-">
+                <img class="option-img" src="/static/images/공차옵션사진/펄/치즈폼.png">치즈폼 +900
+            </span>
+        </label>
+        <input type="checkbox" id="topping2" name="topping1">
+        <label for="topping2">
+            <span class="topping topping-"><img class="option-img" src="/static/images/공차옵션사진/펄/펄(타피오카).png">펄x2 +1400</span>
+        </label>
+        <input type="checkbox" id="topping2" name="topping1">
+        <label for="topping2">
+            <span class="topping topping-"><img class="option-img" src="/static/images/공차옵션사진/펄/알로에.png">알로에x2 +1400</span>
+        </label>
+        <input type="checkbox" id="topping2" name="topping1">
+        <label for="topping2">
+            <span class="topping topping-"><img class="option-img" src="/static/images/공차옵션사진/펄/코코넛.png">코코넛x2 +1400</span>
+        </label>
+        <input type="checkbox" id="topping2" name="topping1">
+        <label for="topping2">
+            <span class="topping topping-"><img class="option-img" src="/static/images/공차옵션사진/펄/화이트펄.png">화이트펄x2 +1400</span>
+        </label>
+        <input type="checkbox" id="topping2" name="topping1">
+        <label for="topping2">
+            <span class="topping topping-"><img class="option-img" src="/static/images/공차옵션사진/펄/딸기쥬얼리.png">딸기쥬얼리x2 +1400</span>
+        </label>
+        <input type="checkbox" id="topping2" name="topping1">
+        <label for="topping2">
+            <span class="topping topping-"><img class="option-img" src="/static/images/공차옵션사진/펄/치즈폼.png">치즈폼x2 +1800</span>
+        </label>
         <span class="moving-tap">&gt;</span>
     </div>
 
