@@ -12,11 +12,141 @@
     font-weight: 1000;
 }
 
+.regist-box {
+margin-top: 40px;
+
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.product-mst {
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+}
+
+.list-container {
+    margin-top: 30px;
+    width: 70%;
+    height: 715px;
+
+    overflow-y: auto;
+}
+.option-container{
+    display : flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 5px;
+}
+
+.page-number-list{
+    display:flex;
+    margin-bottom: 5px;
+}
+
+.page-number-list li {
+margin-right: 3px;
+
+border :1px solid rgb(198,198,198);
+border-radius: 3px;
+
+width: 20px;
+height: 20px;
+text-align: center;
+list-style: none;
+}
+
+.search-cotatiner {
+    display: flex;
+    justify-content: space-between;
+    width:250px;
+}
+
+.search-input {
+    width: 200px;
+}
+
+.product-mst-list {
+    width: 100%;
+}
+
+.product-mst-list td {
+    width: 8%;
+    padding: 0px 5px;
+}
+.product-mst-list td:nth-child(1){
+    width: 10%;
+}
+.product-mst-list td:nth-child(2){
+    width: 10%;
+}
+.product-mst-list td:nth-child(3){
+    width: 36%;
+    text-align: left;
+}
+/* 회사 tip : 글자는 왼쪽 숫자는 오른쪽 정렬 */
+.product-mst-list td:nth-child(4){
+    width: 12%;
+    text-align: right;
+}
+
+.product-mst-list button {
+    padding: 3px 7px;
+}
+
+table {
+    border-collapse: collapse;
+    border: 1px solid rgb(198,198,198);
+}
+
+th, td{
+    border: 1px solid rgb(198,198,198);
+
+    height: 30px;
+
+    text-align: center;
+}
+
+input, textarea, select {
+    border: 1px solid rgb(198,198,198);
+    outline: none;
+    padding: 10px;
+
+    width: 100%;
+    height: 40px;
+}
+
+input:focus, textarea:focus, select:focus  {
+    border: 1px solid black;
+}
+
+.regibtn-box{
+    padding-top: 20px;
+}
+
 .btn{
-    font-size: 25px;
-    color: white;
-    border: none;
-    border-radius: 5px;
+    width: 60px;
+    height: 40px;
+    
     background-color: rgb(214, 35, 35);
+    color : white;
+
+    border: none;
+    border-radius: 1px;    
+}
+
+.regist-button {
+    width: 80px;
+    height: 40px;
+    
+    background-color: rgb(214, 35, 35);
+    color : white;
+    
+    border: none;    
+    border-radius: 1px;
 }
 
