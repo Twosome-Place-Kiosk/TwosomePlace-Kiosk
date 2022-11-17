@@ -43,7 +43,39 @@ p{
     margin: 5px;
 }
 
-.cup, .ice, .suger, .topping{
+.modal-coldhotbox input[type=radio],
+.modal-icebox input[type=radio],
+.modal-sugarbox input[type=radio] {
+    display: none;
+}
+.modal-coldhotbox input[type=radio]+label,
+.modal-icebox input[type=radio]+label,
+.modal-sugarbox input[type=radio]+label {
+    display: inline-block;
+    cursor: pointer;
+    border: 1px solid rgb(198, 198, 198);
+}
+.modal-coldhotbox input[type=radio]:checked+label,
+.modal-icebox input[type=radio]:checked+label,
+.modal-sugarbox input[type=radio]:checked+label {
+    border: 3px solid red;
+}
+
+.modal-toppingbox input[type=checkbox] {
+    display: none;
+}
+.modal-toppingbox input[type=checkbox]+label {
+    display: inline-block;
+    cursor: pointer;
+    border: 1px solid rgb(198, 198, 198);
+}
+.modal-toppingbox input[type=checkbox]:checked+label {
+    border: 3px solid red;
+}
+
+
+
+.cup, .ice, .sugar, .topping{
     display: inline-block;
     width: 80px;
     height: 100px;
