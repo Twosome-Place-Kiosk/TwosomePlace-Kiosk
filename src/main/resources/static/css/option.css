@@ -2,6 +2,18 @@
     padding : 8px;
 }
 
+.modal-wrap input[type=radio]+label {
+    width: 18%;
+    text-align: center;
+    margin: 0px 5px;
+}
+
+.modal-coldhotbox-radios,
+.modal-icebox-radios,
+.modal-sugarbox-radios {
+    display: flex;
+}
+
 .option-header {
     display: flex;
     justify-content: space-around;
@@ -89,7 +101,7 @@ p{
     height: 60px;
 }
 
-.modal-cancle {
+.modal-cancel {
     color : rgb(214, 35, 35);    
     border: 1px solid rgb(167, 42, 42);
 }
