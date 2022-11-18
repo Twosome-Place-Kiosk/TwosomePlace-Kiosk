@@ -5,12 +5,15 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Admin {
-    private String admin_id;
-    private String password;
-
+public class Role {
+    private int id;
+    private String name;
+    private LocalDateTime create_date;
+    private LocalDateTime update_date;
 }

@@ -1,8 +1,7 @@
 package com.twosomekiosk.twosome202211114.service;
 
-import com.twosomekiosk.twosome202211114.domain.Admin;
+import com.twosomekiosk.twosome202211114.domain.User;
 import com.twosomekiosk.twosome202211114.repository.AccountRepository;
-import com.twosomekiosk.twosome202211114.security.PrincipalDetails;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,15 +18,15 @@ public class PrincipalDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        Admin admin = null;
+        User user = null;
 
         try {
-            admin = accountRepository.findUserByEmail(email);
+            user = accountRepository.findUserByEmail(email);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
-        if(admin == null){
+        if(user == null){
             throw new UsernameNotFoundException("잘못된 사용자 정보");
         }
         return null;
