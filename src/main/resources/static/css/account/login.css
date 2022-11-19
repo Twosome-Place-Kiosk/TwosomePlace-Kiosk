@@ -33,7 +33,6 @@
 }
 
 .id-input,.pw-input {
-    margin-bottom: 20px;
     width: 300px;
     height: 20px;
     
@@ -41,13 +40,21 @@
     border-radius: 2px;
 }
 
-.login-btnzone {
+.btnzone {
     text-align: right;
+    
+    display: flex;
+    float: right;
+
+    margin: 10px 0px;
 
 }
 
-.login-btn {
+.login-btn, .regist-btn {
+    width: 80px;
     height: 25px;
+
+    margin: 0px 5px;
 
     border: none;
     border-radius: 2px;

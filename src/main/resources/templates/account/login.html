@@ -5,13 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login</title>
-    <link rel="stylesheet" href="/static/css/login.css">
+    <link rel="stylesheet" href="/static/css/account/login.css">
 
 </head>
 <body>
     <div class="main-container">
         <div class="main-box">
-        <div class="img-box"><img class="logo-img"src="/static/images/logo1.png"> </div>
+        <div class="img-box"><img class="logo-img" src="/static/images/logo1.png"> </div>
 
         <p class="greeting-box"> 공차 관리자님 환영합니다 </p>
 
@@ -21,7 +21,10 @@
             <div class="pw-title"> Password </div>
             <input class="pw-input" type="password" name="password">
 
-            <div class="login-btnzone"><button class= "login-btn" value="submit"> 로그인 </button></div>
+            <div class="btnzone">
+                <button class= "btn login-btn" value="submit" type="button">로그인</button>
+                    <button class= "btn regist-btn" type="button">회원가입</button>
+            </div>
         </form>
         </div>
 
@@ -31,4 +34,5 @@
 
     
 </body>
+<script src="/static/js/account/login.js"></script>
 </html>

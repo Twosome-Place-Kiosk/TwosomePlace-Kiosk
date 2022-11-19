@@ -4,14 +4,27 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.twosomekiosk.twosome202211114.repository.AccountRepository">
-<<<<<<< HEAD
+    <select id="findUserByEmail" resultType="com.twosomekiosk.twosome202211114.domain.User">
+        select
+            um.id,
+            um.email,
+            um.password,
+            um.name,
+            um.role_id,
+            rm.name as role_name,
+            um.create_date,
+            um.update_date
+        from
+            user_mst um
+            left outer join role_mst rm on(rm.id = um.role_id)
+        where
+            um.email = #{email}
+    </select>
+
     <resultMap id="user_id" type="com.twosomekiosk.twosome202211114.domain.User">
         <result property="id" column="id"/>
         <result property="email" column="email"/>
-=======
-    <resultMap id="Admin" type="com.twosomekiosk.twosome202211114.domain.Admin">
-        <result property="admin_id" column="admin_id"/>
->>>>>>> leeyw
+
         <result property="password" column="password"/>
         <result property="name" column="name"/>
         <result property="role_id" column="role_id"/>
