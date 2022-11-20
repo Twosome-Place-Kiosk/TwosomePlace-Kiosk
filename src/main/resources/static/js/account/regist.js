@@ -4,7 +4,7 @@ registerButton.onclick = () => {
     const accountInputs = document.querySelectorAll(".account-input");
 
     let user = {
-        id: accountInputs[0].value,
+        user_name: accountInputs[0].value,
         email: accountInputs[1].value,
         password: accountInputs[2].value,
         name: accountInputs[3].value
@@ -19,13 +19,14 @@ registerButton.onclick = () => {
         contentType: "application/json",
         data: JSON.stringify(user),
         dataType: "json",
-        success: (response) => {
-            alert("회원가입 요청 성공");
+        success: (response, textStatus, request) => {
             console.log(response);
+            const successURI = request.getResponseHeader("Location"); //키값
+            location.replace(successURI + "?user_name=" + response.data); //response.data 안에 이메일값 들어있음
         },
-        error: (error) => { 
-            alert("회원가입 요청 실패");
-            console.log(error.responseJSON);
+        error: (error) => {
+            console.log(error.responseJSON.data);
+            loadErrorMessage(error.responseJSON.data);
         }
     });
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,7 +17,7 @@
 
         <form action="/user/login" method="post" class="login-box">
             <div class="id-title"> ID </div>
-            <input class="id-input" type="text" name="admin_id" >
+            <input class="id-input" type="text" name="admin_id" th:value="${user_name}" required>
             <div class="pw-title"> Password </div>
             <input class="pw-input" type="password" name="password">
 

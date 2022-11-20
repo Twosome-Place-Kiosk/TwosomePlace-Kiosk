@@ -4,9 +4,45 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.twosomekiosk.twosome202211114.repository.AccountRepository">
-    <select id="findUserByEmail" resultType="com.twosomekiosk.twosome202211114.domain.User">
+
+    <resultMap id="role" type="com.twosomekiosk.twosome202211114.domain.Role">
+        <result property="id" column="id"/>
+        <result property="name" column="role_name"/>
+        <result property="create_date" column="create_date"/>
+        <result property="update_date" column="update_date"/>
+    </resultMap>
+
+    <resultMap id="user" type="com.twosomekiosk.twosome202211114.domain.User">
+        <result property="id" column="id"/>
+        <result property="user_name" column="user_name"/>
+        <result property="email" column="email"/>
+        <result property="password" column="password"/>
+        <result property="name" column="name"/>
+        <result property="role_id" column="role_id"/>
+        <result property="create_date" column="create_date"/>
+        <result property="update_date" column="update_date"/>
+        <collection property="role" resultMap="role"/> <!--여기 안에 role이 포함되어 있다.-->
+
+    </resultMap>
+    <insert id="saveUser" parameterType="com.twosomekiosk.twosome202211114.domain.User" useGeneratedKeys="true" keyProperty="id">
+        insert into
+            user_mst
+        values (
+            0,
+            #{user_name},
+            #{email},
+            #{password},
+            #{name},
+            #{role_id},
+            now(),
+            now()
+        )
+    </insert>
+
+    <select id="findUserByEmail" parameterType="String" resultMap="user">
         select
             um.id,
+            um.user_name,
             um.email,
             um.password,
             um.name,
@@ -23,6 +59,7 @@
 
     <resultMap id="user_id" type="com.twosomekiosk.twosome202211114.domain.User">
         <result property="id" column="id"/>
+        <result property="user_name" column="user_name"/>
         <result property="email" column="email"/>
 
         <result property="password" column="password"/>

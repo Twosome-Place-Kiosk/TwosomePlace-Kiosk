@@ -9,4 +9,5 @@ public interface AccountRepository {
 //    public int admin(User user) throws Exception;
 
     public User findUserByEmail(String email) throws Exception;
+    public int saveUser(User user) throws Exception;
 }
