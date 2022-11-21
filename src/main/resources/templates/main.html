@@ -7,10 +7,13 @@
     <title>main</title>
     <script src="https://kit.fontawesome.com/770fb89c8e.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
     <link rel="stylesheet" href="/static/css/common.css">
     <link rel="stylesheet" href="/static/css/main.css">
     <link rel="stylesheet" href="/static/css/modal.css">
     <link rel="stylesheet" href="/static/css/option.css">
+    <link rel="stylesheet" href="/static/css/slideShow.css">
     
 </head>
 <body>
@@ -226,77 +229,229 @@
 
 
 
-        <!-- modal 영역 -->
-        <div class="modal-bg" onClick="javascript:popClose();"></div>
-        <div class="modal-wrap">
+            <!-- modal 영역 -->
+<div class="modal-bg" onClick="javascript:popClose();"></div>
+<div class="modal-wrap">
 
-            <div class="option-header">
-                <div class="modal-imagebox">
-                    <img class="modal-main-image" src="/static/images/product/블랙 밀크티+펄L.png">
-                </div>
-                <div class="modal-titlebox">
-                    <span class="modal-pdtname">타로 밀크티 + 펄L</span>
-                    <span class="modal-price">5600원</span>
-                
-                </div>
-            </div>
-
-            <div class="modal-optionbox"> 
-                <span class="modal-option">옵션 : COLD(포장)/Regular Ice/50%</span>
-                <span class="modal-option-price"> 0원</span>
-            </div>
-            
-            <div class="modal-coldhotbox">
-                <p>COLD/HOT (필수,1/1)</p>
-                <span class="cup in-cold"><img class="option-img" src="#">COLD(매장)</span>
-                <span class="cup out-cold"><img class="option-img" src="#">COLD(포장)</span>
-                <span class="cup in-hot"><img class="option-img" src="#">HOT(매장)</span>
-                <span class="cup out-hot"><img class="option-img" src="#">HOT(포장)</span>
-            </div>
-
-            <div class="modal-icebox">
-                <p>ICE (필수,1/1)</p>
-                <span class="ice less-ice"><img class="option-img" src="#">Less Ice</span>
-                <span class="ice regular-ice"><img class="option-img" src="#">Regular Ice</span>
-                <span class="ice full-ice"><img class="option-img" src="#">Full Ice</span>
-            </div>
-
-            <div class="modal-sugerbox">
-                <p>Suger (필수,1/1)</p>
-                <span class="suger suger-0"><img class="option-img" src="#">0%</span>
-                <span class="suger suger-30"><img class="option-img" src="#">30%</span>
-                <span class="suger suger-50"><img class="option-img" src="#">50%</span>
-                <span class="suger suger-70"><img class="option-img" src="#">70%</span>
-                <span class="suger suger-100"><img class="option-img" src="#">100%</span>
-            </div>
-
-            <div class="modal-toppingbox">
-                <p>Topping(선택,0/2)</p>
-                <span class="moving-tap">&lt;</span>
-                <span class="topping topping-"><img class="option-img" src="#">퍼어얼&nbsp; +700</span>
-                <span class="topping topping-"><img class="option-img" src="#">알로에&nbsp; +700</span>
-                <span class="topping topping-"><img class="option-img" src="#">코코넛&nbsp; +700</span>
-                <span class="topping topping-"><img class="option-img" src="#">화이트펄 +700</span>
-                <span class="topping topping-"><img class="option-img" src="#">밀크폼&nbsp; +700</span>
-                <span class="topping topping-"><img class="option-img" src="#">치즈폼&nbsp; +900</span>
-                <span class="topping topping-"><img class="option-img" src="#">펄x2&nbsp;&nbsp; +1400</span>
-                <span class="topping topping-"><img class="option-img" src="#">알로에x2 +1400</span>
-                <span class="topping topping-"><img class="option-img" src="#">코코넛x2 +1400</span>
-                <span class="topping topping-"><img class="option-img" src="#">화이트펄x2 +1400</span>
-                <span class="topping topping-"><img class="option-img" src="#">밀크폼x2 +1400</span>
-                <span class="topping topping-"><img class="option-img" src="#">치즈폼x2 +1800</span>
-                <span class="moving-tap">&gt;</span>
-            </div>
-
-            <div class="btn-box">
-                <button class="btn modal-cancle" onClick="javascript:popClose();">취소</button>
-                <button class="btn modal-addcart" onClick="javascript:popClose();">주문담기</button>
-            </div>
+    <div class="option-header">
+        <div class="modal-imagebox">
+            <img class="modal-main-image" src="/static/images/product/블랙 밀크티+펄L.png">
         </div>
-            <!-- //modal 영역 -->
+        <div class="modal-titlebox">
+            <span class="modal-pdtname">타로 밀크티 + 펄L</span>
+            <span class="modal-price">5600원</span>
+        
+        </div>
+    </div>
+
+    <div class="modal-optionbox"> 
+        <span class="modal-option">옵션 : COLD(포장)/Regular Ice/50%</span>
+        <span class="modal-option-price"> 0원</span>
+    </div>
+    
+    <div class="modal-coldhotbox">
+        <p>COLD/HOT (필수,1/1)</p>
+        
+        <div class="modal-coldhotbox-radios">
+            <input type="radio" id="coldhot1" name="coldhots">
+            <label for="coldhot1">
+                <span class="cup in-cold">
+                    <img class="option-img" src="/static/images/공차옵션사진/COLD HOT/매장(cold).png">COLD(매장)
+                </span>
+            </label>
+            <input type="radio" id="coldhot2" name="coldhots">
+            <label for="coldhot2">
+                <span class="cup in-cold">
+                    <img class="option-img" src="/static/images/공차옵션사진/COLD HOT/포장(cold).png">COLD(포장)
+                </span>
+            </label>
+            <input type="radio" id="coldhot3" name="coldhots">
+            <label for="coldhot3">
+                <span class="cup in-cold">
+                    <img class="option-img" src="/static/images/공차옵션사진/COLD HOT/매장(hot).png">HOT(매장)
+                </span>
+            </label>
+            <input type="radio" id="coldhot4" name="coldhots">
+            <label for="coldhot4">
+                <span class="cup in-cold">
+                    <img class="option-img" src="/static/images/공차옵션사진/COLD HOT/포장(hot).png">HOT(포장)
+                </span>
+            </label>
+        </div>
+    </div>
+
+    <div class="modal-icebox">
+        <p>ICE (필수,1/1)</p>
+
+        <div class="modal-icebox-radios">
+            <input type="radio" id="ice1" name="ices">
+            <label for="ice1">
+                <span class="ice less-ice">
+                    <img class="option-img" src="/static/images/공차옵션사진/얼음양/Less Ice.png">Less Ice
+                </span>
+            </label>
+            <input type="radio" id="ice2" name="ices">
+            <label for="ice2">
+            <span class="ice regular-ice" >
+                <img class="option-img" src="/static/images/공차옵션사진/얼음양/Regular Ice.png">Regular Ice
+            </span>
+            </label>
+            <input type="radio" id="ice3" name="ices">
+            <label for="ice3">
+                <span class="ice less-ice">
+                    <img class="option-img" src="/static/images/공차옵션사진/얼음양/Full Ice.png">Full Ice
+                </span>
+            </label>
+        </div>
+    </div>
+
+    <div class="modal-sugarbox">
+        <p>sugar (필수,1/1)</p>
+
+        <div class="modal-sugarbox-radios">
+            <input type="radio" id="sugar1" name="sugars">
+            <label for="sugar1">
+                <span class="sugar sugar-0" >
+                    <img class="option-img" src="/static/images/공차옵션사진/당도/당도0.png">0%
+                </span>
+            </label>
+            <input type="radio" id="sugar2" name="sugars">
+            <label for="sugar2">
+                <span class="sugar sugar-0" >
+                    <img class="option-img" src="/static/images/공차옵션사진/당도/당도30.png">30%
+                </span>
+            </label>
+            <input type="radio" id="sugar3" name="sugars">
+            <label for="sugar3">
+                <span class="sugar sugar-0" >
+                    <img class="option-img" src="/static/images/공차옵션사진/당도/당도50.png">50%
+                </span>
+            </label>
+            <input type="radio" id="sugar4" name="sugars">
+            <label for="sugar4">
+                <span class="sugar sugar-0" >
+                    <img class="option-img" src="/static/images/공차옵션사진/당도/당도70.png">70%
+                </span>
+            </label>
+            <input type="radio" id="sugar5" name="sugars">
+            <label for="sugar5">
+                <span class="sugar sugar-0" >
+                    <img class="option-img" src="/static/images/공차옵션사진/당도/당도100.png">100%
+                </span>
+            </label>
+        </div>
+    </div>
+
+    <div class="modal-toppingbox">
+        <p>Topping(선택,0/2)</p>
+
+        <div class="topping-slideShow">
+            
+                <ul class="slides">
+                    <li>
+                        <input type="checkbox" id="topping1" name="topping" onclick="countCheck(this);">
+                        <label for="topping1">
+                            <span class="topping topping-">
+                                <img class="option-img" src="/static/images/공차옵션사진/펄/펄(타피오카).png">펄 +700
+                            </span>
+                        </label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="topping2" name="topping" onclick="countCheck(this);">
+                        <label for="topping2">
+                            <span class="topping topping-">
+                                <img class="option-img" src="/static/images/공차옵션사진/펄/알로에.png">알로에 +700
+                            </span>
+                        </label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="topping3" name="topping" onclick="countCheck(this);">
+                        <label for="topping3">
+                            <span class="topping topping-">
+                                <img class="option-img" src="/static/images/공차옵션사진/펄/코코넛.png">코코넛 +700
+                            </span>
+                        </label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="topping4" name="topping" onclick="countCheck(this);">
+                        <label for="topping4">
+                            <span class="topping topping-">
+                                <img class="option-img" src="/static/images/공차옵션사진/펄/화이트펄.png">화이트펄 +700
+                            </span>
+                        </label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="topping5" name="topping1" onclick="countCheck(this);">
+                        <label for="topping5">
+                            <span class="topping topping-">
+                                <img class="option-img" src="/static/images/공차옵션사진/펄/딸기쥬얼리.png">딸기쥬얼리 +700
+                            </span>
+                        </label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="topping6" name="topping" onclick="countCheck(this);">
+                        <label for="topping6">
+                            <span class="topping topping-">
+                                <img class="option-img" src="/static/images/공차옵션사진/펄/치즈폼.png">치즈폼 +900
+                            </span>
+                        </label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="topping7" name="topping" onclick="countCheck(this);">
+                        <label for="topping7">
+                            <span class="topping topping-"><img class="option-img" src="/static/images/공차옵션사진/펄/펄(타피오카).png">펄x2 +1400</span>
+                        </label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="topping8" name="topping" onclick="countCheck(this);">
+                        <label for="topping8">
+                            <span class="topping topping-"><img class="option-img" src="/static/images/공차옵션사진/펄/알로에.png">알로에x2 +1400</span>
+                        </label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="topping9" name="topping" onclick="countCheck(this);">
+                        <label for="topping9">
+                            <span class="topping topping-"><img class="option-img" src="/static/images/공차옵션사진/펄/코코넛.png">코코넛x2 +1400</span>
+                        </label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="topping10" name="topping" onclick="countCheck(this);">
+                        <label for="topping10">
+                            <span class="topping topping-"><img class="option-img" src="/static/images/공차옵션사진/펄/화이트펄.png">화이트펄x2 +1400</span>
+                        </label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="topping11" name="topping" onclick="countCheck(this);">
+                        <label for="topping11">
+                            <span class="topping topping-"><img class="option-img" src="/static/images/공차옵션사진/펄/딸기쥬얼리.png">딸기쥬얼리x2 +1400</span>
+                        </label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="topping12" name="topping" onclick="countCheck(this);">
+                        <label for="topping12">
+                            <span class="topping topping-"><img class="option-img" src="/static/images/공차옵션사진/펄/치즈폼.png">치즈폼x2 +1800</span>
+                        </label>
+                    </li>
+                </ul>
+            
+            <span class="moving-left">&lt;</span>
+            <span class="moving-right">&gt;</span>
+            
+        </div>
+        
+    </div>
+
+    <div class="btn-box">
+        <button class="btn modal-cancel" onClick="javascript:popClose();">취소</button>
+        <button class="btn modal-addcart" onClick="javascript:popClose();">주문담기</button>
+    </div>
+</div>
+    <!-- //modal 영역 -->
     </div>
 </body>
 <script src="/static/js/main.js"></script>
 <script src="/static/js/modal.js"></script>
+<script src=/static/js/option.js></script>
+<script src="/static/js/slideShow.js"></script>
 
 </html>

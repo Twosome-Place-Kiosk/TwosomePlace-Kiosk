@@ -25,7 +25,6 @@ public class AccountApi {
     @PostMapping("/register")
     public ResponseEntity<?> register(@Validated(ValidationSequence.class) @RequestBody RegisterReqDto registerReqDto, BindingResult bindingResult) throws Exception {
 
-
         accountService.duplicateEmail(registerReqDto);
         accountService.register(registerReqDto);
 
