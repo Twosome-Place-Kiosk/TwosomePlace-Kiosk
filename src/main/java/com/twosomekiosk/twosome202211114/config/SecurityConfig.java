@@ -15,14 +15,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
         http.httpBasic().disable();
         http.authorizeRequests()
-                .antMatchers("/admin/product")
+                .antMatchers("/account")
                 .authenticated()
                 .anyRequest()
                 .permitAll()
                 .and()
                 .formLogin()
                 .usernameParameter("email")             // username을 email로 바꿔서 받겠다
-                .loginPage("/admin/login")            // login page Get 요청
+                .loginPage("/account/login")            // login page Get 요청
                 .loginProcessingUrl("/admin/login")  //login service Post요청
                 .defaultSuccessUrl("/admin/product");   //로그인 성공시 이동할 주소
     }

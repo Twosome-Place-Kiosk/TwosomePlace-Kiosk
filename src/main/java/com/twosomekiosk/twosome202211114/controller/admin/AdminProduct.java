@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class AdminProduct {
     @GetMapping("/admin/product")
     public String login() {
-        return "/admin/admin";
+        return "/admin/product_registration";
     }
 }
