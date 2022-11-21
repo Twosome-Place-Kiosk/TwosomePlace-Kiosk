@@ -2,12 +2,14 @@ class ProductMst {
     #category;
     #name;
     #price;
+    #image;
 
 
-    constructor(category, name, price) {
+    constructor(category, name, price, image) {
         this.#category = category;
         this.#name = name;
         this.#price = price;
+        this.#image = image;
 
     }
 
@@ -20,6 +22,9 @@ class ProductMst {
     getPrice() {return this.#price;}
     setPrice(price) {this.#price = price;}
 
+    getImage() {return this.#image;}
+    setImage(image) {this.#image = image;}
+
 
 
     getObject() {
@@ -27,6 +32,7 @@ class ProductMst {
             category: this.#category,
             name: this.#name,
             price: this.#price,
+            image: this.#image
 
         }
         return obj;
