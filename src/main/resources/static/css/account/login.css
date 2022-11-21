@@ -23,12 +23,16 @@
 }
 
 .img-box {
+    display: felx;
+    justify-content: center;
     align-items: center;
-    width: 300px;
 }
 
 .logo-img{
-    width: 300px;
+    width: 100px;
+    height: 150px;
+
+    margin-left: 100px;
     
 }
 
