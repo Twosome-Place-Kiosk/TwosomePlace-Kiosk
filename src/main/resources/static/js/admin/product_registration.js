@@ -107,57 +107,61 @@ class RegisterEventService {
     #categorySelectObj;
     #nameInputObj;
     #priceInputObj;
+    #imageInputObj;
     #registButtonObj;
 
 
     constructor() {
-        this.#categorySelectObj = document.querySelectorAll(".product-inputs")[0];
-        this.#nameInputObj = document.querySelectorAll(".product-inputs")[1];
-        this.#priceInputObj = document.querySelectorAll(".product-inputs")[2];
+        this.#categorySelectObj = document.querySelector(".product-category");
+        this.#nameInputObj = document.querySelector(".product-name");
+        this.#priceInputObj = document.querySelector(".product-price");
+        this.#imageInputObj = document.querySelector(".product-image");
         this.#registButtonObj = document.querySelector(".regist-button");
      
-        this.init();
+        // this.init();
 
-        this.addCategorySelectEvent();
-        this.addNameInputEvent();
-        this.addPriceInputEvent();
-        this.addRegistButtonEvent();
+        // this.addCategorySelectEvent();
+        // this.addNameInputEvent();
+        // this.addPriceInputEvent();
+        // this.addImageInputEvent();
+         this.addRegistButtonEvent();
     }
 
-    init() {
-        this.#nameInputObj.disabled = true;
-        this.#priceInputObj.disabled = true;
-        this.#registButtonObj.disabled = true;
-    }
+    // init() {
+    //     this.#nameInputObj.disabled = true;
+    //     this.#priceInputObj.disabled = true;
+    //     this.#registButtonObj.disabled = true;
+    // }
 
-    addCategorySelectEvent() {
-        this.#categorySelectObj.onchange = () => {
-            if(this.#categorySelectObj.value != "none") {
-                this.#nameInputObj.disabled = false;
-            }else {
-                this.#nameInputObj.disabled = true;
-            }
-        }
-    }
+    // addCategorySelectEvent() {
+    //     this.#categorySelectObj.onchange = () => {
+    //         if(this.#categorySelectObj.value != "none") {
+    //             this.#nameInputObj.disabled = false;
+    //         }else {
+    //             this.#nameInputObj.disabled = true;
+    //         }
+    //     }
+    // }
 
-    addNameInputEvent() {
-        this.#nameInputObj.onkeyup = () => {
-            if(this.#nameInputObj.value.length != 0) {
-                this.#priceInputObj.disabled = false;
-            }else {
-                this.#priceInputObj.disabled = true;
-            }
-        }
-    }
+    // addNameInputEvent() {
+    //     this.#nameInputObj.onkeyup = () => {
+    //         if(this.#nameInputObj.value.length != 0) {
+    //             this.#priceInputObj.disabled = false;
+    //         }else {
+    //             this.#priceInputObj.disabled = true;
+    //         }
+    //     }
+    // }
 
     addRegistButtonEvent() {
         this.#registButtonObj.onclick = () => {
             const category = this.#categorySelectObj.value;
             const name = this.#nameInputObj.value;
             const price = this.#priceInputObj.value;
+            const image = this.#imageInputObj;
 
             const productMst = new ProductMst(
-                category, name, price);
+                category, name, price, image);
 
             const pegisterApi = new ProductApi();
             if(pegisterApi.createProductRequest(productMst.getObject())) {
@@ -190,7 +194,7 @@ class RegisterService {
         const productCategoryList = commonApi.getCategoryList();
 
         const productCategory = document.querySelector(".product-category");
-        productCategory.innerHTML = `<option value="none">상품 종류</option><option value="1">test</option>`;
+        productCategory.innerHTML = `<option value="none">상품 종류</option>`;
 
         productCategoryList.forEach(category => {
             productCategory.innerHTML += `
