@@ -15,14 +15,14 @@
 
         <p class="greeting-box"> 공차 관리자님 환영합니다 </p>
 
-        <form action="/user/login" method="post" class="login-box">
+        <form action="/admin/product" method="post" class="login-box">
             <div class="id-title"> ID </div>
             <input class="id-input" type="text" name="admin_id" th:value="${user_name}" required>
             <div class="pw-title"> Password </div>
             <input class="pw-input" type="password" name="password">
 
             <div class="btnzone">
-                <button class= "btn login-btn" value="submit" type="button">로그인</button>
+                <button class= "btn login-btn" value="submit" type="submit">로그인</button>
                     <button class= "btn regist-btn" type="button">회원가입</button>
             </div>
         </form>

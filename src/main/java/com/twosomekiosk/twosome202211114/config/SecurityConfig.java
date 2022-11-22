@@ -31,7 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .usernameParameter("user_name")
                 .loginPage("/account/login")            // login page Get 요청
                 .loginProcessingUrl("/account/login")  //login service Post요청
-                .defaultSuccessUrl("/admin/product-regist");   //로그인 성공시 이동할 주소
+                .defaultSuccessUrl("/admin/product");   //로그인 성공시 이동할 주소
 
     }
 }
