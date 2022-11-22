@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/admin")
 public class AdminProduct {
-    @PostMapping("/product")
+
+    @GetMapping("/product")
     public String login() {return "admin/product_registration";}
+
+    @PostMapping("/product")
+    public String adminlogin() {return "admin/product_registration";}
 }

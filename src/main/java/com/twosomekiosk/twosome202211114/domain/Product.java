@@ -13,8 +13,8 @@ import java.util.List;
 @AllArgsConstructor
 public class Product {
     private int id;
-    private String pdt_name;
     private int category_id;
+    private String pdt_name;
     private int pdt_price;
     private String pdt_image;
 }

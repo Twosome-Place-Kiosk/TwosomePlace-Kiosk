@@ -25,38 +25,40 @@
             </div>
         </div>
         <div class="product-registration">
-            <div class="regist-box">
-                <!--상품 카테고리선택-->
-            
-                <div class="label-category">
-                    <label for="product-select">카테고리</label>
-                    <select id="product-category" class="product-category">
-                        <option value="category">상품선택</option>
+            <!-- <form action="" method="post"> -->
+                <div class="regist-box">
+                    <!--상품 카테고리선택-->
+                
+                    <div class="label-category">
+                        <label for="product-select">카테고리</label>
+                        <select id="product-category" class="product-category">
+                            <option value="category">상품선택</option>
+                            </select>
                         </select>
-                    </select>
-                </div>
-                
-                <!--상품명(사이즈)-->
-                <div class="label-category">
-                    <label for="product-name" class="product-list-name">상품명</label>
-                        <input type="text" id="product-name" class="product-name">
-                </div>
+                    </div>
+                    
+                    <!--상품명(사이즈)-->
+                    <div class="label-category">
+                        <label for="product-name" class="product-list-name">상품명</label>
+                            <input type="text" id="product-name" class="product-name">
+                    </div>
 
-                <!--가격-->
-                <div class="label-category">
-                    <label for="product-price">가격</label>
-                    <input type="number" min="100" step="100" id="product-price" class="product-price">
+                    <!--가격-->
+                    <div class="label-category">
+                        <label for="product-price">가격</label>
+                        <input type="number" min="100" step="100" id="product-price" class="product-price">
+                    </div>
+                    
+                    
+                    <!--사진-->
+                    <form enctype="multipart/form-data">
+                        <label for="product-image">대표 사진</label>
+                        <input type="file" class="files-input" name="files" id="product-image"> 
+                    </form>
+                    
+                    <div class="regibtn-box"><button type="submit" class="regist-button" id="regi-btn">등록</button></div>               
                 </div>
-                
-                
-                <!--사진-->
-                <form enctype="multipart/form-data">
-                    <label for="product-image">대표 사진</label>
-                    <input type="file" class="files-input" name="files" id="product-image"> 
-                </form>
-                
-                <div class="regibtn-box"><button type="submit" class="regist-button" id="regi-btn">등록</button></div>               
-            </div>
+            <!-- </form> -->
     
         </div>
     

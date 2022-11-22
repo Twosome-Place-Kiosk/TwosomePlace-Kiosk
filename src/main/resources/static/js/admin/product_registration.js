@@ -67,7 +67,7 @@ class ProductApi {
         $.ajax({
             async: false,
             type: "post",
-            url: "/admin/product",
+            url: "/api/admin/product",
             contentType: "application/json",
             data: JSON.stringify(productMst),
             dataType: "json",
@@ -88,7 +88,7 @@ class ProductApi {
         $.ajax({
             async: false,
             type: "get",
-            url: "/admin/product",
+            url: "/api/admin/product",
             data: listRequestParams,
             dataType: "json",
             success: (response) => {
@@ -161,8 +161,11 @@ class RegisterEventService {
             const image = this.#imageInputObj;
 
             const productMst = new ProductMst(
-                category, name, price, image);
+                category, name, price, image
+            );
 
+            // console.log(productMst);
+            
             const registerApi = new ProductApi();
             if(registerApi.createProductRequest(productMst.getObject())) {
                 alert("상품 등록 완료");

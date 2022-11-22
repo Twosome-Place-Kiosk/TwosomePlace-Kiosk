@@ -9,16 +9,15 @@
         <result property="category_name" column="category_name"/>
     </resultMap>
 
-
     <insert id="saveProductMst" parameterType="com.twosomekiosk.twosome202211114.domain.Product" >
         insert into
-        pdt_mst
+            pdt_mst
         values(
-        0,
-        #{category_id},
-        #{pdt_name},
-        #{pdt_price},
-        #{pdt_image}
+            0,
+            #{category_id},
+            #{pdt_name},
+            #{pdt_price},
+            #{pdt_image}
         )
     </insert>
 
