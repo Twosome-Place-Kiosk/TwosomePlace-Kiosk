@@ -163,8 +163,8 @@ class RegisterEventService {
             const productMst = new ProductMst(
                 category, name, price, image);
 
-            const pegisterApi = new ProductApi();
-            if(pegisterApi.createProductRequest(productMst.getObject())) {
+            const registerApi = new ProductApi();
+            if(registerApi.createProductRequest(productMst.getObject())) {
                 alert("상품 등록 완료");
                 location.reload();
             }
