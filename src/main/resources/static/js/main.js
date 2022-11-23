@@ -27,3 +27,32 @@ function popClose() {
    $(modalBg).hide();
 
 }
+
+
+
+const ordercheck = document.querySelector(".atag-white-btn");
+ordercheck.addEventListener('click', function(event){
+
+    var modalPop1 = $('.modal-wrap1');
+    var modalBg1 = $('.modal-bg1');
+
+    $(modalPop1).show();
+    $(modalBg1).show();
+})
+
+function popOpen1() {
+var modalPop1 = $('.modal-wrap1');
+var modalBg1 = $('.modal-bg1');
+
+$(modalPop1).show();
+$(modalBg1).show();
+}
+
+function popClose1() {
+var modalPop1 = $('.modal-wrap1');
+var modalBg1 = $('.modal-bg1');
+
+$(modalPop1).hide();
+$(modalBg1).hide();
+
+}
