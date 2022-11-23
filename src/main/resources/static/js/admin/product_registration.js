@@ -41,7 +41,8 @@ class CommonApi {
             type: "get",
             url: "/api/admin/product/category",
             dataType: "json",
-            success: (response) => {
+            success: (response) => {4
+                console.log(response.data);
                 responseResult = response.data;
             },
             error: (error) => {
@@ -54,16 +55,26 @@ class CommonApi {
 }
 
 class ProductApi {
+    static #instance = null;
 
-    createProductRequest(productMst) {
+    static getInstance() {
+        if(this.#instance == null) {
+            this.#instance = new ProductApi();
+        }
+        return this.#instance;
+    }
+
+    createProductRequest(formData) {
         let responseData = null;
 
         $.ajax({
             async: false,
             type: "post",
             url: "/api/admin/product",
-            contentType: "application/json",
-            data: JSON.stringify(productMst),
+            enctype: "multipart/form-data",
+            contentType: false,
+            processData: false,
+            data: formData,
             dataType: "json",
             success: (response) => {
                 // responseData = response.data;
@@ -71,10 +82,14 @@ class ProductApi {
             },
             error: (error) => {
                 console.log(error);
+
+                let entries = formData.entries();
+                for (const pair of entries) {
+                    console.log(pair[0]+ ', ' + pair[1]); 
+                }
             }
-        });
+        })
         
-        return responseData;
     }
 
     getProductListRequest(listRequestParams) {
@@ -116,7 +131,7 @@ class RegisterEventService {
         this.addCategorySelectEvent();
         this.addNameInputEvent();
         this.addPriceInputEvent();
-         this.addRegistButtonEvent();
+        this.addRegistButtonEvent();
     }
 
     init() {
@@ -157,33 +172,45 @@ class RegisterEventService {
     }
 
     addRegistButtonEvent() {
+        const filesInput = document.querySelector(".files-input");
+        const imgAddButton = document.querySelector(".regist-button");
+        // const imgContainer = document.querySelector(".preview");
+
+        const formData = new FormData();
+
+        imgAddButton.onclick = () => {
+            filesInput.click();
+        }
+
+        filesInput.onchange = () => {
+
+            var fileList = filesInput.files;
+
+            var reader = new FileReader();
+
+            reader.readAsDataURL(fileList [0]);
+
+            // reader.onload = function  () {
+            //     imgContainer.src = reader.result ;
+            // }; 
+            formData.append("files", filesInput.files[0]);
+        }
+
         this.#registButtonObj.onclick = () => {
-            const category = this.#categorySelectObj.value;
-            const name = this.#nameInputObj.value;
-            const price = this.#priceInputObj.value;
             
+            formData.append("category", this.#categorySelectObj.value);
 
-            const productMst = new ProductMst(
-                category, name, price
-            );
+            formData.append("name", this.#nameInputObj.value);
 
-            console.log(productMst);
-            
-            const registerApi = new ProductApi();
-            if(registerApi.createProductRequest(productMst.getObject())) {
-                // alert("상품 등록 완료");
-                // location.reload();
-            }
+            formData.append("price", this.#priceInputObj.value);
+
+            ProductApi.getInstance().createProductRequest(formData);
         }
     }
 }
 
 class RegisterService { 
     static #instance = null;
-
-    constructor() {
-        this.loadRegister();
-    }
 
     static getInstance() {
         if(this.#instance == null) {
@@ -192,11 +219,11 @@ class RegisterService {
         return this.#instance;
     }
 
-    loadRegister() {
-        new RegisterEventService();
+    constructor() {
+        this.loadRegister();
     }
 
-    setRegisterHeaderEvent() {
+    loadRegister() {
         new RegisterEventService();
     }
 
@@ -218,18 +245,7 @@ class RegisterService {
     
 }
 
-// class ListService {
-//     static #instance = null;
-
-//     getInstance() {
-//         if(this.#instance == null) {
-//             this.#instance = new ListService();
-//         }
-//         return this.#instance;
-//     }
-// }
-
 window.onload = () => {
     RegisterService.getInstance().getCategoryList();
-    RegisterService.getInstance().setRegisterHeaderEvent();
+    
 }
