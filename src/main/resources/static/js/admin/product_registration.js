@@ -2,14 +2,13 @@ class ProductMst {
     #category;
     #name;
     #price;
-    #image;
+  
 
-
-    constructor(category, name, price, image) {
+    constructor(category, name, price) {
         this.#category = category;
         this.#name = name;
         this.#price = price;
-        this.#image = image;
+        
 
     }
 
@@ -22,17 +21,11 @@ class ProductMst {
     getPrice() {return this.#price;}
     setPrice(price) {this.#price = price;}
 
-    getImage() {return this.#image;}
-    setImage(image) {this.#image = image;}
-
-
-
     getObject() {
         const obj = {
             category: this.#category,
             name: this.#name,
-            price: this.#price,
-            image: this.#image
+            price: this.#price
 
         }
         return obj;
@@ -61,6 +54,7 @@ class CommonApi {
 }
 
 class ProductApi {
+
     createProductRequest(productMst) {
         let responseData = null;
 
@@ -72,7 +66,8 @@ class ProductApi {
             data: JSON.stringify(productMst),
             dataType: "json",
             success: (response) => {
-                responseData = response.data;
+                // responseData = response.data;
+                console.log(response.data);
             },
             error: (error) => {
                 console.log(error);
@@ -107,7 +102,6 @@ class RegisterEventService {
     #categorySelectObj;
     #nameInputObj;
     #priceInputObj;
-    #imageInputObj;
     #registButtonObj;
 
 
@@ -115,61 +109,70 @@ class RegisterEventService {
         this.#categorySelectObj = document.querySelector(".product-category");
         this.#nameInputObj = document.querySelector(".product-name");
         this.#priceInputObj = document.querySelector(".product-price");
-        this.#imageInputObj = document.querySelector(".product-image");
         this.#registButtonObj = document.querySelector(".regist-button");
      
-        // this.init();
+        this.init();
 
-        // this.addCategorySelectEvent();
-        // this.addNameInputEvent();
-        // this.addPriceInputEvent();
-        // this.addImageInputEvent();
+        this.addCategorySelectEvent();
+        this.addNameInputEvent();
+        this.addPriceInputEvent();
          this.addRegistButtonEvent();
     }
 
-    // init() {
-    //     this.#nameInputObj.disabled = true;
-    //     this.#priceInputObj.disabled = true;
-    //     this.#registButtonObj.disabled = true;
-    // }
+    init() {
+        this.#nameInputObj.disabled = true;
+        this.#priceInputObj.disabled = true;
+        this.#registButtonObj.disabled = true;
+    }
 
-    // addCategorySelectEvent() {
-    //     this.#categorySelectObj.onchange = () => {
-    //         if(this.#categorySelectObj.value != "none") {
-    //             this.#nameInputObj.disabled = false;
-    //         }else {
-    //             this.#nameInputObj.disabled = true;
-    //         }
-    //     }
-    // }
+    addCategorySelectEvent() {
+        this.#categorySelectObj.onchange = () => {
+            if(this.#categorySelectObj.value != "none") {
+                this.#nameInputObj.disabled = false;
+            }else {
+                this.#nameInputObj.disabled = true;
+            }
+        }
+    }
 
-    // addNameInputEvent() {
-    //     this.#nameInputObj.onkeyup = () => {
-    //         if(this.#nameInputObj.value.length != 0) {
-    //             this.#priceInputObj.disabled = false;
-    //         }else {
-    //             this.#priceInputObj.disabled = true;
-    //         }
-    //     }
-    // }
+    addNameInputEvent() {
+        this.#nameInputObj.onkeyup = () => {
+            if(this.#nameInputObj.value.length != 0) {
+                this.#priceInputObj.disabled = false;
+            }else {
+                this.#priceInputObj.disabled = true;
+            }
+        }
+    }
+
+    addPriceInputEvent() {
+        this.#priceInputObj.onkeyup =() => {
+            if(this.#priceInputObj.value.length != 0 ){
+                this.#registButtonObj.disabled = false;
+            }else{
+                this.#registButtonObj.disabled = true;
+            }
+         }
+    
+    }
 
     addRegistButtonEvent() {
         this.#registButtonObj.onclick = () => {
             const category = this.#categorySelectObj.value;
             const name = this.#nameInputObj.value;
             const price = this.#priceInputObj.value;
-            const image = this.#imageInputObj;
+            
 
             const productMst = new ProductMst(
-                category, name, price, image
+                category, name, price
             );
 
-            // console.log(productMst);
+            console.log(productMst);
             
             const registerApi = new ProductApi();
             if(registerApi.createProductRequest(productMst.getObject())) {
-                alert("상품 등록 완료");
-                location.reload();
+                // alert("상품 등록 완료");
+                // location.reload();
             }
         }
     }
@@ -179,6 +182,7 @@ class RegisterService {
     static #instance = null;
 
     constructor() {
+        this.loadRegister();
     }
 
     static getInstance() {
@@ -189,7 +193,11 @@ class RegisterService {
     }
 
     loadRegister() {
-        
+        new RegisterEventService();
+    }
+
+    setRegisterHeaderEvent() {
+        new RegisterEventService();
     }
 
     getCategoryList() {
@@ -207,21 +215,19 @@ class RegisterService {
 
     }
 
-    setRegisterHeaderEvent() {
-        new RegisterEventService();
-    }
+    
 }
 
-class ListService {
-    static #instance = null;
+// class ListService {
+//     static #instance = null;
 
-    getInstance() {
-        if(this.#instance == null) {
-            this.#instance = new ListService();
-        }
-        return this.#instance;
-    }
-}
+//     getInstance() {
+//         if(this.#instance == null) {
+//             this.#instance = new ListService();
+//         }
+//         return this.#instance;
+//     }
+// }
 
 window.onload = () => {
     RegisterService.getInstance().getCategoryList();

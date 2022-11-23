@@ -1,10 +1,12 @@
 package com.twosomekiosk.twosome202211114.dto.admin;
 
 import com.twosomekiosk.twosome202211114.domain.Product;
+import lombok.Builder;
 import lombok.Data;
 
 import javax.validation.constraints.Min;
 
+@Builder
 @Data
 public class ProductRegisterReqDto {
 
@@ -20,7 +22,7 @@ public class ProductRegisterReqDto {
                 .category_id((category))
                 .pdt_name(name)
                 .pdt_price(price)
-                .pdt_image(image)
+
                 .build();
     }
 }

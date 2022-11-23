@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,14 +26,14 @@
         </div>
         <div class="product-registration">
             <!-- <form action="" method="post"> -->
+                
                 <div class="regist-box">
                     <!--상품 카테고리선택-->
                 
                     <div class="label-category">
                         <label for="product-select">카테고리</label>
                         <select id="product-category" class="product-category">
-                            <option value="category">상품선택</option>
-                            </select>
+                        
                         </select>
                     </div>
                     
@@ -53,11 +53,13 @@
                     <!--사진-->
                     <form enctype="multipart/form-data">
                         <label for="product-image">대표 사진</label>
+                        
                         <input type="file" class="files-input" name="files" id="product-image"> 
                     </form>
                     
-                    <div class="regibtn-box"><button type="submit" class="regist-button" id="regi-btn">등록</button></div>               
+                    <div class="regibtn-box"><button type="button" class="regist-button" id="regi-btn">등록</button></div>               
                 </div>
+                
             <!-- </form> -->
     
         </div>

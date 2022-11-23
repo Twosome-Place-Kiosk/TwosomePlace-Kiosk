@@ -2,6 +2,7 @@ package com.twosomekiosk.twosome202211114.api.admin;
 
 import com.twosomekiosk.twosome202211114.dto.CMRespDto;
 import com.twosomekiosk.twosome202211114.dto.admin.ProductRegisterReqDto;
+import com.twosomekiosk.twosome202211114.dto.admin.ProductRegisterRespDto;
 import com.twosomekiosk.twosome202211114.service.admin.ProductManagementService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -22,12 +23,18 @@ public class ProductAdminApi {
     }
 
     @PostMapping("/product")
-    public ResponseEntity<?> registerDtl(@RequestBody ProductRegisterReqDto productRegisterReqDto) throws Exception {
+    public ResponseEntity<?> registerMst(ProductRegisterRespDto productRegisterRespDto) throws Exception {
 
-        productManagementService.registerMst(productRegisterReqDto);
+        productManagementService.registerMst(productRegisterRespDto);
 
         return ResponseEntity.created(null)
                 .body(new CMRespDto<>("Register Successfully", true));
     }
+
+
+
+
+
+
 
 }

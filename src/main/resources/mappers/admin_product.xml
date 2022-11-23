@@ -9,16 +9,21 @@
         <result property="category_name" column="category_name"/>
     </resultMap>
 
-    <insert id="saveProductMst" parameterType="com.twosomekiosk.twosome202211114.domain.Product" >
+    <insert id="saveProductMst" parameterType="java.util.List" >
         insert into
             pdt_mst
         values(
+        <foreach collection="list" item="img" separator=",">
             0,
-            #{category_id},
-            #{pdt_name},
-            #{pdt_price},
-            #{pdt_image}
-        )
+            #{img.category_id},
+            #{img.pdt_name},
+            #{img.pdt_price},
+            #{img.origin_name},
+            now(),
+            now()
+            )
+        </foreach>
+
     </insert>
 
     <select id="getCategoryList" resultType="com.twosomekiosk.twosome202211114.domain.ProductCategory">
