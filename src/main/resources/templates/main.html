@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/static/css/main.css">
     <link rel="stylesheet" href="/static/css/modal.css">
     <link rel="stylesheet" href="/static/css/option.css">
+    <link rel="stylesheet" href="/static/css/orderCheck.css">
     <link rel="stylesheet" href="/static/css/slideShow.css">
     
 </head>
@@ -219,7 +220,7 @@
                     <div>
                         <button class="btn pay-button" type="button">
                             <div><i class="card-image fa-solid fa-credit-card"></i></div>
-                            <div class="pay-button-content"><a class ="atag-white-btn" href="orderCheck.html" >주문하기</a></div> 
+                            <div class="pay-button-content"><a class ="atag-white-btn" href="#" >주문하기</a></div> 
                         </button>
                     </div>
                 </div>
@@ -229,7 +230,7 @@
 
 
 
-            <!-- modal 영역 -->
+ <!-- option modal 영역 -->
 <div class="modal-bg" onClick="javascript:popClose();"></div>
 <div class="modal-wrap">
 
@@ -446,7 +447,128 @@
         <button class="btn modal-addcart" onClick="javascript:popClose();">주문담기</button>
     </div>
 </div>
-    <!-- //modal 영역 -->
+    <!-- //option modal 영역 -->
+    
+    
+    <!-- //ordercheck modal 영역 -->
+           <!-- modal 영역 -->
+           <div class="modal-bg1" onClick="javascript:popClose1();"></div>
+           <div class="modal-wrap1">
+               <div class="modal-header">STEP2. 주문내역확인</div>
+               <!-- 상품 들어갈곳-->
+               <div class="modal-choice">
+                   <div>주문정보를 확인해 주세요</div>
+               </div>
+           
+               <div class="modal-order">
+                   <table class="orderC-table">
+                       <td class="orderC-product">상품명</td>
+                       <td class="orderC-number">수량</td>
+                       <td class="orderC-price">가격</td>
+                   </table>
+               
+               <div>
+                   <table class="order-talbe">
+                   <tr>
+                       <td class="order-product">얼그레이 밀크티 L</td>
+                       <td class="order-number">1</td>
+                       <td class="order-price">4,700</td>
+                   </tr>
+                   </table>
+                   <table class="order-option">
+                       <tr>
+                       <td>* 옵션: COLD(매장) / Regular Ice / 50% / 펄</td>
+                       </tr>
+                   </table>
+               </div>
+               <div>
+                   <table class="order-talbe">
+                   <tr>
+                       <td class="order-product">얼그레이 밀크티 L</td>
+                       <td class="order-number">1</td>
+                       <td class="order-price">4,700</td>
+                   </tr>
+                   </table>
+                   <table class="order-option">
+                       <tr>
+                       <td>* 옵션: COLD(매장) / Regular Ice / 50% / 펄</td>
+                       </tr>
+                   </table>
+               </div>
+               <div>
+                   <table class="order-talbe">
+                   <tr>
+                       <td class="order-product">얼그레이 밀크티 L</td>
+                       <td class="order-number">1</td>
+                       <td class="order-price">4,700</td>
+                   </tr>
+                   </table>
+                   <table class="order-option">
+                       <tr>
+                       <td>* 옵션: COLD(매장) / Regular Ice / 50% / 펄</td>
+                       </tr>
+                   </table>
+               </div>
+           
+           
+               <div class="order-last">
+                   <table class="order-last-table">
+                       <td class="order-last-productC">총수량</td>
+                       <td class="order-last-product">1 개</td>
+                       <td class="order-last-priceC">주문금액</td>
+                       <td class="order-last-price">4,700원</td>
+                   </table>
+                   <hr>
+                   <table class="order-last-table">
+                       <td class="order-last-productC">할인금액</td>
+                       <td class="order-last-product">0 원</td>
+                       <td class="order-last-priceC">결제금액</td>
+                       <td class="order-last-price">4,230원</td>
+                   </table>
+               </div>
+           
+               <div class="order-choice">
+                   <div>결제할 기능을 선택하세요</div>
+               </div>
+           
+               <div class="order-choices">
+                   <button type="button" class="orderCard-button">
+                           <img src="/static/images/order/GongChaCard.png" class="orderCard-img">
+                       <div class="membershipCard">
+                           <p>공차카드</p>
+                       </div>
+           
+                       <button type="button" class="orderCard-button">
+                           <img src="/static/images/order/coupon.png" class="orderCard-img">
+                       <div class="membershipCard">
+                           <p>모바일 쿠폰</p>
+                           <p>(금액_교환권)</p>
+                       </div>
+           
+                       <button type="button" class="orderCard-button">
+                           <img src="/static/images/order/cultureland.png" class="orderCard-img">
+                       <div class="membershipCard">
+                           <p>모바일</p>
+                           <p>문화상품권</p>
+                       </div>
+               </div>
+           
+           
+           
+           
+           </div>
+           
+           
+               <div class="btn-box">
+                   <button class="btn modal-close" onClick="javascript:popClose1();"><a class ="modal-close" href="pay.html">신용카드로 결제하기</a></button>
+                   <button class="btn modal-pay" onClick="javascript:popClose1();">선택안함</button>
+               </div>
+               </div>
+               <!-- //modal 영역 -->
+
+    <!-- //ordercheck modal 영역 -->
+
+
     </div>
 </body>
 <script src="/static/js/main.js"></script>
