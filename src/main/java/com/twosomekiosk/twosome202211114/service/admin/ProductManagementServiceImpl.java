@@ -32,7 +32,6 @@ public class ProductManagementServiceImpl implements ProductManagementService {
     @Override
     public void registerMst(ProductRegisterRespDto productRegisterRespDto) throws Exception {
 
-
         if(productRegisterRespDto.getFiles() == null) {
             Map<String, String> errorMap = new HashMap<String, String>();
             errorMap.put("error", "이미지를 선택하지 않았습니다.");
@@ -89,7 +88,6 @@ public class ProductManagementServiceImpl implements ProductManagementService {
             products.add(Product.builder()
                     .category_id(productRegisterRespDto.getCategory())
                     .pdt_name(productRegisterRespDto.getName())
-
                     .origin_name(originName)
                     .build());
         });
