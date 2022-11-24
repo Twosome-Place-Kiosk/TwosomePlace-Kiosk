@@ -25,6 +25,10 @@ public class MainController {
         return "orderCheck";
     }
 
+    @GetMapping("/orderPay")
+    public String loadPay() {
+        return "pay";
+    }
 
 
 
