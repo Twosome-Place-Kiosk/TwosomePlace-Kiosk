@@ -1,3 +1,7 @@
+.banner-container {
+    cursor: pointer;
+}
+
 .banner-header {
     width: 100%;
 

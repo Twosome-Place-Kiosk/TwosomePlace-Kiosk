@@ -1,6 +1,9 @@
 *{
     padding : 8px;
 }
+html,body, .container {
+    padding: 0px;
+}
 
 .modal-wrap input[type=radio]+label {
     width: 18%;

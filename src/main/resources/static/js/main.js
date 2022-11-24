@@ -15,29 +15,70 @@ const ordercheck = document.querySelector(".pay-button");
 
 ordercheck.addEventListener('click', function(event){
 
-    var modalPop1 = $('.modal-wrap1');
-    var modalBg1 = $('.modal-bg1');
+    const modalPop1 = document.querySelector(".modal-wrap1"); 
+    const modalBg1 = document.querySelector(".modal-bg1");
 
-    $(modalPop1).show();
-    $(modalBg1).show();
+    modalPop1.style.display ="block";
+    modalBg1.style.display ="block";
 })
 
-const payCredit = document.querySelector(".modal-close");
+const modalClose = document.querySelector(".modal-close");
 
-payCredit.addEventListener('click', function(event){
-    var modalPop1 = $('.modal-wrap1');
-    var modalBg1 = $('.modal-bg1');
+modalClose.addEventListener('click', function(event){
+    const modalPop1 = document.querySelector(".modal-wrap1");
+    const modalBg1 = document.querySelector(".modal-bg1");
 
-    var modalPop1 = $('.modal-wrap2');
-    var modalBg1 = $('.modal-bg2');
-
-    $(modalPop1).hide();
-    $(modalBg1).hide();
-
-    $(modalPop2).show();
-    $(modalBg2).show();
+    modalPop1.style.display ="none";
+    modalBg1.style.display ="none";
 
 })
+
+const modalPay = document.querySelector(".modal-pay");
+
+modalPay.addEventListener('click', function(event){
+    const modalPop2 = document.querySelector(".modal-wrap2");
+    const modalBg2 = document.querySelector(".modal-bg2");
+
+    modalPop2.style.display ="block";
+    modalBg2.style.display ="block";
+
+    const modalPop1 = document.querySelector(".modal-wrap1");
+    const modalBg1 = document.querySelector(".modal-bg1");
+
+    modalPop1.style.display ="none";
+    modalBg1.style.display ="none";
+
+})
+
+const payYes = document.querySelector(".pay-yes-btn");
+
+payYes.addEventListener('click', function(event){
+
+    const modalPop2 = document.querySelector(".modal-wrap2");
+    const modalBg2 = document.querySelector(".modal-bg2");
+
+    modalPop2.style.display ="none";
+    modalBg2.style.display ="none";
+
+})
+
+const payNo = document.querySelector(".pay-no-btn");
+
+payNo.addEventListener('click', function(event){
+
+    const modalPop2 = document.querySelector(".modal-wrap2");
+    const modalBg2 = document.querySelector(".modal-bg2");
+
+    modalPop2.style.display ="none";
+    modalBg2.style.display ="none";
+
+})
+
+
+
+
+
+
 
 const adminLoginBtn = document.querySelector(".admin-login-btn");
 
@@ -45,9 +86,9 @@ adminLoginBtn.onclick = () => {
     location.href="/account/login";
 }
 
-const register = document.querySelector("regist-btn");
+const homeBtn = document.querySelector(".atag-white-btn");
 
-register.onclick = () => {
-    location.href="/account/register";
+homeBtn.onclick = () => {
+    location.href="/banner";
 }
 

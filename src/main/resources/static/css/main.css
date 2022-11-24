@@ -14,7 +14,7 @@
 
 .header-btn-box {
     display: flex;
-    /* justify-content: space-around; */
+    justify-content: space-around;
     align-items: center;
 
     width : 500px;
@@ -261,4 +261,6 @@
 
 .atag-white-btn{
     color : white;
+
+    cursor: pointer;
 }
