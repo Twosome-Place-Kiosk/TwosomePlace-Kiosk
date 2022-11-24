@@ -174,7 +174,6 @@ class RegisterEventService {
     addRegistButtonEvent() {
         const filesInput = document.querySelector(".files-input");
         const imgAddButton = document.querySelector(".regist-button");
-        // const imgContainer = document.querySelector(".preview");
 
         const formData = new FormData();
 
