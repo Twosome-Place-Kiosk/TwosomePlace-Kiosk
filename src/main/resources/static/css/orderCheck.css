@@ -81,12 +81,6 @@ p{
 
 
 
-hr{
-    margin: 0;
-    border: 0.5px solid black;
-}
-
-
 
 .order-last{
 padding-bottom: 10px;
@@ -97,7 +91,7 @@ padding-top: 20px;
 .order-last-table{
     width: 100%;
     background-color: rgb(255, 232, 232);;
-    font-size: 20px;
+    font-size: px;
     font-weight: 500;
     padding: 5px 0px;
 }
@@ -140,7 +134,19 @@ padding-top: 20px;
     padding-bottom: 10px;
 }
 
-.orderCard-button{
+.modal-pay {
+    color : rgb(214, 35, 35);
+    border: 1px solid rgb(167, 42, 42);
+}
+
+.modal-close {
+    background-color: rgb(214, 35, 35);
+    color: white;
+    border: 1px solid rgb(167, 42, 42);
+}
+
+
+ .orderCard-button{
     width: 30%;
     background-color: white;
     border: 2px solid rgb(239, 239, 239);
@@ -151,7 +157,7 @@ padding-top: 20px;
     height: 100px;
 }
 
-.modal-close{
+/* .modal-close{
     width: 300px;
     height: 50px;
     font-size: 25px;
@@ -163,4 +169,4 @@ padding-top: 20px;
 
 .modal-close{
     color : white;
-}
+}  */

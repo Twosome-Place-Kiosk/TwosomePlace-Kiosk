@@ -17,6 +17,9 @@
     top: 0;
     width: 600px;
     transition: left 0.5s ease-out;
+
+    list-style: none;
+
 }
 
 .slides li:first-child {

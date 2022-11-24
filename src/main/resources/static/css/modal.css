@@ -31,7 +31,7 @@ p{
     
 }
 
-.modal-wrap, .modal-wrap1, .modal-bg2 {
+.modal-wrap, .modal-wrap1, .modal-wrap2 {
     display:none;
     position:fixed;
     top:50%;

@@ -30,8 +30,8 @@ hideordercheck.addEventListener('click', function(event){
     var modalPop1 = $('.modal-wrap1');
     $(modalPop1).hide();
 
-    var modalPop2 = $('.modal-bg2');
-    $(modalPop2).hide();
+    var modalPop1 = $('.modal-bg1');
+    $(modalPop1).hide();
 
 
 })
