@@ -5,7 +5,7 @@
 
     height: 50px;
 
-    background-color: rgb(214, 35, 35);
+    background-color: rgb(193, 32, 32);
     color: white;
 
     font-size: 20px;
@@ -19,6 +19,12 @@ margin-top: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.main-logo{
+    margin-top:10px;
+    height: 45px;
+    width: 50px;
 }
 
 

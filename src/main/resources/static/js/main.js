@@ -42,6 +42,12 @@ payCredit.addEventListener('click', function(event){
 const adminLoginBtn = document.querySelector(".admin-login-btn");
 
 adminLoginBtn.onclick = () => {
+    location.href="/account/login";
+}
+
+const register = document.querySelector("regist-btn");
+
+register.onclick = () => {
     location.href="/account/register";
 }
 
