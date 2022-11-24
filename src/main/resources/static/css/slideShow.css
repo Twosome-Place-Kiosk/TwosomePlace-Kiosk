@@ -22,9 +22,9 @@
 
 }
 
-.slides li:first-child {
-    /* margin-left: 50px; */
-}
+/* .slides li:first-child {
+    margin-left: 50px;
+} */
 
 .slides li:not(:last-child) {
     float: left;
