@@ -4,8 +4,6 @@ adminLoginBtn.onclick = () => {
     location.href="/account/login";
 }
 
-
-
 const banner = document.querySelector(".banner-container");
 
 banner.onclick = () => {

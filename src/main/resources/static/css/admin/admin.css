@@ -12,8 +12,14 @@
     font-weight: 1000;
 }
 
+.main-button:hover {
+    color: rgb(238, 14, 96);
+
+    cursor: pointer;
+}
+
 .regist-box {
-margin-top: 40px;
+    margin-top: 40px;
 
     height: 80px;
     display: flex;
