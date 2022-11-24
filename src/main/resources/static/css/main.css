@@ -1,6 +1,6 @@
 .header {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
 
     height: 50px;
@@ -10,6 +10,17 @@
 
     font-size: 20px;
     font-weight: 1000;
+}
+
+.header-btn-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.admin-login-btn {
+    cursor: pointer;
 }
 
 .navbar-menu {
