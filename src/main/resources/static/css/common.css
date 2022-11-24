@@ -13,11 +13,7 @@ a {
 
 a:hover {
     color: rgb(238, 14, 96);
-
-}
-
-li {
-    list-style-type: none;
+    
 }
 
 .btn {
@@ -31,4 +27,3 @@ li {
     
     
 }
-
