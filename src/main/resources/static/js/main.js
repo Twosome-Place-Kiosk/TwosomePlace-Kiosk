@@ -22,3 +22,29 @@ ordercheck.addEventListener('click', function(event){
     $(modalBg1).show();
 })
 
+
+const hideordercheck = document.querySelector(".modal-pay");
+
+hideordercheck.addEventListener('click', function(event){
+
+    var modalPop1 = $('.modal-wrap1');
+    $(modalPop1).hide();
+
+    var modalPop2 = $('.modal-bg2');
+    $(modalPop2).hide();
+
+
+})
+
+
+const pay = document.querySelector(".modal-pay");
+
+pay.addEventListener('click', function(event){
+
+    var modalPop2 = $('.modal-wrap2');
+    $(modalPop2).show();
+    
+    var modalBg2 = $('.modal-bg2');
+    $(modalBg2).show();
+
+})

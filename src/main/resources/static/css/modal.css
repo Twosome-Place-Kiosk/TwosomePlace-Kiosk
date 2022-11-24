@@ -14,7 +14,7 @@
 }
 
 /* 팝업 스타일 */
-.modal-bg, .modal-bg1 {
+.modal-bg, .modal-bg1, .modal-bg2 {
     display:none;
     width:100%;
     height:100%;
@@ -31,7 +31,7 @@ p{
     
 }
 
-.modal-wrap, .modal-wrap1 {
+.modal-wrap, .modal-wrap1, .modal-bg2 {
     display:none;
     position:fixed;
     top:50%;
