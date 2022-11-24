@@ -5,15 +5,16 @@
 
 <mapper namespace="com.twosomekiosk.twosome202211114.repository.admin.ProductManagementRepository">
     <resultMap id="product_category" type="com.twosomekiosk.twosome202211114.domain.ProductCategory">
-        <result property="id" column="id"/>
+        <result property="category_id" column="id"/>
         <result property="category_name" column="category_name"/>
     </resultMap>
 
     <insert id="saveProductMst" parameterType="java.util.List" >
         insert into
             pdt_mst
-        values(
+        values
         <foreach collection="list" item="img" separator=",">
+            (
             0,
             #{img.category_id},
             #{img.pdt_name},
@@ -29,7 +30,7 @@
 
     <select id="getCategoryList" resultType="com.twosomekiosk.twosome202211114.domain.ProductCategory">
         select
-            category_name
+            *
         from
             category_mst
     </select>

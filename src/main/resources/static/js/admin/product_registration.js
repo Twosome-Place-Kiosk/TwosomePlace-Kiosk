@@ -41,7 +41,7 @@ class CommonApi {
             type: "get",
             url: "/api/admin/product/category",
             dataType: "json",
-            success: (response) => {4
+            success: (response) => {
                 console.log(response.data);
                 responseResult = response.data;
             },
@@ -65,8 +65,7 @@ class ProductApi {
     }
 
     createProductRequest(formData) {
-        let responseData = null;
-
+        
         $.ajax({
             async: false,
             type: "post",
@@ -77,8 +76,8 @@ class ProductApi {
             data: formData,
             dataType: "json",
             success: (response) => {
-                // responseData = response.data;
                 console.log(response.data);
+                alert("제품 등록 완료");
             },
             error: (error) => {
                 console.log(error);
@@ -137,7 +136,7 @@ class RegisterEventService {
     init() {
         this.#nameInputObj.disabled = true;
         this.#priceInputObj.disabled = true;
-        this.#registButtonObj.disabled = true;
+        // this.#registButtonObj.disabled = true;
     }
 
     addCategorySelectEvent() {
@@ -191,7 +190,7 @@ class RegisterEventService {
 
             // reader.onload = function  () {
             //     imgContainer.src = reader.result ;
-            // }; 
+            // };
             formData.append("files", filesInput.files[0]);
         }
 
@@ -231,11 +230,11 @@ class RegisterService {
         const productCategoryList = commonApi.getCategoryList();
 
         const productCategory = document.querySelector(".product-category");
-        productCategory.innerHTML = `<option value="none">상품 종류</option>`;
+        productCategory.innerHTML = `<option value="">상품 종류</option>`;
 
         productCategoryList.forEach(category => {
             productCategory.innerHTML += `
-            <option value="${category.id}">${category.name}</option>
+                <option value="${category.id}">${category.name}</option>
             `;
         })
 

@@ -89,6 +89,7 @@ public class ProductManagementServiceImpl implements ProductManagementService {
                     .category_id(productRegisterRespDto.getCategory())
                     .pdt_name(productRegisterRespDto.getName())
                     .origin_name(originName)
+                    .pdt_price(productRegisterRespDto.getPrice())
                     .build());
         });
         productManagementRepository.saveProductMst(products);
