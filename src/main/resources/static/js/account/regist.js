@@ -23,6 +23,7 @@ registerButton.onclick = () => {
             console.log(response);
             const successURI = request.getResponseHeader("Location"); //키값
             location.replace(successURI + "?user_name=" + response.data); //response.data 안에 이메일값 들어있음
+            alert("회원가입 성공");
         },
         error: (error) => {
             console.log(error.responseJSON.data);
