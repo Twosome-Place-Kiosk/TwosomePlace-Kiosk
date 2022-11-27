@@ -1,7 +1,9 @@
 package com.twosomekiosk.twosome202211114.service.admin;
 
 import com.twosomekiosk.twosome202211114.domain.Product;
+import com.twosomekiosk.twosome202211114.domain.ProductAdminList;
 import com.twosomekiosk.twosome202211114.dto.admin.CategoryResponseDto;
+import com.twosomekiosk.twosome202211114.dto.admin.ProductAdminListReqDto;
 import com.twosomekiosk.twosome202211114.dto.admin.ProductRegisterReqDto;
 import com.twosomekiosk.twosome202211114.dto.admin.ProductRegisterRespDto;
 import com.twosomekiosk.twosome202211114.exception.CustomInternalServerErrorException;
@@ -104,5 +106,13 @@ public class ProductManagementServiceImpl implements ProductManagementService {
         return categoryResponseDtos;
     }
 
+    @Override
+    public List<ProductAdminListReqDto> addAdminList() throws Exception {
+        List<ProductAdminListReqDto> productAdminListReqDtos = new ArrayList<ProductAdminListReqDto>();
+        productManagementRepository.addAdminList().forEach(adminlist -> {
+            productAdminListReqDtos.add(adminlist.toDto());
+        });
 
+        return productAdminListReqDtos;
+    }
 }
