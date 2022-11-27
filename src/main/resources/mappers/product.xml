@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.twosomekiosk.twosome202211114.repository.ProductRepository">
+    <select id="getProductList" parameterType="hashmap" resultType="com.twosomekiosk.twosome202211114.domain.CollectionsProduct">
+        select
+            category_id,
+            pdt_name,
+            pdt_price,
+            origin_name
+        from
+        pdt_mst pm
+        left outer join (select count(*) product_total_count from pdt_mst
+                where
+                1 = 1
+            <if test='category != "all"'>
+                and category_id = (select id from category_mst where category_name = #{category})
+            </if>) pm_cnt on(1 = 1)
+        where
+        1 = 1
+            <if test='category != "all"'>
+                and category_id = (select id from category_mst where category_name = #{category})
+            </if>
+        limit #{index}, 16
+    </select>
+
+</mapper>
