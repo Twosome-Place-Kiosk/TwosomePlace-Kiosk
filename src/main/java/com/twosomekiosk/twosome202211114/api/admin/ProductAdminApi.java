@@ -32,9 +32,12 @@ public class ProductAdminApi {
     }
 
 
+    @GetMapping("/product/list")
+    public ResponseEntity<?> addAdminList() throws Exception {
 
-
-
+        return ResponseEntity.ok()
+                .body(new CMRespDto<>("get successfully", productManagementService.addAdminList()));
+    }
 
 
 }

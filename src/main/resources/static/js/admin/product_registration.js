@@ -91,14 +91,14 @@ class ProductApi {
         
     }
 
-    getProductListRequest(listRequestParams) {
+    getProductListRequest() {
         let responseData = null;
 
         $.ajax({
             async: false,
             type: "get",
-            url: "/api/admin/product",
-            data: listRequestParams,
+            url: "/api/admin/product/list",
+            //data: listRequestParams,
             dataType: "json",
             success: (response) => {
                 responseData = response.data;
@@ -173,17 +173,17 @@ class RegisterEventService {
     addRegistButtonEvent() {
         const filesInput = document.querySelector(".files-input");
         const imgAddButton = document.querySelector(".regist-button");
-
+        
         const formData = new FormData();
-
+        
         imgAddButton.onclick = () => {
             filesInput.click();
         }
-
+        
         filesInput.onchange = () => {
 
             var fileList = filesInput.files;
-
+            
             var reader = new FileReader();
 
             reader.readAsDataURL(fileList [0]);
@@ -194,17 +194,22 @@ class RegisterEventService {
             formData.append("files", filesInput.files[0]);
         }
 
+        
         this.#registButtonObj.onclick = () => {
-            
+        
             formData.append("category", this.#categorySelectObj.value);
-
+            
             formData.append("name", this.#nameInputObj.value);
-
+            
             formData.append("price", this.#priceInputObj.value);
-
+            
             ProductApi.getInstance().createProductRequest(formData);
         }
     }
+
+    
+
+
 }
 
 class RegisterService { 
@@ -240,10 +245,29 @@ class RegisterService {
 
     }
 
+    addAdminList() {
+        const adminList = ProductApi.getInstance().getProductListRequest();
+
+        const tableList = document.querySelector(".product-mst-list tbody");
+        adminList.forEach(list => {
+            tableList.innerHTML = `
+                <tr>
+                    <td>${list.id}</td>
+                    <td>${list.category_name}</td>
+                    <td>${list.pdt_name}</td>
+                    <td>${list.pdt_price}</td>
+                    <td><button type="button" class="btn">수정</button></td>
+                    <td><button type="button" class="btn">삭제</button></td>
+                </tr>
+            `;          
+        })
+
+        
+    }
     
 }
 
 window.onload = () => {
     RegisterService.getInstance().getCategoryList();
-    
+    RegisterService.getInstance().addAdminList();
 }
