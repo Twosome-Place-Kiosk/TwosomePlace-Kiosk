@@ -249,8 +249,9 @@ class RegisterService {
         const adminList = ProductApi.getInstance().getProductListRequest();
 
         const tableList = document.querySelector(".product-mst-list tbody");
+        //tableList.innerHTML = ``;
         adminList.forEach(list => {
-            tableList.innerHTML = `
+            tableList.innerHTML += `
                 <tr>
                     <td>${list.id}</td>
                     <td>${list.category_name}</td>
