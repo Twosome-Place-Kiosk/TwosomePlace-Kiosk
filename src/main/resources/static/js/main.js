@@ -1,15 +1,4 @@
-const products = document.querySelectorAll(".product");
 
-for(const product of products) {
-    product.addEventListener('click', function(event){
-        
-        var modalPop = $('.modal-wrap');
-        var modalBg = $('.modal-bg');
-
-        $(modalPop).show();
-        $(modalBg).show();
-    })
-}
 
 const ordercheck = document.querySelector(".pay-button");
 
@@ -207,18 +196,30 @@ class CollectionsService {
 
         responseData.forEach(product => {
             collectionProducts.innerHTML += `
-            <div class="product">
-            <div class="product-size">&nbsp; Large</div>
-
-            <div class="product-image">
-                <img src="/static/images/product/밀크티/블랙 밀크티.png">
-            </div>
-
-            <div class="product-info product-name">${product.productName}</div>
-            <div class="product-info product-price"> ${product.productPrice}원</div>
-        </div>
+                <div class="product">
+                    <div class="product-size">&nbsp; Large</div>
+                    <div class="product-image">
+                        <img src="/static/images/product/밀크티/블랙 밀크티.png">
+                    </div>
+                    <div class="product-info product-name">${product.productName}</div>
+                    <div class="product-info product-price"> ${product.productPrice}원</div>
+                </div>
             `;
         });
+
+        const products = document.querySelectorAll(".product");
+
+        for(const product of products) {
+            product.addEventListener('click', function(event){
+                
+                const modalPop = document.querySelector(".modal-wrap"); 
+                const modalBg = document.querySelector(".modal-bg");
+
+                modalPop.style.display ="block";
+                modalBg.style.display ="block";
+            })
+        }
+
     }
 
 }
