@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CollectionsProduct {
+    private int id;
     private int category_id;
     private String pdt_name;
     private int pdt_price;
@@ -17,6 +18,7 @@ public class CollectionsProduct {
 
     public CollectionListRespDto toDto() {
         return CollectionListRespDto.builder()
+                .pdtId(id)
                 .categoryId(category_id)
                 .productName(pdt_name)
                 .productPrice(pdt_price)

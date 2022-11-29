@@ -6,24 +6,36 @@
 <mapper namespace="com.twosomekiosk.twosome202211114.repository.ProductRepository">
     <select id="getProductList" parameterType="hashmap" resultType="com.twosomekiosk.twosome202211114.domain.CollectionsProduct">
         select
-            category_id,
-            pdt_name,
-            pdt_price,
-            origin_name
+            pm.id,
+            pm.category_id,
+            pm.pdt_name,
+            pm.pdt_price,
+            pm.origin_name,
+            pm_cnt.product_total_count
         from
-        pdt_mst pm
-        left outer join (select count(*) product_total_count from pdt_mst
+            pdt_mst pm
+            left outer join (
+                select
+                    count(*) product_total_count
+                from
+                    pdt_mst
                 where
-                1 = 1
-            <if test='category != "all"'>
-                and category_id = (select id from category_mst where category_name = #{category})
-            </if>) pm_cnt on(1 = 1)
+                    1 = 1
+                <if test='category != "all"'>
+                    and category_id = (select id from pdt_category_mst where category_name = #{category})
+                </if>
+            )
+            pm_cnt on (1 = 1)
         where
-        1 = 1
+            1 = 1
             <if test='category != "all"'>
-                and category_id = (select id from category_mst where category_name = #{category})
+                and pm.category_id = (select id from pdt_category_mst where category_name = #{category})
             </if>
+        group by
+            pm.id
         limit #{index}, 16
     </select>
+
+
 
 </mapper>

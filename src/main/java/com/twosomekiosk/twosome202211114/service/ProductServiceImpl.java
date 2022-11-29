@@ -6,10 +6,7 @@ import com.twosomekiosk.twosome202211114.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -29,4 +26,14 @@ public class ProductServiceImpl  implements ProductService{
         });
         return productList;
     }
+
+//    @Override
+//    public void getOptionHeader(String pdt_id) throws Exception {
+//        List<CollectionListRespDto> optionList = new ArrayList<CollectionListRespDto>();
+//
+//        Map<String, Object> map = new HashMap<String, Object>();
+//        map.put()
+//
+//        return null;
+//    }
 }
