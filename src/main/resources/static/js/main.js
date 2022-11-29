@@ -258,7 +258,9 @@ class CollectionsService {
                 modalPop.style.display ="block";
                 modalBg.style.display ="block";
 
+                console.log(responseData);
                 responseData.forEach((product,index) => {
+                    console.log(responseData[0]);
                     collectionOptions.innerHTML = `
                         <div class="modal-imagebox">
                             <img class="modal-main-image" src="/static/images/product/${responseData[index].mainImg}">
