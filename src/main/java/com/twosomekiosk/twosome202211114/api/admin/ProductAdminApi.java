@@ -40,4 +40,11 @@ public class ProductAdminApi {
     }
 
 
+    public ResponseEntity<?> registerUpdate (ProductRegisterRespDto productRegisterRespDto) throws Exception {
+
+        productManagementService.updateRegister(productRegisterRespDto);
+
+        return ResponseEntity.ok().body(new CMRespDto<>("Update Successfully", true));
+    }
+
 }

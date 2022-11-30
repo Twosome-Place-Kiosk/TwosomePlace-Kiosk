@@ -14,4 +14,6 @@ public class AdminProduct {
 
     @PostMapping("/product")
     public String adminlogin() {return "admin/product_registration";}
+
+
 }
