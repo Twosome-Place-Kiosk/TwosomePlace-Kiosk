@@ -4,7 +4,6 @@ import com.twosomekiosk.twosome202211114.domain.Product;
 import com.twosomekiosk.twosome202211114.domain.ProductAdminList;
 import com.twosomekiosk.twosome202211114.dto.admin.CategoryResponseDto;
 import com.twosomekiosk.twosome202211114.dto.admin.ProductAdminListReqDto;
-import com.twosomekiosk.twosome202211114.dto.admin.ProductRegisterReqDto;
 import com.twosomekiosk.twosome202211114.dto.admin.ProductRegisterRespDto;
 import com.twosomekiosk.twosome202211114.exception.CustomInternalServerErrorException;
 import com.twosomekiosk.twosome202211114.exception.CustomValidationException;
@@ -185,4 +184,10 @@ public class ProductManagementServiceImpl implements ProductManagementService {
         productManagementRepository.saveProductMst(products);
     }
 
+    @Override
+    public void productDelete(ProductAdminListReqDto productAdminListReqDto) throws Exception {
+        ProductAdminList productAdminList = productAdminListReqDto.toEntity();
+
+        productManagementRepository.deleteProduct(productAdminList);
+    }
 }

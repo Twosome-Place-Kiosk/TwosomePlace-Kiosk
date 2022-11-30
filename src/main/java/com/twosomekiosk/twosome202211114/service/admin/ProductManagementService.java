@@ -19,4 +19,7 @@ public interface ProductManagementService {
 
     public void updateRegister(ProductRegisterRespDto productRegisterRespDto) throws Exception;
 
+    public void productDelete(ProductAdminListReqDto productAdminListReqDto) throws Exception;
+
+
 }

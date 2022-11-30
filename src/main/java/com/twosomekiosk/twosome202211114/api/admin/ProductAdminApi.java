@@ -1,6 +1,7 @@
 package com.twosomekiosk.twosome202211114.api.admin;
 
 import com.twosomekiosk.twosome202211114.dto.CMRespDto;
+import com.twosomekiosk.twosome202211114.dto.admin.ProductAdminListReqDto;
 import com.twosomekiosk.twosome202211114.dto.admin.ProductRegisterReqDto;
 import com.twosomekiosk.twosome202211114.dto.admin.ProductRegisterRespDto;
 import com.twosomekiosk.twosome202211114.service.admin.ProductManagementService;
@@ -45,6 +46,14 @@ public class ProductAdminApi {
         productManagementService.updateRegister(productRegisterRespDto);
 
         return ResponseEntity.ok().body(new CMRespDto<>("Update Successfully", true));
+    }
+
+    @DeleteMapping("/product/delete")
+    public ResponseEntity<?> deleteProduct (@RequestBody ProductAdminListReqDto productAdminListReqDto) throws Exception {
+
+        productManagementService.productDelete(productAdminListReqDto);
+
+        return ResponseEntity.ok().body(new CMRespDto<> ("Delete Successfully", true));
     }
 
 }

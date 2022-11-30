@@ -67,4 +67,13 @@
              id = #{img.id}
             </foreach>
     </update>
+
+    <delete id="deleteProduct" parameterType="com.twosomekiosk.twosome202211114.domain.ProductAdminList">
+        delete
+        from
+        pdt_mst
+        where
+        id = #{id}
+    </delete>
+
 </mapper>

@@ -14,5 +14,7 @@ public interface ProductManagementRepository {
     public List<ProductAdminList> addAdminList() throws Exception;
     public int updateProduct(List<Product> products)throws Exception;
 
+    public int deleteProduct(ProductAdminList product) throws Exception;
+
 
 }
