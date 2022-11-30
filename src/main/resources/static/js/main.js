@@ -119,6 +119,38 @@ class CollectionsApi {
     }
 }
 
+class OptionApi {
+    static #instance = null;
+
+    static getInstance() {
+        if(this.#instance == null) {
+            this.#instance = new OptionApi();
+        }
+        return this.#instance;
+    }
+
+    getOptions() {
+        let responseData = null;
+
+        $.ajax({
+            async: false,
+            type: "get",
+            url: "/api/main/option",
+           
+            dataType: "json",
+            success: (response) => {
+                responseData = response.data;
+            },
+            error: (error) => {
+                console.log(error);
+            }
+        });
+
+        return responseData;
+
+    }
+}
+
 // class PageNumber {
 //     #page = 0;
 //     #maxPageNumber = 0;
@@ -224,8 +256,6 @@ class CollectionsService {
         }
     }
 
-
-
     getCollections(responseData) {
         const collectionProducts = document.querySelector(".product-list");
         collectionProducts.innerHTML = ``;
@@ -271,7 +301,26 @@ class CollectionsService {
             })
         }
 
-        
+        this.getColdHotOptions();
+    }
+
+    getColdHotOptions() {
+        const responseData = OptionApi.getInstance().getOptions();
+        console.log(responseData);
+
+        const coldhotbox = document.querySelector(".modal-coldhotbox-radios");
+
+        coldhotbox.innerHTML = ``;
+        responseData.forEach((product, i) => {
+            coldhotbox.innerHTML += `
+                <input type="radio" id="coldhot${i}" name="coldhots" value="${product.optionName}">
+                <label for="coldhot${i}">
+                    <span class="cup in-cold">
+                        <img class="option-img" src="/static/images/공차옵션사진/COLD HOT/${product.optionOriginName}">${product.optionName}
+                    </span>
+                </label>
+            `;            
+        });
 
     }
 

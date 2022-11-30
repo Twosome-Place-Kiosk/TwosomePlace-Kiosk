@@ -7,5 +7,4 @@ import java.util.List;
 public interface ProductService {
 
     public List<CollectionListRespDto> getProductList(String category, int page) throws Exception;
-//    public List<CollectionListRespDto> getOptionHeader(String pdt_id) throws Exception;
 }
