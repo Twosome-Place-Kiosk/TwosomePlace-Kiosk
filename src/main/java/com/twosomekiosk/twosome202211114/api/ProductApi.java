@@ -24,11 +24,7 @@ public class ProductApi {
         return ResponseEntity.ok(new CMRespDto<>("Successfully", productService.getProductList(category, page)));
     }
 
-//    @GetMapping("/option/header/{pdt_id}")
-//    public ResponseEntity<?> getOptionHeader(@PathVariable String pdt_id) throws Exception {
-//
-//        return ResponseEntity.ok(new CMRespDto<>("Successfully", productService.getOptionHeader(pdt_id)));
-//    }
+
 
     //api 2개 (옵션 모달에서 헤더 부분, 밑에 옵션 뿌려주는 부분
     //옵션 클릭햇을때 ajax 2개

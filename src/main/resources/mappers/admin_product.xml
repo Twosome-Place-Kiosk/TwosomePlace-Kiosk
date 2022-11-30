@@ -5,7 +5,7 @@
 
 <mapper namespace="com.twosomekiosk.twosome202211114.repository.admin.ProductManagementRepository">
     <resultMap id="product_category" type="com.twosomekiosk.twosome202211114.domain.ProductCategory">
-        <result property="category_id" column="id"/>
+        <result property="id" column="id"/>
         <result property="category_name" column="category_name"/>
     </resultMap>
 
