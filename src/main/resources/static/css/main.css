@@ -145,7 +145,7 @@
     cursor: pointer;
 }
 .shopping-basket {
-    width: 25%;
+    width: 30%;
     float: right;
 }
 
@@ -255,7 +255,7 @@
 }
 
 .pay-button-content {
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .card-image {

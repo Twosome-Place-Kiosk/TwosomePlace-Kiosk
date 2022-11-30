@@ -249,18 +249,15 @@ class CollectionsService {
 
         const products = document.querySelectorAll(".product");
 
-        for(const product of products) {
+        for(const [index,product] of products.entries()) {
             product.addEventListener('click', function(event){
-                
+
                 const modalPop = document.querySelector(".modal-wrap"); 
                 const modalBg = document.querySelector(".modal-bg");
-
                 modalPop.style.display ="block";
                 modalBg.style.display ="block";
-
                 console.log(responseData);
-                responseData.forEach((product,index) => {
-                    console.log(responseData[0]);
+
                     collectionOptions.innerHTML = `
                         <div class="modal-imagebox">
                             <img class="modal-main-image" src="/static/images/product/${responseData[index].mainImg}">
@@ -270,7 +267,7 @@ class CollectionsService {
                             <span class="modal-price">${responseData[index].productPrice}원</span>
                         </div>
                     `;
-                });
+               
             })
         }
 
