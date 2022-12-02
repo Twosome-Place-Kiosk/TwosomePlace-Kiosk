@@ -32,6 +32,11 @@ class ProductMst {
     }
 }
 
+
+var deletepdt = {
+    id : 0
+}
+
 class CommonApi {
     getCategoryList() {
         let responseResult = null;
@@ -92,6 +97,7 @@ class ProductApi {
     }
 
     getProductListRequest() {
+
         let responseData = null;
 
         $.ajax({
@@ -287,28 +293,29 @@ class RegisterService {
                     <td>${list.category_name}</td>
                     <td>${list.pdt_name}</td>
                     <td>${list.pdt_price}</td>
-                    <td><button type="button" class="btn">수정</button></td>
-                    <td><button type="button" class="btn">삭제</button></td>
+                    <td><button type="button" class="btn inquiry">조회</button></td>
+                    <td><button type="button" class="btn" update>수정</button></td>
+                    <td><button type="button" class="btn delete">삭제</button></td>
                 </tr>
             `;          
-        })
+        });
 
         
     }
 
     deleteAdminList() {
         const deleteButton = document.querySelectorAll(".delete");
-
+        const responseData = ProductApi.getInstance().getProductListRequest();
         deleteButton.forEach((button,index) => {
 
             button.onclick = () => {
-                deletepdt['pdtId'] = responseData[index].pdtId;
+                
+                deletepdt['id'] = responseData[index].id;
+                console.log(deletepdt['id']);
                 pdtDeleteApi.getInstance().deleteProduct();
             }
         })
-
     }
-    
 }
 
 
