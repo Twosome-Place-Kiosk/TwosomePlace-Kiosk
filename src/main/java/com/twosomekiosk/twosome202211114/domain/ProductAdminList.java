@@ -15,6 +15,7 @@ import lombok.NoArgsConstructor;
 
 public class ProductAdminList {
     private int id;
+    private int category_id;
     private String category_name;
     private String pdt_name;
     private int pdt_price;
@@ -23,6 +24,7 @@ public class ProductAdminList {
     public ProductAdminListReqDto toDto() {
         return ProductAdminListReqDto.builder()
                 .id(id)
+                .category_id(category_id)
                 .category_name(category_name)
                 .pdt_name(pdt_name)
                 .pdt_price(pdt_price)

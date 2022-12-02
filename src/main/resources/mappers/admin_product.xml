@@ -39,6 +39,7 @@
 
         SELECT
         pm.id,
+        pm.category_id,
         cm.category_name,
         pm.pdt_name,
         pm.pdt_price

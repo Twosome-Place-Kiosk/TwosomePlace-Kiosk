@@ -25,7 +25,6 @@ public class ProductAdminApi {
 
     @PostMapping("/product")
     public ResponseEntity<?> registerMst(ProductRegisterRespDto productRegisterRespDto) throws Exception {
-
         productManagementService.registerMst(productRegisterRespDto);
 
         return ResponseEntity.created(null)
@@ -40,20 +39,19 @@ public class ProductAdminApi {
                 .body(new CMRespDto<>("get successfully", productManagementService.addAdminList()));
     }
 
-
+    @PutMapping("/product/update")
     public ResponseEntity<?> registerUpdate (ProductRegisterRespDto productRegisterRespDto) throws Exception {
-
         productManagementService.updateRegister(productRegisterRespDto);
 
-        return ResponseEntity.ok().body(new CMRespDto<>("Update Successfully", true));
+        return ResponseEntity.ok().body(new CMRespDto<> ("Update Successfully", true));
     }
 
     @DeleteMapping("/product/delete")
     public ResponseEntity<?> deleteProduct (@RequestBody ProductAdminListReqDto productAdminListReqDto) throws Exception {
-
         productManagementService.productDelete(productAdminListReqDto);
 
         return ResponseEntity.ok().body(new CMRespDto<> ("Delete Successfully", true));
     }
 
 }
+

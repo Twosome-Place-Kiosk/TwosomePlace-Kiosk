@@ -107,6 +107,7 @@ class ProductApi {
             //data: listRequestParams,
             dataType: "json",
             success: (response) => {
+                console.log(response.data)
                 responseData = response.data;
             },
             error: (error) => {
@@ -285,7 +286,6 @@ class RegisterService {
         const adminList = ProductApi.getInstance().getProductListRequest();
 
         const tableList = document.querySelector(".product-mst-list tbody");
-        //tableList.innerHTML = ``;
         adminList.forEach(list => {
             tableList.innerHTML += `
                 <tr>
@@ -306,13 +306,32 @@ class RegisterService {
     deleteAdminList() {
         const deleteButton = document.querySelectorAll(".delete");
         const responseData = ProductApi.getInstance().getProductListRequest();
-        deleteButton.forEach((button,index) => {
 
+        deleteButton.forEach((button,index) => {
             button.onclick = () => {
                 
                 deletepdt['id'] = responseData[index].id;
                 console.log(deletepdt['id']);
                 pdtDeleteApi.getInstance().deleteProduct();
+            }
+        })
+    }
+
+    //list 카테고리에 있는 데이터를 사용해서 수정 버튼 성공
+    selectInquiry() {
+        const select = document.querySelectorAll(".inquiry");
+        const responseData = ProductApi.getInstance().getProductListRequest();
+        const categorySelectObj = document.querySelector(".product-category");
+        const nameInputObj = document.querySelector(".product-name");
+        const priceInputObj = document.querySelector(".product-price");
+        
+
+        select.forEach((button,index) => {
+            button.onclick = () => {
+                categorySelectObj.value = responseData[index].category_id;
+                nameInputObj.value = responseData[index].category_name;
+                priceInputObj.value = responseData[index].pdt_price;
+                
             }
         })
     }
@@ -324,4 +343,5 @@ window.onload = () => {
     RegisterService.getInstance().getCategoryList();
     RegisterService.getInstance().addAdminList();
     RegisterService.getInstance().deleteAdminList();
+    RegisterService.getInstance().selectInquiry();
 }

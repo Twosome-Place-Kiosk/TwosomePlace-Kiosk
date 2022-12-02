@@ -139,8 +139,8 @@ public class ProductManagementServiceImpl implements ProductManagementService {
                 if(!resource.exists()) {
                     String targetTempPath = resourceLoader.getResource("classpath:/static").getURI().toString();
                     String srcTempPath = resourceLoader.getResource("classpath:/static").getURI().toString();
-                    targetTempPath = "/" + targetTempPath.substring(targetTempPath.indexOf("/") + 1);
-                    srcTempPath = "/" + srcTempPath.substring(srcTempPath.indexOf("/") + 1, srcTempPath.indexOf("target")) + "/src/main/resources/static";
+                    targetTempPath = targetTempPath.substring(targetTempPath.indexOf("/") + 1);
+                    srcTempPath = srcTempPath.substring(srcTempPath.indexOf("/") + 1, srcTempPath.indexOf("target")) + "/src/main/resources/static";
 
                     System.out.println(targetTempPath);
                     System.out.println(srcTempPath);
@@ -150,8 +150,8 @@ public class ProductManagementServiceImpl implements ProductManagementService {
                     f.mkdirs();
                 }
 
-                targetFilePath = "/" + resource.getURI().toString().substring(resource.getURI().toString().indexOf("/") + 1);
-                srcFilePath = "/" + resource.getURI().toString().substring(resource.getURI().toString().indexOf("/") + 1, resource.getURI().toString().indexOf("target")) + "/src/main/resources/static/upload/product";
+                targetFilePath = resource.getURI().toString().substring(resource.getURI().toString().indexOf("/") + 1);
+                srcFilePath = resource.getURI().toString().substring(resource.getURI().toString().indexOf("/") + 1, resource.getURI().toString().indexOf("target")) + "/src/main/resources/static/upload/product";
                 System.out.println(targetFilePath);
                 System.out.println(srcFilePath);
 
@@ -190,4 +190,6 @@ public class ProductManagementServiceImpl implements ProductManagementService {
 
         productManagementRepository.deleteProduct(productAdminList);
     }
+
+
 }
