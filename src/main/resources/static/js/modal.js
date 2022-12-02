@@ -7,6 +7,7 @@
 
 // }
 
+popClose();
 function popClose() {
    var modalPop = document.querySelector(".modal-wrap");
    var modalBg = document.querySelector(".modal-bg");

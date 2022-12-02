@@ -67,8 +67,6 @@ payNo.addEventListener('click', function(event){
 
 
 
-
-
 const adminLoginBtn = document.querySelector(".admin-login-btn");
 
 adminLoginBtn.onclick = () => {
@@ -254,7 +252,33 @@ class CollectionsService {
             alert("해당 카테고리에 등록된 상품 정보가 없습니다.");
             location.href = "/main/all";
         }
+
+        // this.addBasket();
     }
+
+    // addBasket() {
+    //     const responseData = CollectionsApi.getInstance().getCollections(this.collectionsEntity.page);
+    //     console.log(responseData);
+
+    //     const addBasketProduct = document.querySelector(".basket-product-list");
+    //     const addBasketbutton = document.querySelector(".modal-addcart");
+    //     addBasketProduct.innerHTML = ``;
+        
+
+    //     for(const [index,addBasketbutton] of addBasketbuttons.entries()) {
+    //     addBasketbutton.addEventListener('click',function(event) {
+
+    //             addBasketProduct.innerHTML +=`
+    //             <div class="basket-product">
+    //             <img class="cart-image" src="/static/images/product/${responseData[index].mainImg}">
+    //             </div>
+    //             `;
+    //         })
+    //     };
+
+    // }
+    
+
 
     getCollections(responseData) {
         const collectionProducts = document.querySelector(".product-list");
@@ -277,8 +301,12 @@ class CollectionsService {
             `;            
         });
 
-        const products = document.querySelectorAll(".product");
 
+
+        const products = document.querySelectorAll(".product");
+        
+
+        
         for(const [index,product] of products.entries()) {
             product.addEventListener('click', function(event){
 
@@ -288,21 +316,43 @@ class CollectionsService {
                 modalBg.style.display ="block";
                 console.log(responseData);
 
-                    collectionOptions.innerHTML = `
-                        <div class="modal-imagebox">
-                            <img class="modal-main-image" src="/static/images/product/${responseData[index].mainImg}">
-                        </div>
-                        <div class="modal-titlebox">
-                            <span class="modal-pdtname">${responseData[index].productName}</span>
-                            <span class="modal-price">${responseData[index].productPrice}원</span>
-                        </div>
-                    `;
-               
-            })
-        }
+                collectionOptions.innerHTML = `
+                    <div class="modal-imagebox">
+                        <img class="modal-main-image" src="/static/images/product/${responseData[index].mainImg}">
+                    </div>
+                    <div class="modal-titlebox">
+                        <span class="modal-pdtname">${responseData[index].productName}</span>
+                        <span class="modal-price">${responseData[index].productPrice}원</span>
+                    </div>
+                `;
 
+                const addBasketbutton = document.querySelector(".modal-addcart");
+                const addBasketProduct = document.querySelector(".basket-product-list");
+                
+                addBasketbutton.onclick = () => {
+                    console.log(index);
+                    addBasketProduct.innerHTML +=`
+                    <div class="basket-product">
+                    <img class="cart-image" src="/static/images/product/${responseData[index].mainImg}">
+                    </div>
+                    `;
+                    popClose();
+                }
+
+            })
+         
+
+
+            
+            
+    
+    
         this.getColdHotOptions();
     }
+}
+
+
+
 
     getColdHotOptions() {
         const responseData = OptionApi.getInstance().getOptions();
@@ -324,8 +374,10 @@ class CollectionsService {
 
     }
 
+    
 }
 
 window.onload = () => {
     CollectionsService.getInstance().loadCollections();
 }
+
