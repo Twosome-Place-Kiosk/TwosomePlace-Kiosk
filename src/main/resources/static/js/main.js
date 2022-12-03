@@ -80,6 +80,8 @@ homeBtn.onclick = () => {
 }
 
 
+
+
 class CollectionsApi {
     static #instance = null;
 
@@ -284,10 +286,6 @@ class CollectionsService {
         const collectionProducts = document.querySelector(".product-list");
         collectionProducts.innerHTML = ``;
 
-        const collectionOptions = document.querySelector(".option-header");
-        collectionOptions.innerHTML = ``;
-
-
         responseData.forEach(product => {
             collectionProducts.innerHTML += `
                 <li class="product" value="${product.pdtId}">
@@ -301,10 +299,10 @@ class CollectionsService {
             `;            
         });
 
-
+        const collectionOptions = document.querySelector(".option-header");
+        collectionOptions.innerHTML = ``;
 
         const products = document.querySelectorAll(".product");
-        
 
         
         for(const [index,product] of products.entries()) {
@@ -358,20 +356,106 @@ class CollectionsService {
         const responseData = OptionApi.getInstance().getOptions();
         console.log(responseData);
 
-        const coldhotbox = document.querySelector(".modal-coldhotbox-radios");
+        const coldHotBox = document.querySelector(".modal-coldhotbox-radios");
+        const iceBox = document.querySelector(".modal-icebox-radios");
+        const sugarBox = document.querySelector(".modal-sugarbox-radios");
+        const slides = document.querySelector(".slides");
 
-        coldhotbox.innerHTML = ``;
+        coldHotBox.innerHTML = ``;
+        iceBox.innerHTML = ``;
+        sugarBox.innerHTML = ``;
+        slides.innerHTML = ``;
+
         responseData.forEach((product, i) => {
-            coldhotbox.innerHTML += `
-                <input type="radio" id="coldhot${i}" name="coldhots" value="${product.optionName}">
-                <label for="coldhot${i}">
-                    <span class="cup in-cold">
-                        <img class="option-img" src="/static/images/공차옵션사진/COLD HOT/${product.optionOriginName}">${product.optionName}
-                    </span>
-                </label>
-            `;            
+            if(i < 4){
+                coldHotBox.innerHTML += `
+                    <input type="radio" id="coldhot${i}" name="coldhots" value="${product.optionName}">
+                    <label for="coldhot${i}">
+                        <span class="cup in-cold">
+                            <img class="option-img" src="/static/images/공차옵션사진/${product.optionOriginName}">${product.optionName}
+                        </span>
+                    </label>
+                `;
+            } 
+            else if(i>=4 && i<7){
+                iceBox.innerHTML += `
+                    <input type="radio" id="ice${i-4}" name="ices" value="${product.optionName}">
+                    <label for="ice${i-4}">
+                        <span class="ice less-ice">
+                            <img class="option-img" src="/static/images/공차옵션사진/${product.optionOriginName}">${product.optionName}
+                        </span>
+                    </label>
+                `;
+            }
+            else if(i>=7 && i<12){
+                sugarBox.innerHTML += `
+                    <input type="radio" id="sugar${i-7}" name="sugars" value="${product.optionName}">
+                    <label for="sugar${i-7}">
+                        <span class="sugar sugar-0" >
+                            <img class="option-img" src="/static/images/공차옵션사진/${product.optionOriginName}">${product.optionName}
+                        </span>
+                    </label>
+                `;
+            }
+            else {
+                slides.innerHTML += `
+                    <li>
+                        <input type="checkbox" id="topping${i-12}" name="topping" onclick="countCheck(this);">
+                        <label for="topping${i-12}">
+                            <span class="topping topping-">
+                                <img class="option-img" src="/static/images/공차옵션사진/${product.optionOriginName}">${product.optionName}
+                            </span>
+                        </label>
+                    </li>
+                `;
+                
+                
+                // new SlideShow();
+                // SlideShow.getInstance().init();
+            }
         });
 
+        const slideImg = document.querySelectorAll('.slides li');
+        let currentIdx = 0;
+        const slideCount = slideImg.length % 5 == 0 ? slideImg.length / 5 : Math.floor(slideImg.length / 5) + 1;
+        const prev = document.querySelector('.moving-left');
+        const next = document.querySelector('.moving-right');
+        const slideWidth = 600; //한개의 슬라이드 넓이
+        const slideMargin = 5;
+
+        slides.style.width = (slideWidth + slideMargin) * slideCount + 'px';
+
+        prev.onclick = () => {
+            if (currentIdx !== 0) {
+                this.moveSlide(currentIdx - 1);
+                currentIdx -= 1;
+            }
+            console.log(
+            `
+            slideCount: ${slideCount}
+            currentIdx: ${currentIdx}
+            `
+            );
+        }
+
+        next.onclick = () => {
+            if (currentIdx < slideCount) {
+                this.moveSlide(currentIdx + 1);
+                currentIdx += 1;
+            }
+            console.log(
+            `
+            slideCount: ${slideCount}
+            currentIdx: ${currentIdx}
+            `
+            );
+        }
+    }
+
+    moveSlide(num){
+        const slides = document.querySelector(".slides");
+        slides.style.left = -num * 400 + 'px';
+        this.currentIdx = num;
     }
 
     
