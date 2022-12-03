@@ -15,11 +15,6 @@ public class MainController {
         return "banner";
     }
 
-    @GetMapping("/main")
-    public String loadMain() {
-        return "main";
-    }
-
     @GetMapping("/orderCheck")
     public String loadOption() {
         return "orderCheck";

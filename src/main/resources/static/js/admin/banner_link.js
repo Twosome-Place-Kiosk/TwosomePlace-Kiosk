@@ -7,6 +7,6 @@ adminLoginBtn.onclick = () => {
 const banner = document.querySelector(".banner-container");
 
 banner.onclick = () => {
-    location.href="/main";
+    location.href="/main/all";
 }
 

@@ -253,31 +253,7 @@ class CollectionsService {
             location.href = "/main/all";
         }
 
-        // this.addBasket();
     }
-
-    // addBasket() {
-    //     const responseData = CollectionsApi.getInstance().getCollections(this.collectionsEntity.page);
-    //     console.log(responseData);
-
-    //     const addBasketProduct = document.querySelector(".basket-product-list");
-    //     const addBasketbutton = document.querySelector(".modal-addcart");
-    //     addBasketProduct.innerHTML = ``;
-        
-
-    //     for(const [index,addBasketbutton] of addBasketbuttons.entries()) {
-    //     addBasketbutton.addEventListener('click',function(event) {
-
-    //             addBasketProduct.innerHTML +=`
-    //             <div class="basket-product">
-    //             <img class="cart-image" src="/static/images/product/${responseData[index].mainImg}">
-    //             </div>
-    //             `;
-    //         })
-    //     };
-
-    // }
-    
 
 
     getCollections(responseData) {
@@ -304,8 +280,6 @@ class CollectionsService {
 
 
         const products = document.querySelectorAll(".product");
-        
-
         
         for(const [index,product] of products.entries()) {
             product.addEventListener('click', function(event){
@@ -334,21 +308,19 @@ class CollectionsService {
                     addBasketProduct.innerHTML +=`
                     <div class="basket-product">
                     <img class="cart-image" src="/static/images/product/${responseData[index].mainImg}">
+                    <div class="countbtn-box">
+                    <div class="countbtn plus-btn"><i class="plus-btn fa-solid fa-circle-plus"></i></div>
+                    <div class="countbtn count-zone">1</div>
+                    <div class="countbtn minus-btn"><i class="minus-btn fa-solid fa-circle-minus"></i></div>
                     </div>
                     `;
                     popClose();
                 }
-
             })
-         
 
-
-            
-            
-    
-    
-        this.getColdHotOptions();
-    }
+           
+         this.getColdHotOptions();
+     }
 }
 
 
@@ -370,6 +342,8 @@ class CollectionsService {
                     </span>
                 </label>
             `;            
+
+
         });
 
     }
