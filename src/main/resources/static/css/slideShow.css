@@ -5,11 +5,11 @@
     position: relative;
     overflow: hidden;
 }
-.modal-toppingbox-slides {
+/* .modal-toppingbox-slides {
     display: flex;
     align-items: center;
     justify-content: center;
-}
+} */
 
 .slides {
     position: absolute;
