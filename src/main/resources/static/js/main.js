@@ -305,9 +305,9 @@ class CollectionsService {
                     <div class="basket-product">
                     <img class="cart-image" src="/static/images/product/${responseData[index].mainImg}">
                     <div class="countbtn-box">
-                    <div class="countbtn plus-btn"><i class="plus-btn fa-solid fa-circle-plus"></i></div>
+                    <div class="countbtn plus-btn" onclick="plus()"><i class="plus-btn fa-solid fa-circle-plus"></i></div>
                     <div class="countbtn count-zone">1</div>
-                    <div class="countbtn minus-btn"><i class="minus-btn fa-solid fa-circle-minus"></i></div>
+                    <div class="countbtn minus-btn" onclick="minus()"><i class="minus-btn fa-solid fa-circle-minus"></i></div>
                     </div>
                     `;
                     popClose();
@@ -484,6 +484,25 @@ class CollectionsService {
 
 
 
+}
+
+
+
+function plus () {
+    const count = document.querySelector(".count-zone");
+    let countInnerHtml = document.querySelector(".count-zone").textContent;
+    let countNum = Number(countInnerHtml);
+    countNum += 1;
+    count.innerHTML = `${countNum}`;
+}
+
+function minus () {
+    const count = document.querySelector(".count-zone");
+    let countInnerHtml = document.querySelector(".count-zone").textContent;
+    let countNum = Number(countInnerHtml);
+
+    countNum -= 1;
+    count.innerHTML = `${countNum}`;
 }
 
 
