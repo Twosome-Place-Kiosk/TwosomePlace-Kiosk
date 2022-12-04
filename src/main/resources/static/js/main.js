@@ -1,5 +1,3 @@
-
-
 const ordercheck = document.querySelector(".pay-button");
 
 ordercheck.addEventListener('click', function(event){
@@ -279,7 +277,6 @@ class CollectionsService {
         collectionOptions.innerHTML = ``;
 
         const products = document.querySelectorAll(".product");
-        
         for(const [index,product] of products.entries()) {
             product.addEventListener('click', function(event){
 
@@ -316,18 +313,15 @@ class CollectionsService {
                     popClose();
                 }
             })
-
-           
-         this.getColdHotOptions();
-     }
-}
-
+        
+        this.getOptions();
+        }
+    }
 
 
-
-    getColdHotOptions() {
+    getOptions() {
         const responseData = OptionApi.getInstance().getOptions();
-        console.log(responseData);
+        // console.log(responseData);
 
         const coldHotBox = document.querySelector(".modal-coldhotbox-radios");
         const iceBox = document.querySelector(".modal-icebox-radios");
@@ -423,6 +417,8 @@ class CollectionsService {
             `
             );
         }
+
+        this.optionClick(responseData);
     }
 
     moveSlide(num){
@@ -431,8 +427,65 @@ class CollectionsService {
         this.currentIdx = num;
     }
 
-    
+    optionClick(responseData) {
+        console.log(responseData);
+
+        const radioOptions = document.querySelectorAll(".optionbox input[type=radio]");
+        const checkboxOptions = document.querySelectorAll(".optionbox input[type=checkbox]");
+        const option1 = document.querySelector(".option1");
+        const option2 = document.querySelector(".option2");
+        const option3 = document.querySelector(".option3");
+        const option4 = document.querySelector(".option4");
+        const option5 = document.querySelector(".option5");
+        const option6 = document.querySelector(".option6");
+
+        for(let i=0; i<radioOptions.length; i++){
+            radioOptions[i].addEventListener('click', function(){
+                if( i>=0 && i<4 ){
+                    option1.innerHTML = `
+                        ${responseData[i].optionName}/
+                    `;
+                }
+                else if( i>=4 && i<7 ){
+                    option2.innerHTML = `
+                        ${responseData[i].optionName}/
+                    `;
+                }
+                else if( i>=7 && i<12 ){
+                    option3.innerHTML = `
+                        ${responseData[i].optionName}/
+                    `;
+                }
+                
+            })
+        }
+        for (let i=0; i<checkboxOptions.length; i++) {
+            checkboxOptions[i].addEventListener('click', function(){
+                if(option4.innerHTML.length == 0){
+                    option4.innerHTML = `
+                        ${responseData[i+12].optionName}/
+                    `;
+                }
+                else if(option4.innerHTML.length > 0 && option5.innerHTML.length == 0){
+                    option5.innerHTML = `
+                        ${responseData[i+12].optionName}/
+                    `;
+                }
+                else if(option4.innerHTML.length > 0 && option5.innerHTML.length > 0) {
+                    option6.innerHTML = `
+                        ${responseData[i+12].optionName}
+                    `;
+                }
+                
+            })
+        }
+
+    }
+
+
+
 }
+
 
 window.onload = () => {
     CollectionsService.getInstance().loadCollections();
