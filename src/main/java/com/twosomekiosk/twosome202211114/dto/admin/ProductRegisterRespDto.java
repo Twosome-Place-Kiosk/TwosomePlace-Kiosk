@@ -13,6 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductRegisterRespDto {
+
     private List<MultipartFile> files;
 
     private int id;

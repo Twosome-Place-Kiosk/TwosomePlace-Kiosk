@@ -83,6 +83,7 @@ class ProductApi {
             success: (response) => {
                 console.log(response.data);
                 alert("제품 등록 완료");
+                location.reload();
             },
             error: (error) => {
                 console.log(error);
@@ -107,7 +108,6 @@ class ProductApi {
             //data: listRequestParams,
             dataType: "json",
             success: (response) => {
-                console.log(response.data)
                 responseData = response.data;
             },
             error: (error) => {
@@ -139,6 +139,7 @@ class pdtDeleteApi{
             dataType: "json",
             success: (response) => {
                 alert("제품 삭제 완료");
+                location.reload();
             },
 
             error: (error) => {
@@ -147,6 +148,45 @@ class pdtDeleteApi{
             }
         })
     }
+
+}
+
+class pdtUpdateApi{
+    static #instance = null;
+    
+    static getInstance() {
+        if(this.#instance == null){
+            this.#instance = new pdtUpdateApi();
+        }
+        return this.#instance;
+    }
+
+    updateProduct(formData) {
+
+        $.ajax({
+           async : false,
+           type: "put",
+           url: "/api/admin/product/update",
+           enctype: "multipart/form-data",
+           contentType: false,
+           processData: false,
+           data: formData,
+           dataType: "json",
+           success: (response) => {
+               console.log(response.data);
+               alert("제품 수정 완료");
+               location.reload();
+           },
+
+           error : (error) => {
+               console.log(error);
+               let entries = formData.entries();
+               for (const pair of entries) {
+               console.log(pair[0]+ ', ' + pair[1]); 
+               }
+           }
+       })
+   }       
 }
 
 class RegisterEventService {
@@ -171,8 +211,8 @@ class RegisterEventService {
     }
 
     init() {
-        this.#nameInputObj.disabled = true;
-        this.#priceInputObj.disabled = true;
+        // this.#nameInputObj.disabled = true;
+        // this.#priceInputObj.disabled = true;
         // this.#registButtonObj.disabled = true;
     }
 
@@ -267,6 +307,8 @@ class RegisterService {
         new RegisterEventService();
     }
 
+
+
     getCategoryList() {
         const commonApi = new CommonApi();
         const productCategoryList = commonApi.getCategoryList();
@@ -281,6 +323,8 @@ class RegisterService {
         })
 
     }
+
+
 
     addAdminList() {
         const adminList = ProductApi.getInstance().getProductListRequest();
@@ -303,6 +347,8 @@ class RegisterService {
         
     }
 
+
+
     deleteAdminList() {
         const deleteButton = document.querySelectorAll(".delete");
         const responseData = ProductApi.getInstance().getProductListRequest();
@@ -314,10 +360,12 @@ class RegisterService {
                 console.log(deletepdt['id']);
                 pdtDeleteApi.getInstance().deleteProduct();
             }
-        })
+        });
     }
 
-    //list 카테고리에 있는 데이터를 사용해서 수정 버튼 성공
+
+
+    //list 카테고리에 있는 데이터를 사용해서 조회 버튼 성공
     selectInquiry() {
         const select = document.querySelectorAll(".inquiry");
         const responseData = ProductApi.getInstance().getProductListRequest();
@@ -331,11 +379,41 @@ class RegisterService {
                 categorySelectObj.value = responseData[index].category_id;
                 nameInputObj.value = responseData[index].category_name;
                 priceInputObj.value = responseData[index].pdt_price;
+
+                console.log(responseData);
+                
+            }
+        });
+    }
+
+
+
+
+    UpdateButton() {
+        const updateButton = document.querySelectorAll(".update");
+        const responseData = ProductApi.getInstance().getProductListRequest();
+
+        updateButton.forEach((button,index) => {
+            button.onclick = () => {
+                formData.append("id" , responseData[index].id);
+                formData.append("category", categorySelectObj.value);
+                responseData[index].category_name = nameInputObj.value
+                formData.append("price", priceInputObj.value);
+                console.log(responseData[index].id);
+                pdtUpdateApi.getInstance.updateProduct();
+                
                 
             }
         })
+
+        
     }
+
+    
+
+   
 }
+
 
 
 
@@ -344,4 +422,5 @@ window.onload = () => {
     RegisterService.getInstance().addAdminList();
     RegisterService.getInstance().deleteAdminList();
     RegisterService.getInstance().selectInquiry();
+    RegisterService.getInstance().UpdateButton();
 }
