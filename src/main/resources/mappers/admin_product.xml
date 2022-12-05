@@ -56,17 +56,15 @@
         update
             pdt_mst
         set
-            <foreach collection="list" item="img" separator=",">
-            category_id = #{img.category_id},
-            pdt_name = #{img.pdt_name},
-            pdt_price = #{img.pdt_price},
-            origin_name = #{img.origin_name},
-            save_name = #{img.save_name},
-            create_date = now(),
-            update_date = now()
-        where
-             id = #{img.id}
-            </foreach>
+                category_id = #{category_id},
+                pdt_name = #{pdt_name},
+                pdt_price = #{pdt_price},
+                origin_name = #{origin_name},
+                save_name = #{save_name},
+                create_date = now(),
+                update_date = now()
+            where
+                id = #{id}
     </update>
 
     <delete id="deleteProduct" parameterType="com.twosomekiosk.twosome202211114.domain.ProductAdminList">
