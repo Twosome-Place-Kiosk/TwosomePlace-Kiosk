@@ -163,9 +163,10 @@ class pdtUpdateApi{
 
     updateProduct(formData) {
 
+
         $.ajax({
            async : false,
-           type: "put",
+           type: "post",
            url: "/api/admin/product/update",
            enctype: "multipart/form-data",
            contentType: false,
@@ -175,11 +176,11 @@ class pdtUpdateApi{
            success: (response) => {
                console.log(response.data);
                alert("제품 수정 완료");
-               location.reload();
+               location.reload(); 
            },
-
            error : (error) => {
                console.log(error);
+               
                let entries = formData.entries();
                for (const pair of entries) {
                console.log(pair[0]+ ', ' + pair[1]); 
@@ -188,6 +189,7 @@ class pdtUpdateApi{
        })
    }       
 }
+
 
 class RegisterEventService {
     #categorySelectObj;
@@ -290,6 +292,7 @@ class RegisterEventService {
 }
 
 class RegisterService { 
+
     static #instance = null;
 
     static getInstance() {
@@ -299,13 +302,6 @@ class RegisterService {
         return this.#instance;
     }
 
-    constructor() {
-        this.loadRegister();
-    }
-
-    loadRegister() {
-        new RegisterEventService();
-    }
 
 
 
@@ -379,8 +375,6 @@ class RegisterService {
                 categorySelectObj.value = responseData[index].category_id;
                 nameInputObj.value = responseData[index].category_name;
                 priceInputObj.value = responseData[index].pdt_price;
-
-                console.log(responseData);
                 
             }
         });
@@ -392,26 +386,29 @@ class RegisterService {
     UpdateButton() {
         const updateButton = document.querySelectorAll(".update");
         const responseData = ProductApi.getInstance().getProductListRequest();
-
-        updateButton.forEach((button,index) => {
-            button.onclick = () => {
-                formData.append("id" , responseData[index].id);
-                formData.append("category", categorySelectObj.value);
-                responseData[index].category_name = nameInputObj.value
-                formData.append("price", priceInputObj.value);
-                console.log(responseData[index].id);
-                pdtUpdateApi.getInstance.updateProduct();
-                
-                
-            }
-        })
-
         
+        updateButton.forEach((button,index) => {
+
+            button.onclick = () => {
+
+            const formData =new FormData();
+
+
+            console.log(responseData[index].id);
+                
+            formData.append("id" , responseData[index].id);
+
+            formData.append("category", categorySelectObj.value);
+
+            formData.append("name", nameInputObj.value);
+
+            formData.append("price", priceInputObj.value);
+
+            ProductApi.getInstance.UpdateButton(formData);
+            }
+        
+        });
     }
-
-    
-
-   
 }
 
 
