@@ -39,7 +39,7 @@ public class ProductAdminApi {
                 .body(new CMRespDto<>("get successfully", productManagementService.addAdminList()));
     }
 
-    @PutMapping("/product/update")
+    @PostMapping("/product/update")
     public ResponseEntity<?> registerUpdate (ProductRegisterRespDto productRegisterRespDto) throws Exception {
         productManagementService.updateRegister(productRegisterRespDto);
 

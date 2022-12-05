@@ -52,7 +52,7 @@
 
     </select>
 
-    <update id="updateProduct" parameterType="java.util.List">
+    <update id="updateProduct" parameterType="com.twosomekiosk.twosome202211114.domain.Product">
         update
             pdt_mst
         set
@@ -61,10 +61,9 @@
                 pdt_price = #{pdt_price},
                 origin_name = #{origin_name},
                 save_name = #{save_name},
-                create_date = now(),
                 update_date = now()
             where
-                id = #{id}
+                id = #{pdt_id}
     </update>
 
     <delete id="deleteProduct" parameterType="com.twosomekiosk.twosome202211114.domain.ProductAdminList">
