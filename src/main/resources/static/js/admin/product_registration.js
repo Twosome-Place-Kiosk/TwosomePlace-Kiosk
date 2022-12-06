@@ -163,7 +163,6 @@ class pdtUpdateApi{
 
     updateProduct(formData) {
 
-
         $.ajax({
            async : false,
            type: "post",
@@ -334,7 +333,7 @@ class RegisterService {
                     <td>${list.pdt_name}</td>
                     <td>${list.pdt_price}</td>
                     <td><button type="button" class="btn inquiry">조회</button></td>
-                    <td><button type="button" class="btn" update>수정</button></td>
+                    <td><button type="button" class="btn update">수정</button></td>
                     <td><button type="button" class="btn delete">삭제</button></td>
                 </tr>
             `;          
@@ -404,7 +403,7 @@ class RegisterService {
 
             formData.append("price", priceInputObj.value);
 
-            ProductApi.getInstance.UpdateButton(formData);
+            
             }
         
         });
