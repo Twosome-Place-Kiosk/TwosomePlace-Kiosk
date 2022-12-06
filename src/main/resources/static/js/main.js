@@ -208,81 +208,6 @@ class OrderMst {
     
 }
 
-// class PageNumber {
-//     #page = 0;
-//     #maxPageNumber = 0;
-//     #pageNumberList = null;
-
-//     constructor(page, totalCount) {
-//         this.#page = page;
-//         this.#maxPageNumber = totalCount % 16 == 0 ? Math.floor(totalCount / 16) : Math.floor(totalCount / 16) + 1;
-//         this.#pageNumberList = document.querySelector(".page-number-list");
-//         this.#pageNumberList.innerHTML = "";
-//         this.loadPageNumbers();
-//     }
-
-//     loadPageNumbers() {
-//         this.createPreButton();
-//         this.createNumberButtons();
-//         this.createNextButton();
-//         this.addPageButtonEvent();
-//     }
-
-//     createPreButton() {
-//         if(this.#page != 1) {
-//             this.#pageNumberList.innerHTML += `
-//                 <a href="javascript:void(0)"><li>&#60;</li></a>
-//             `;
-//         }
-//     }
-
-//     createNumberButtons() {
-//         const startIndex = this.#page % 5 == 0 ? this.#page - 4 : this.#page - (this.#page % 5) + 1;
-//         const endIndex = startIndex + 4 <= this.#maxPageNumber ? startIndex + 4 : this.#maxPageNumber;
-
-//         for(let i = startIndex; i <= endIndex; i++) {
-//             this.#pageNumberList.innerHTML += `
-//                 <a href="javascript:void(0)"><li>${i}</li></a>
-//             `;
-//         }
-
-//     }
-
-        // createNextButton() {
-        //     if(this.#page != this.#maxPageNumber) {
-        //         this.#pageNumberList.innerHTML += `
-        //             <a href="javascript:void(0)"><li>&#62;</li></a>
-        //         `;
-        //     }
-        // }
-
-        // addPageButtonEvent() {
-        //     const pageButtons = this.#pageNumberList.querySelectorAll("li");
-        //     pageButtons.forEach(button => {
-        //         button.onclick = () => {
-    
-        //             if(button.textContent == "<"){
-        //                 const nowPage = CollectionsService.getInstance().collectionsEntity.page;
-        //                 CollectionsService.getInstance().collectionsEntity.page = Number(nowPage) - 1;
-        //                 CollectionsService.getInstance().loadCollections();
-        //             }else if(button.textContent == ">"){
-        //                 const nowPage = CollectionsService.getInstance().collectionsEntity.page;
-        //                 CollectionsService.getInstance().collectionsEntity.page = Number(nowPage) + 1;
-        //                 CollectionsService.getInstance().loadCollections();
-        //             }else {
-        //                 const nowPage = CollectionsService.getInstance().collectionsEntity.page;
-        //                 if(button.textContent != nowPage){
-        //                 CollectionsService.getInstance().collectionsEntity.page = button.textContent;
-        //                     CollectionsService.getInstance().loadCollections();
-        //                 }
-        //             }
-        //         }
-        //     });
-        // }
-
-
-// }
-
 class CollectionsService {
     static #instance = null;
 
@@ -346,7 +271,7 @@ class CollectionsService {
                 modalBg.style.display ="block";
                 console.log(responseData);
 
-                //옵션 헤더부분
+                //옵션 헤더부분  --> 배열로 수정해야됨
                 collectionOptions.innerHTML = `
                     <div class="modal-imagebox">
                         <img class="modal-main-image" src="/static/images/product/${responseData[index].mainImg}">
@@ -536,6 +461,7 @@ class CollectionsService {
         this.currentIdx = num;
     }
 
+    // 배열로 수정해야됨
     optionClick(responseData) {
         console.log(responseData);
 

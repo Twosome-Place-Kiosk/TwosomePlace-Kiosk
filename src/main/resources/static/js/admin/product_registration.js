@@ -163,7 +163,6 @@ class pdtUpdateApi{
 
     updateProducts(formData) {
 
-
         $.ajax({
            async : false,
            type: "post",
