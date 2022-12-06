@@ -38,14 +38,14 @@
     <select  id="addAdminList" resultType="com.twosomekiosk.twosome202211114.domain.ProductAdminList">
 
         SELECT
-        pm.id,
-        pm.category_id,
-        cm.category_name,
-        pm.pdt_name,
-        pm.pdt_price
+            pm.id,
+            pm.category_id,
+            cm.category_name,
+            pm.pdt_name,
+            pm.pdt_price
 
         FROM
-        pdt_mst AS pm
+            pdt_mst AS pm
 
         LEFT OUTER JOIN category_mst AS cm
         ON pm.category_id = cm.id

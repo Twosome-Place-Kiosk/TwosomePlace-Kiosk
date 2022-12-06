@@ -15,7 +15,6 @@ public class ProductAdminListReqDto {
     private String pdt_name;
     private int pdt_price;
 
-
     public ProductAdminList toEntity() {
         return ProductAdminList.builder()
                 .id(id)
