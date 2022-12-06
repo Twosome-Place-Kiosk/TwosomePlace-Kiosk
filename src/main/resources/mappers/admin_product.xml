@@ -59,11 +59,9 @@
                 category_id = #{category_id},
                 pdt_name = #{pdt_name},
                 pdt_price = #{pdt_price},
-                origin_name = #{origin_name},
-                save_name = #{save_name},
                 update_date = now()
             where
-                id = #{pdt_id}
+                id = #{id}
     </update>
 
     <delete id="deleteProduct" parameterType="com.twosomekiosk.twosome202211114.domain.ProductAdminList">

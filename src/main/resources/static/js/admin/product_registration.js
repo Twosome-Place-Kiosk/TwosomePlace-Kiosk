@@ -161,7 +161,7 @@ class pdtUpdateApi{
         return this.#instance;
     }
 
-    updateProduct(formData) {
+    updateProducts(formData) {
 
 
         $.ajax({
@@ -334,7 +334,7 @@ class RegisterService {
                     <td>${list.pdt_name}</td>
                     <td>${list.pdt_price}</td>
                     <td><button type="button" class="btn inquiry">조회</button></td>
-                    <td><button type="button" class="btn" update>수정</button></td>
+                    <td><button type="button" class="btn update">수정</button></td>
                     <td><button type="button" class="btn delete">삭제</button></td>
                 </tr>
             `;          
@@ -382,29 +382,23 @@ class RegisterService {
 
 
 
-
+    //update 성공
     UpdateButton() {
         const updateButton = document.querySelectorAll(".update");
         const responseData = ProductApi.getInstance().getProductListRequest();
+        const categorySelectObj = document.querySelector(".product-category");
+        const nameInputObj = document.querySelector(".product-name");
+        const priceInputObj = document.querySelector(".product-price");
         
         updateButton.forEach((button,index) => {
 
             button.onclick = () => {
-
             const formData =new FormData();
-
-
-            console.log(responseData[index].id);
-                
             formData.append("id" , responseData[index].id);
-
             formData.append("category", categorySelectObj.value);
-
             formData.append("name", nameInputObj.value);
-
             formData.append("price", priceInputObj.value);
-
-            ProductApi.getInstance.UpdateButton(formData);
+            pdtUpdateApi.getInstance().updateProducts(formData);
             }
         
         });

@@ -20,5 +20,6 @@ public class ProductRegisterRespDto {
     private int category;
     private String name;
     private int price;
+    private String originName;
     private String img;
 }
