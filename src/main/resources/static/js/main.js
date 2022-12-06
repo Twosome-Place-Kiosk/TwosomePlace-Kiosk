@@ -149,6 +149,65 @@ class OptionApi {
     }
 }
 
+class OrderApi {
+    createOrderRequest(orderMst) {
+        let responseData = null;
+
+        $.ajax({
+            async: false,
+            type: "post",
+            url: "/api/order",
+            contentType: "application/json",
+            data: JSON.stringify(orderMst),
+            dataType: "json",
+            success: (response) => {
+                responseData = response.data;
+            },
+            error: (error) => {
+                console.log(error);
+            }
+
+        });
+
+        return responseData;
+    }
+}
+
+
+
+class OrderMst {
+    #pdtStatus;
+    #orderTime;
+    #orderDate;
+   
+    constructor(pdtStatus, orderTime, orderDate) {
+        this.#pdtStatus = pdtStatus;
+        this.#orderTime = orderTime;
+        this.#orderDate = orderDate; 
+        
+    }
+
+    getPdtStatus(){return this.#pdtStatus;}
+    setPdtStatus(pdtStatus) {this.#pdtStatus = pdtStatus;}
+
+    getOrderTime(){return this.#orderTime;}
+    setOrderTime(orderTime) {this.#orderTime = orderTime;}
+
+    getOrderDate(){return this.#orderDate;}
+    setOrderDate(orderDate) {this.#orderDate = orderDate;}
+
+    getObject() {
+        const obj = {
+            pdtStatus : this.#pdtStatus,
+            orderTime : this.#orderTime,   
+            orderDate : this.#orderDate  
+            
+        }
+        return obj;
+    }
+    
+}
+
 // class PageNumber {
 //     #page = 0;
 //     #maxPageNumber = 0;
@@ -277,6 +336,7 @@ class CollectionsService {
         collectionOptions.innerHTML = ``;
 
         const products = document.querySelectorAll(".product");
+
         for(const [index,product] of products.entries()) {
             product.addEventListener('click', function(event){
 
@@ -286,6 +346,7 @@ class CollectionsService {
                 modalBg.style.display ="block";
                 console.log(responseData);
 
+                //옵션 헤더부분
                 collectionOptions.innerHTML = `
                     <div class="modal-imagebox">
                         <img class="modal-main-image" src="/static/images/product/${responseData[index].mainImg}">
@@ -301,6 +362,7 @@ class CollectionsService {
                 
                 addBasketbutton.onclick = () => {
                     console.log(index);
+
                     addBasketProduct.innerHTML +=`
                     <div class="basket-product">
                     <img class="cart-image" src="/static/images/product/${responseData[index].mainImg}">
@@ -311,13 +373,64 @@ class CollectionsService {
                     </div>
                     `;
                     popClose();
+
+                    //order_mst에 넣기
+                    let today = new Date();
+                    let year = today.getFullYear();
+                    let month = today.getMonth();
+                    let date = today.getDate();
+                    let hours = today.getHours();
+                    let minutes = today.getMinutes();
+                    let seconds = today.getSeconds();
+
+                    let pdtStatus = 0;
+                    let orderTime = hours + ":" + minutes + ":" + seconds;
+                    let orderDate = year + "/" + month + "/" + date;
+
+                    console.log(orderTime);
+                    console.log(orderDate);
+
+                    const orderMst = new OrderMst(pdtStatus, orderTime, orderDate);
+
+                    const registerApi = new OrderApi();
+                        if(registerApi.createOrderRequest(orderMst.getObject())){
+                            alert("주문 담기 완료");
+                            // location.reload();
+                        }
+                    
                 }
+
             })
         
         this.getOptions();
         }
+        
     }
 
+    // saveOrder() {
+    //     let today = new Date();
+    //     let year = today.getFullYear();
+    //     let month = today.getMonth();
+    //     let date = today.getDate();
+    //     let hours = today.getHours();
+    //     let minutes = today.getMinutes();
+    //     let seconds = today.getSeconds();
+
+    //     let pdtStatus = 0;
+    //     let orderTime = hours + ":" + minutes + ":" + seconds;
+    //     let orderDate = year + "/" + month + "/" + date;
+
+    //     console.log(orderTime);
+    //     console.log(orderDate);
+
+    //     const orderMst = new OrderMst(pdtStatus, orderTime, orderDate);
+
+    //     const registerApi = new OrderApi();
+    //         if(registerApi.createOrderRequest(orderMst.getObject())){
+    //             alert("주문 담기 완료");
+    //             // location.reload();
+    //         }
+    // }
 
     getOptions() {
         const responseData = OptionApi.getInstance().getOptions();
@@ -375,10 +488,6 @@ class CollectionsService {
                         </label>
                     </li>
                 `;
-                
-                
-                // new SlideShow();
-                // SlideShow.getInstance().init();
             }
         });
 
