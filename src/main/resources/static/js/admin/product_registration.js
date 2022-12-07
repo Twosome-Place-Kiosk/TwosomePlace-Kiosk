@@ -381,8 +381,9 @@ class RegisterService {
 
         select.forEach((button,index) => {
             button.onclick = () => {
+                console.log(responseData);
                 categorySelectObj.value = responseData[index].category_id;
-                nameInputObj.value = responseData[index].category_name;
+                nameInputObj.value = responseData[index].pdt_name;
                 priceInputObj.value = responseData[index].pdt_price;
                 
             }
