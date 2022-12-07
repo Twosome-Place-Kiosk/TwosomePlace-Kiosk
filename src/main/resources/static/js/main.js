@@ -328,78 +328,78 @@ class CollectionsService {
                 `;
                 console.log(index);
                 coldHotBox.innerHTML = `
-                    <input type="radio" id="coldhot" name="coldhots" value="${response.data[0].optionName}">
-                    <label for="coldhot">
+                    <input type="radio" id="coldhot1" name="coldhots" value="${response.data[0].optionName}">
+                    <label for="coldhot1">
                         <span class="cup in-cold">
                             <img class="option-img" src="/static/images/공차옵션사진/${response.data[0].optionOriginName}">${response.data[0].optionName}
                         </span>
                     </label>
-                    <input type="radio" id="coldhot" name="coldhots" value="${response.data[1].optionName}">
-                    <label for="coldhot">
+                    <input type="radio" id="coldhot2" name="coldhots" value="${response.data[1].optionName}">
+                    <label for="coldhot2">
                         <span class="cup in-cold">
                             <img class="option-img" src="/static/images/공차옵션사진/${response.data[1].optionOriginName}">${response.data[1].optionName}
                         </span>
                     </label>
-                    <input type="radio" id="coldhot" name="coldhots" value="${response.data[2].optionName}">
-                    <label for="coldhot">
+                    <input type="radio" id="coldhot3" name="coldhots" value="${response.data[2].optionName}">
+                    <label for="coldhot3">
                         <span class="cup in-cold">
                             <img class="option-img" src="/static/images/공차옵션사진/${response.data[2].optionOriginName}">${response.data[2].optionName}
                         </span>
                     </label>
-                    <input type="radio" id="coldhot" name="coldhots" value="${response.data[3].optionName}">
-                    <label for="coldhot">
+                    <input type="radio" id="coldhot4" name="coldhots" value="${response.data[3].optionName}">
+                    <label for="coldhot4">
                         <span class="cup in-cold">
                             <img class="option-img" src="/static/images/공차옵션사진/${response.data[3].optionOriginName}">${response.data[3].optionName}
                         </span>
                     </label>
                 `;
                 iceBox.innerHTML = `
-                    <input type="radio" id="ice" name="ices" value="${response.data[4].optionName}">
-                    <label for="ice">
+                    <input type="radio" id="ice1" name="ices" value="${response.data[4].optionName}">
+                    <label for="ice1">
                         <span class="ice less-ice">
                             <img class="option-img" src="/static/images/공차옵션사진/${response.data[4].optionOriginName}">${response.data[4].optionName}
                         </span>
                     </label>
-                    <input type="radio" id="ice" name="ices" value="${response.data[5].optionName}">
-                    <label for="ice">
+                    <input type="radio" id="ice2" name="ices" value="${response.data[5].optionName}">
+                    <label for="ice2">
                         <span class="ice less-ice">
                             <img class="option-img" src="/static/images/공차옵션사진/${response.data[5].optionOriginName}">${response.data[5].optionName}
                         </span>
                     </label>
-                    <input type="radio" id="ice" name="ices" value="${response.data[6].optionName}">
-                    <label for="ice">
+                    <input type="radio" id="ice3" name="ices" value="${response.data[6].optionName}">
+                    <label for="ice3">
                         <span class="ice less-ice">
                             <img class="option-img" src="/static/images/공차옵션사진/${response.data[6].optionOriginName}">${response.data[6].optionName}
                         </span>
                     </label>
                 `;
                 sugarBox.innerHTML = `
-                    <input type="radio" id="sugar" name="sugars" value="${response.data[7].optionName}">
-                    <label for="sugar">
+                    <input type="radio" id="sugar4" name="sugars" value="${response.data[7].optionName}">
+                    <label for="sugar4">
                         <span class="sugar sugar-0" >
                             <img class="option-img" src="/static/images/공차옵션사진/${response.data[7].optionOriginName}">${response.data[7].optionName}
                         </span>
                     </label>
-                    <input type="radio" id="sugar" name="sugars" value="${response.data[8].optionName}">
-                    <label for="sugar">
+                    <input type="radio" id="sugar5" name="sugars" value="${response.data[8].optionName}">
+                    <label for="sugar5">
                         <span class="sugar sugar-0" >
                             <img class="option-img" src="/static/images/공차옵션사진/${response.data[8].optionOriginName}">${response.data[8].optionName}
                         </span>
                     </label>
-                    <input type="radio" id="sugar" name="sugars" value="${response.data[9].optionName}">
-                    <label for="sugar">
+                    <input type="radio" id="sugar6" name="sugars" value="${response.data[9].optionName}">
+                    <label for="sugar6">
                         <span class="sugar sugar-0" >
                             <img class="option-img" src="/static/images/공차옵션사진/${response.data[9].optionOriginName}">${response.data[9].optionName}
                         </span>
                     </label>
-                    <input type="radio" id="sugar" name="sugars" value="${response.data[10].optionName}">
-                    <label for="sugar">
+                    <input type="radio" id="sugar7" name="sugars" value="${response.data[10].optionName}">
+                    <label for="sugar7">
                         <span class="sugar sugar-0" >
                             <img class="option-img" src="/static/images/공차옵션사진/${response.data[10].optionOriginName}">${response.data[10].optionName}
                         </span>
                     </label>
-                    <input type="radio" id="sugar" name="sugars" value="${response.data[11].optionName}">
-                    <label for="sugar">
+                    <input type="radio" id="sugar8" name="sugars" value="${response.data[11].optionName}">
+                    <label for="sugar8">
                         <span class="sugar sugar-0" >
                             <img class="option-img" src="/static/images/공차옵션사진/${response.data[11].optionOriginName}">${response.data[11].optionName}
                         </span>
@@ -407,96 +407,96 @@ class CollectionsService {
                 `;
                 slides.innerHTML = `
                     <li>
-                        <input type="checkbox" id="topping" name="topping" onclick="countCheck(this);">
-                        <label for="topping">
+                        <input type="checkbox" id="topping1" name="topping" onclick="countCheck(this);">
+                        <label for="topping1">
                             <span class="topping topping-">
                                 <img class="option-img" src="/static/images/공차옵션사진/${response.data[12].optionOriginName}">${response.data[12].optionName}
                             </span>
                         </label>
                     </li>
                     <li>
-                        <input type="checkbox" id="topping" name="topping" onclick="countCheck(this);">
-                        <label for="topping">
+                        <input type="checkbox" id="topping2" name="topping" onclick="countCheck(this);">
+                        <label for="topping2">
                             <span class="topping topping-">
                                 <img class="option-img" src="/static/images/공차옵션사진/${response.data[13].optionOriginName}">${response.data[13].optionName}
                             </span>
                         </label>
                     </li>
                     <li>
-                        <input type="checkbox" id="topping" name="topping" onclick="countCheck(this);">
-                        <label for="topping">
+                        <input type="checkbox" id="topping3" name="topping" onclick="countCheck(this);">
+                        <label for="topping3">
                             <span class="topping topping-">
                                 <img class="option-img" src="/static/images/공차옵션사진/${response.data[14].optionOriginName}">${response.data[14].optionName}
                             </span>
                         </label>
                     </li>
                     <li>
-                        <input type="checkbox" id="topping" name="topping" onclick="countCheck(this);">
-                        <label for="topping">
+                        <input type="checkbox" id="topping4" name="topping" onclick="countCheck(this);">
+                        <label for="topping4">
                             <span class="topping topping-">
                                 <img class="option-img" src="/static/images/공차옵션사진/${response.data[15].optionOriginName}">${response.data[15].optionName}
                             </span>
                         </label>
                     </li>
                     <li>
-                        <input type="checkbox" id="topping" name="topping" onclick="countCheck(this);">
-                        <label for="topping">
+                        <input type="checkbox" id="topping5" name="topping" onclick="countCheck(this);">
+                        <label for="topping5">
                             <span class="topping topping-">
                                 <img class="option-img" src="/static/images/공차옵션사진/${response.data[16].optionOriginName}">${response.data[16].optionName}
                             </span>
                         </label>
                     </li>
                     <li>
-                        <input type="checkbox" id="topping" name="topping" onclick="countCheck(this);">
-                        <label for="topping">
+                        <input type="checkbox" id="topping6" name="topping" onclick="countCheck(this);">
+                        <label for="topping6">
                             <span class="topping topping-">
                                 <img class="option-img" src="/static/images/공차옵션사진/${response.data[17].optionOriginName}">${response.data[17].optionName}
                             </span>
                         </label>
                     </li>
                     <li>
-                        <input type="checkbox" id="topping" name="topping" onclick="countCheck(this);">
-                        <label for="topping">
+                        <input type="checkbox" id="topping7" name="topping" onclick="countCheck(this);">
+                        <label for="topping7">
                             <span class="topping topping-">
                                 <img class="option-img" src="/static/images/공차옵션사진/${response.data[18].optionOriginName}">${response.data[18].optionName}
                             </span>
                         </label>
                     </li>
                     <li>
-                        <input type="checkbox" id="topping" name="topping" onclick="countCheck(this);">
-                        <label for="topping">
+                        <input type="checkbox" id="topping8" name="topping" onclick="countCheck(this);">
+                        <label for="topping8">
                             <span class="topping topping-">
                                 <img class="option-img" src="/static/images/공차옵션사진/${response.data[19].optionOriginName}">${response.data[19].optionName}
                             </span>
                         </label>
                     </li>
                     <li>
-                        <input type="checkbox" id="topping" name="topping" onclick="countCheck(this);">
-                        <label for="topping">
+                        <input type="checkbox" id="topping9" name="topping" onclick="countCheck(this);">
+                        <label for="topping9">
                             <span class="topping topping-">
                                 <img class="option-img" src="/static/images/공차옵션사진/${response.data[20].optionOriginName}">${response.data[20].optionName}
                             </span>
                         </label>
                     </li>
                     <li>
-                        <input type="checkbox" id="topping" name="topping" onclick="countCheck(this);">
-                        <label for="topping">
+                        <input type="checkbox" id="topping10" name="topping" onclick="countCheck(this);">
+                        <label for="topping10">
                             <span class="topping topping-">
                                 <img class="option-img" src="/static/images/공차옵션사진/${response.data[21].optionOriginName}">${response.data[21].optionName}
                             </span>
                         </label>
                     </li>
                     <li>
-                        <input type="checkbox" id="topping" name="topping" onclick="countCheck(this);">
-                        <label for="topping">
+                        <input type="checkbox" id="topping11" name="topping" onclick="countCheck(this);">
+                        <label for="topping11">
                             <span class="topping topping-">
                                 <img class="option-img" src="/static/images/공차옵션사진/${response.data[22].optionOriginName}">${response.data[22].optionName}
                             </span>
                         </label>
                     </li>
                     <li>
-                        <input type="checkbox" id="topping" name="topping" onclick="countCheck(this);">
-                        <label for="topping">
+                        <input type="checkbox" id="topping12" name="topping" onclick="countCheck(this);">
+                        <label for="topping12">
                             <span class="topping topping-">
                                 <img class="option-img" src="/static/images/공차옵션사진/${response.data[23].optionOriginName}">${response.data[23].optionName}
                             </span>
