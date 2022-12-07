@@ -626,6 +626,12 @@ class CollectionsService {
                 const addBasketbutton = document.querySelector(".modal-addcart");
 
                 addBasketbutton.onclick = () => {
+                    var modalPop = document.querySelector(".modal-wrap");
+                    var modalBg = document.querySelector(".modal-bg");
+
+                    modalPop.style.display = "none";
+                    modalBg.style.display = "none";
+                    
                     console.log(index);
     
                     let product = new Product(responseData[index].pdtId, responseData[index].productName, responseData[index].productPrice, responseData[index].mainImg);
