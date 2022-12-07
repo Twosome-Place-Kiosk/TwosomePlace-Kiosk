@@ -203,7 +203,7 @@ class RegisterEventService {
         this.#priceInputObj = document.querySelector(".product-price");
         this.#registButtonObj = document.querySelector(".regist-button");
      
-        this.init();
+
 
         this.addCategorySelectEvent();
         this.addNameInputEvent();
@@ -253,7 +253,7 @@ class RegisterEventService {
         const imgAddButton = document.querySelector(".regist-button");
         
         const formData = new FormData();
-        
+ 
         imgAddButton.onclick = () => {
             filesInput.click();
         }
@@ -263,7 +263,7 @@ class RegisterEventService {
             var fileList = filesInput.files;
             
             var reader = new FileReader();
-
+            console.log(fileList);
             reader.readAsDataURL(fileList [0]);
 
             // reader.onload = function  () {
@@ -282,6 +282,8 @@ class RegisterEventService {
             formData.append("price", this.#priceInputObj.value);
             
             ProductApi.getInstance().createProductRequest(formData);
+
+            
         }
     }
 
@@ -300,6 +302,14 @@ class RegisterService {
         }
         return this.#instance;
     }
+
+    //등록버튼
+   constructor() {
+    this.loadRegister();
+   }
+   loadRegister() {
+        new RegisterEventService();
+   }
 
 
 
@@ -408,10 +418,11 @@ class RegisterService {
 
 
 window.onload = () => {
-    new RegisterEventService();
     RegisterService.getInstance().getCategoryList();
     RegisterService.getInstance().addAdminList();
     RegisterService.getInstance().deleteAdminList();
     RegisterService.getInstance().selectInquiry();
     RegisterService.getInstance().UpdateButton();
+   
+    
 }
