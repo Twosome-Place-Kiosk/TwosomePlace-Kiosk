@@ -604,18 +604,21 @@ class CollectionsService {
                 }
 
                 checkboxOptions.forEach((item,index1) =>{
-
+                    option1.innerHTML = ``;
+                    checkcount = 0;
+                    
                     item.onclick = () =>{ 
                         if(checkcount < 3){
-                        if(item.checked == true){
-                            console.log("체크된건가용");
-                            checkcount++
+                            if(item.checked == true){
+                                console.log("체크된건가용");
+                                checkcount++
+                            }
                         }
-                    }else{
-                        alert("3개까지 체크할 수 있습니다.");
-                        item.checked = false;
-                        return false;
-                    }
+                        else{
+                            alert("3개까지 체크할 수 있습니다.");
+                            item.checked = false;
+                            return false;
+                        }
                         option1.innerHTML += `${item.value}/`;
                     }
                 })

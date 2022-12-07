@@ -212,9 +212,9 @@ class RegisterEventService {
     }
 
     init() {
-        // this.#nameInputObj.disabled = true;
-        // this.#priceInputObj.disabled = true;
-        // this.#registButtonObj.disabled = true;
+        this.#nameInputObj.disabled = true;
+        this.#priceInputObj.disabled = true;
+        this.#registButtonObj.disabled = true;
     }
 
     addCategorySelectEvent() {
@@ -408,6 +408,7 @@ class RegisterService {
 
 
 window.onload = () => {
+    new RegisterEventService();
     RegisterService.getInstance().getCategoryList();
     RegisterService.getInstance().addAdminList();
     RegisterService.getInstance().deleteAdminList();

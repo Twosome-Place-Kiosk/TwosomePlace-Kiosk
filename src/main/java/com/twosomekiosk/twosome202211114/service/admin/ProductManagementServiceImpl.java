@@ -31,7 +31,7 @@ public class ProductManagementServiceImpl implements ProductManagementService {
     private final ProductManagementRepository productManagementRepository;
 
     @Override
-    public void registerMst(ProductRegisterRespDto productRegisterRespDto) throws Exception {
+    public void registerMst (ProductRegisterRespDto productRegisterRespDto) throws Exception {
 
         if(productRegisterRespDto.getFiles() == null) {
             Map<String, String> errorMap = new HashMap<String, String>();
