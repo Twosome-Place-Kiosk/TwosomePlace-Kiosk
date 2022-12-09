@@ -161,6 +161,16 @@ class Cart {
         totalprice.innerHTML = `${price}`;
         console.log(totalprice);
     }
+    //전체삭제 
+    clearlist() {
+        const clearButton = document.querySelector(".delete-button");
+
+        
+        clearButton.onclick = () => {
+            console.log("-------클릭이됨")
+          }
+
+    }
 }
 
 
@@ -625,6 +635,7 @@ class CollectionsService {
 
                 const addBasketbutton = document.querySelector(".modal-addcart");
 
+                    //추가버튼
                 addBasketbutton.onclick = () => {
                     var modalPop = document.querySelector(".modal-wrap");
                     var modalBg = document.querySelector(".modal-bg");
@@ -650,13 +661,28 @@ class CollectionsService {
                         })
                     })
                     Cart.getInstance().addProduct(product);
+               
                 } 
 
             } 
-
             
+
         }) 
-    }   
+       
+
+        Cart.getInstance().clearlist();
+
+
+    }
+
+
+
+   
+
+  
+
+
+
     moveSlide(num) {
         const slides = document.querySelector(".slides");
         slides.style.left = -num * 400 + 'px';
@@ -838,6 +864,9 @@ class CollectionsService {
     //}
 }
 
+
+
+
 // function countCheck(obj){
 //     const toppingLabels = document.querySelectorAll(".modal-toppingbox input[type=checkbox]");
 //     const option1 = document.querySelector(".option1");
@@ -882,5 +911,6 @@ function minus () {
 
 window.onload = () => {
     CollectionsService.getInstance().loadCollections();
+
 }
 
