@@ -655,7 +655,7 @@ class CollectionsService {
                     selectList.forEach(option => {
                         response.data.forEach(data => {
                             if(data.optionName == option){
-                                let productOption = new ProductOption(data.id, data.optionName, data.optionPrice);
+                                let productOption = new ProductOption(data.id,data.optionName, data.optionPrice);
                                 product.productOptionList.push(productOption);
                             }
                         })

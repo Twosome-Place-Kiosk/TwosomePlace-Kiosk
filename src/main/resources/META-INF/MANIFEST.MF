@@ -1,4 +1,0 @@
-Manifest-Version: 1.0
-Main-Class: com.twosomekiosk.twosome202211114.Twosome202211114Applicatio
- n
-
