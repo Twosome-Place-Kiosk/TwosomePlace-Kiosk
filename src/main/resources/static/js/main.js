@@ -109,6 +109,25 @@ class Product {
     }
 }
 
+class ToppingOptions {
+    static #instance = null;
+    static getInstance() {
+      if(this.#instance == null) {
+        this.#instance = new Cart();
+      }
+      return this.#instance;
+    }
+
+
+    toppingList = null;
+
+    constructor() {
+        this.toppingList = new Array();
+      
+    }
+
+}
+
 
 class Cart {
     static #instance = null;
@@ -350,11 +369,13 @@ class CollectionsService {
 
     addProductListEvent(response){
         const products = document.querySelectorAll(".product");
+
         const collectionOptions = document.querySelector(".option-header");
         const coldHotBox = document.querySelector(".modal-coldhotbox-radios");
         const iceBox = document.querySelector(".modal-icebox-radios");
         const sugarBox = document.querySelector(".modal-sugarbox-radios");
         const slides = document.querySelector(".slides");
+        
         const responseData = CollectionsApi.getInstance().getCollections(this.collectionsEntity.page);
         const option1 = document.querySelector(".option1");
         let checkcount = 0;
@@ -570,8 +591,8 @@ class CollectionsService {
                     </li>
                 `;
                 addcartList.innerHTML = `
-                <button class="btn modal-cancel" onClick="javascript:popClose();">취소</button>
-                <button class="btn modal-addcart" onClick="javascript:popClose();">주문담기</button>
+                    <button class="btn modal-cancel" onClick="javascript:popClose();">취소</button>
+                    <button class="btn modal-addcart" onClick="javascript:popClose();">주문담기</button>
                 `;
 
 
@@ -651,11 +672,12 @@ class CollectionsService {
     
                     let selectList = [formData.get("coldhots"), formData.get("ices"), formData.get("sugars"), formData.get("topping")]
                     
-                    console.log(selectList);
+                    console.log("selectList: " + selectList);
+                    console.log("response.data: " + response.data);
                     selectList.forEach(option => {
                         response.data.forEach(data => {
                             if(data.optionName == option){
-                                let productOption = new ProductOption(data.id,data.optionName, data.optionPrice);
+                                let productOption = new ProductOption(data.id, data.optionName, data.optionPrice);
                                 product.productOptionList.push(productOption);
                             }
                         })
@@ -900,13 +922,6 @@ function minus () {
     countNum -= 1;
     count.innerHTML = `${countNum}`;
 }
-
-//////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
 
 
 window.onload = () => {
