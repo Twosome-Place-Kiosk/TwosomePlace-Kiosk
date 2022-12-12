@@ -9,6 +9,6 @@ public class CollectionsController {
 
     @GetMapping("/main/{category}")
     public String loadCollections(@PathVariable String category){
-        return "/main";
+        return "main";
     }
 }

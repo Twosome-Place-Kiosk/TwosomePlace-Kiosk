@@ -42,7 +42,7 @@ public class ProductManagementServiceImpl implements ProductManagementService {
         List<Product> products = new ArrayList<Product>();
 
         productRegisterRespDto.getFiles().forEach(file -> {
-            Resource resource = resourceLoader.getResource("classpath:/static/upload/product");
+            Resource resource = resourceLoader.getResource("classpath:/image/upload/product");
             String targetFilePath  = null;
             String srcFilePath = null;
 
@@ -64,7 +64,7 @@ public class ProductManagementServiceImpl implements ProductManagementService {
                 }
 
                 targetFilePath = resource.getURI().toString().substring(resource.getURI().toString().indexOf("/") + 1);
-                srcFilePath = resource.getURI().toString().substring(resource.getURI().toString().indexOf("/") + 1, resource.getURI().toString().indexOf("target")) + "/src/main/resources/static/upload/product";
+                srcFilePath = resource.getURI().toString().substring(resource.getURI().toString().indexOf("/") + 1, resource.getURI().toString().indexOf("target")) + "/src/main/resources/image/upload/product";
                 System.out.println(targetFilePath);
                 System.out.println(srcFilePath);
 
