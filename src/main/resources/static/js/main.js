@@ -82,12 +82,13 @@ class ProductOption {
     optionId = null;
     optionName = null;
     optionPrice = null;
-    
+    toppingList = null;
   
     constructor(optionId, optionName, optionPrice) {
       this.optionId = optionId;
       this.optionName = optionName;
       this.optionPrice = optionPrice;
+      this.toppingList = new Array();
     }
 }
 
@@ -96,6 +97,7 @@ class Product {
     productName = null;
     productPrice = null;
     productOptionList = null;
+    
     stockValue = null;
     mainImg = null;
     
@@ -106,25 +108,20 @@ class Product {
         this.stockValue = 1;
         this.mainImg = mainImg;
         this.productOptionList = new Array();
+        
     }
 }
 
 class ToppingOptions {
-    static #instance = null;
-    static getInstance() {
-      if(this.#instance == null) {
-        this.#instance = new Cart();
+    optionId = null;
+    optionName = null;
+    optionPrice = null;
+
+    constructor(optionId, optionName, optionPrice) {
+        this.optionId = optionId;
+        this.optionName = optionName;
+        this.optionPrice = optionPrice;
       }
-      return this.#instance;
-    }
-
-
-    toppingList = null;
-
-    constructor() {
-        this.toppingList = new Array();
-      
-    }
 
 }
 
@@ -676,48 +673,40 @@ class CollectionsService {
     
                     let formData = new FormData(document.querySelector(".option-form"));
     
-                    let selectList = [formData.get("coldhots"), formData.get("ices"), formData.get("sugars"), formData.get("topping")]
+                    let selectList = [formData.get("coldhots"), formData.get("ices"), formData.get("sugars")]
+                    
+                    formData.forEach((value, key) => {
+                        if(key == "topping"){
+                            selectList.push(value);
+                        }
+                    });
+                    
                     
                     console.log("selectList: " + selectList);
-                    console.log("response.data: " + response.data);
                     selectList.forEach(option => {
                         response.data.forEach(data => {
-                            if(data.optionName == option){
+                            if(data.optionName == option){  
                                 let productOption = new ProductOption(data.id, data.optionName, data.optionPrice);
                                 product.productOptionList.push(productOption);
+                                // let toppingOptions = new ToppingOptions(data.id, data.optionName, data.optionPrice);
+                                // productOption.toppingList.push(toppingOptions);
                             }
+                            
                         })
+
                     })
                     Cart.getInstance().addProduct(product);
-               
-                } 
-
-            } 
-            
-
+                }
+            }
         }) 
-       
-
- 
-
-
+        Cart.getInstance().clearlist();
     }
-
-
-
-   
-
-  
-
-
 
     moveSlide(num) {
         const slides = document.querySelector(".slides");
         slides.style.left = -num * 400 + 'px';
         this.currentIdx = num;
-    }
-                
-                
+    }     
                 // const addBasketbutton = document.querySelector(".modal-addcart");
                 // const addBasketProduct = document.querySelector(".basket-product-list");
                 
@@ -892,9 +881,6 @@ class CollectionsService {
     //}
 }
 
-
-
-
 // function countCheck(obj){
 //     const toppingLabels = document.querySelectorAll(".modal-toppingbox input[type=checkbox]");
 //     const option1 = document.querySelector(".option1");
@@ -910,7 +896,6 @@ class CollectionsService {
     
     
 // }
-
 
 function plus () {
     const count = document.querySelector(".count-zone");
