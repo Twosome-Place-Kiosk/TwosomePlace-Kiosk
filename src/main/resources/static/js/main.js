@@ -112,20 +112,6 @@ class Product {
     }
 }
 
-class ToppingOptions {
-    optionId = null;
-    optionName = null;
-    optionPrice = null;
-
-    constructor(optionId, optionName, optionPrice) {
-        this.optionId = optionId;
-        this.optionName = optionName;
-        this.optionPrice = optionPrice;
-      }
-
-}
-
-
 class Cart {
     static #instance = null;
     static getInstance() {
@@ -146,10 +132,11 @@ class Cart {
     }
   
     addProduct(product) {
-
+      
       this.cartList.push(product);
       this.stockList.push(1);
-      console.log(this.cartList);
+
+      console.log("stockList:"+this.stockList);
       this.createCart();
     }
 
@@ -171,7 +158,7 @@ class Cart {
             </div>
             `
         })
-        for(var i =0; i<this.cartList.length; i++){
+        for(let i = 0; i<this.cartList.length; i++){
             price += this.cartList[i].productPrice;
         }
         totalprice.innerHTML = `${price}`;
@@ -188,13 +175,41 @@ class Cart {
           }
     
     }
-    
+
+    payButtonClick(product) {
+        
+        const orderInfo = document.querySelector(".order-info");
+        orderInfo.innerHTML = "";
+
+        ordercheck.onclick = () => {
+
+            this.cartList.forEach(item =>{
+                orderInfo.innerHTML += `
+                <table class="order-table">
+                    <tr>
+                        <td class="order-product">${item.productName}</td>
+                        <td class="order-number">1</td>
+                        <td class="order-price">${item.productPrice}</td>
+                    </tr>
+                </table>
+                <table class="order-option">
+                    <tr>
+                        <td>* 옵션: 
+                        ${item.productOptionList[0].optionName}/
+                        ${item.productOptionList[1].optionName}/
+                        ${item.productOptionList[2].optionName}/
+                        ${item.productOptionList[3].optionName}/
+                        ${item.productOptionList[4].optionName}/
+                        ${item.productOptionList[5].optionName}
+                        </td>
+                    </tr>
+                </table>
+                `;
+            })
+        }
+    }
    
 }
-    Cart.getInstance().clearlist();
-
-
-
 
 class CollectionsApi {
     static #instance = null;
@@ -349,7 +364,6 @@ class CollectionsService {
         }
     }
 
-
     getCollections(responseData) {
         const collectionProducts = document.querySelector(".product-list");
         collectionProducts.innerHTML = ``;
@@ -381,6 +395,9 @@ class CollectionsService {
         
         const responseData = CollectionsApi.getInstance().getCollections(this.collectionsEntity.page);
         const option1 = document.querySelector(".option1");
+        let modalOptionPrice = document.querySelector(".modal-option-price");
+        
+
         let checkcount = 0;
 
         collectionOptions.innerHTML = ``;
@@ -391,6 +408,7 @@ class CollectionsService {
 
         products.forEach((product, index) => {
             checkcount = 0;
+            
             product.onclick = () => {
                 cart['pdtId'] = responseData[index].pdtId;
 
@@ -497,7 +515,7 @@ class CollectionsService {
                 
                 slides.innerHTML = `
                     <li>
-                        <input type="checkbox" id="topping1" name="topping" value="${response.data[12].optionName}"class="topping1" >
+                        <input type="checkbox" id="topping1" name="topping" value="${response.data[12].optionName}" class="topping1" >
                         <label for="topping1">
                             <span class="topping topping-">
                                 <img class="option-img" src="/static/images/공차옵션사진/${response.data[12].optionOriginName}">${response.data[12].optionName}
@@ -513,7 +531,7 @@ class CollectionsService {
                         </label>
                     </li>
                     <li>
-                        <input type="checkbox" id="topping3" name="topping"  value="${response.data[14].optionName}"class="topping1"> 
+                        <input type="checkbox" id="topping3" name="topping"  value="${response.data[14].optionName}" class="topping1"> 
                         <label for="topping3">
                             <span class="topping topping-">
                                 <img class="option-img" src="/static/images/공차옵션사진/${response.data[14].optionOriginName}">${response.data[14].optionName}
@@ -521,7 +539,7 @@ class CollectionsService {
                         </label>
                     </li>
                     <li>
-                        <input type="checkbox" id="topping4" name="topping" value="${response.data[15].optionName}"class="topping1">
+                        <input type="checkbox" id="topping4" name="topping" value="${response.data[15].optionName}" class="topping1">
                         <label for="topping4">
                             <span class="topping topping-">
                                 <img class="option-img" src="/static/images/공차옵션사진/${response.data[15].optionOriginName}">${response.data[15].optionName}
@@ -529,7 +547,7 @@ class CollectionsService {
                         </label>
                     </li>
                     <li>
-                        <input type="checkbox" id="topping5" name="topping" value="${response.data[16].optionName}"class="topping1">
+                        <input type="checkbox" id="topping5" name="topping" value="${response.data[16].optionName}" class="topping1">
                         <label for="topping5">
                             <span class="topping topping-">
                                 <img class="option-img" src="/static/images/공차옵션사진/${response.data[16].optionOriginName}">${response.data[16].optionName}
@@ -537,7 +555,7 @@ class CollectionsService {
                         </label>
                     </li>
                     <li>
-                        <input type="checkbox" id="topping6" name="topping" value="${response.data[17].optionName}"class="topping1">
+                        <input type="checkbox" id="topping6" name="topping" value="${response.data[17].optionName}" class="topping1">
                         <label for="topping6">
                             <span class="topping topping-">
                                 <img class="option-img" src="/static/images/공차옵션사진/${response.data[17].optionOriginName}">${response.data[17].optionName}
@@ -545,7 +563,7 @@ class CollectionsService {
                         </label>
                     </li>
                     <li>
-                        <input type="checkbox" id="topping7" name="topping" value="${response.data[18].optionName}"class="topping1">
+                        <input type="checkbox" id="topping7" name="topping" value="${response.data[18].optionName}" class="topping1">
                         <label for="topping7">
                             <span class="topping topping-">
                                 <img class="option-img" src="/static/images/공차옵션사진/${response.data[18].optionOriginName}">${response.data[18].optionName}
@@ -553,7 +571,7 @@ class CollectionsService {
                         </label>
                     </li>
                     <li>
-                        <input type="checkbox" id="topping8" name="topping" value="${response.data[19].optionName}"class="topping1">
+                        <input type="checkbox" id="topping8" name="topping" value="${response.data[19].optionName}" class="topping1">
                         <label for="topping8">
                             <span class="topping topping-">
                                 <img class="option-img" src="/static/images/공차옵션사진/${response.data[19].optionOriginName}">${response.data[19].optionName}
@@ -561,7 +579,7 @@ class CollectionsService {
                         </label>
                     </li>
                     <li>
-                        <input type="checkbox" id="topping9" name="topping" value="${response.data[20].optionName}"class="topping1">
+                        <input type="checkbox" id="topping9" name="topping" value="${response.data[20].optionName}" class="topping1">
                         <label for="topping9">
                             <span class="topping topping-">
                                 <img class="option-img" src="/static/images/공차옵션사진/${response.data[20].optionOriginName}">${response.data[20].optionName}
@@ -569,7 +587,7 @@ class CollectionsService {
                         </label>
                     </li>
                     <li>
-                        <input type="checkbox" id="topping10" name="topping" value="${response.data[21].optionName}"class="topping1">
+                        <input type="checkbox" id="topping10" name="topping" value="${response.data[21].optionName}" class="topping1">
                         <label for="topping10">
                             <span class="topping topping-">
                                 <img class="option-img" src="/static/images/공차옵션사진/${response.data[21].optionOriginName}">${response.data[21].optionName}
@@ -577,7 +595,7 @@ class CollectionsService {
                         </label>
                     </li>
                     <li>
-                        <input type="checkbox" id="topping11" name="topping" value="${response.data[22].optionName}"class="topping1" >
+                        <input type="checkbox" id="topping11" name="topping" value="${response.data[22].optionName}" class="topping1" >
                         <label for="topping11">
                             <span class="topping topping-">
                                 <img class="option-img" src="/static/images/공차옵션사진/${response.data[22].optionOriginName}">${response.data[22].optionName}
@@ -637,23 +655,30 @@ class CollectionsService {
                     );
                 }
 
-                checkboxOptions.forEach((item,index1) =>{
+                let addOptionPrice = 0;
+                checkboxOptions.forEach((item, index1) =>{
                     option1.innerHTML = ``;
+                    modalOptionPrice.innerHTML = `0`;
                     checkcount = 0;
                     
                     item.onclick = () =>{ 
+                        console.log(response.data);
                         if(checkcount < 3){
                             if(item.checked == true){
-                                console.log("체크된건가용");
-                                checkcount++
+                                console.log("체크됨.");
+                                checkcount++;
                             }
+                            addOptionPrice += response.data[index1+12].optionPrice;
+                            console.log(addOptionPrice);
                         }
                         else{
                             alert("3개까지 체크할 수 있습니다.");
                             item.checked = false;
                             return false;
                         }
+                        
                         option1.innerHTML += `${item.value}/`;
+                        modalOptionPrice.innerHTML = `${addOptionPrice}`;
                     }
                 })
 
@@ -688,67 +713,56 @@ class CollectionsService {
                             if(data.optionName == option){  
                                 let productOption = new ProductOption(data.id, data.optionName, data.optionPrice);
                                 product.productOptionList.push(productOption);
-                                // let toppingOptions = new ToppingOptions(data.id, data.optionName, data.optionPrice);
-                                // productOption.toppingList.push(toppingOptions);
+                                
                             }
-                            
                         })
-
                     })
-                    Cart.getInstance().addProduct(product);
+                    Number(product.productPrice);
+                    product.productPrice +=  addOptionPrice;
+                    console.log(product);
+
+                    Cart.getInstance().addProduct(product); 
+                    Cart.getInstance().payButtonClick(product);
                 }
             }
-        }) 
+        })
         Cart.getInstance().clearlist();
+        
     }
 
     moveSlide(num) {
         const slides = document.querySelector(".slides");
         slides.style.left = -num * 400 + 'px';
         this.currentIdx = num;
-    }     
-                // const addBasketbutton = document.querySelector(".modal-addcart");
-                // const addBasketProduct = document.querySelector(".basket-product-list");
+    }
+
+    
                 
-                // addBasketbutton.onclick = () => {
-                //     console.log(index);
+    //     //order_mst에 넣기
+    //     let today = new Date();
+    //     let year = today.getFullYear();
+    //     let month = today.getMonth();
+    //     let date = today.getDate();
+    //     let hours = today.getHours();
+    //     let minutes = today.getMinutes();
+    //     let seconds = today.getSeconds();
 
-                //     addBasketProduct.innerHTML +=`
-                //     <div class="basket-product">
-                //     <img class="cart-image" src="/static/images/product/${responseData[index].mainImg}">
-                //     <div class="countbtn-box">
-                //     <div class="countbtn plus-btn" onclick="plus()"><i class="plus-btn fa-solid fa-circle-plus"></i></div>
-                //     <div class="countbtn count-zone">1</div>
-                //     <div class="countbtn minus-btn" onclick="minus()"><i class="minus-btn fa-solid fa-circle-minus"></i></div>
-                //     </div>
-                //     `;
-                //     popClose();
+    //     let pdtStatus = 0;
+    //     let orderTime = hours + ":" + minutes + ":" + seconds;
+    //     let orderDate = year + "/" + month + "/" + date;
 
-                //     //order_mst에 넣기
-                //     let today = new Date();
-                //     let year = today.getFullYear();
-                //     let month = today.getMonth();
-                //     let date = today.getDate();
-                //     let hours = today.getHours();
-                //     let minutes = today.getMinutes();
-                //     let seconds = today.getSeconds();
+    //     console.log(orderTime);
+    //     console.log(orderDate);
 
-                //     let pdtStatus = 0;
-                //     let orderTime = hours + ":" + minutes + ":" + seconds;
-                //     let orderDate = year + "/" + month + "/" + date;
+    //     const orderMst = new OrderMst(pdtStatus, orderTime, orderDate);
 
-                //     console.log(orderTime);
-                //     console.log(orderDate);
-
-                //     const orderMst = new OrderMst(pdtStatus, orderTime, orderDate);
-
-                //     const registerApi = new OrderApi();
-                //         if(registerApi.createOrderRequest(orderMst.getObject())){
-                //             alert("주문 담기 완료");
-                //             // location.reload();
-                //         }
-                    
-                // }
+    //     const registerApi = new OrderApi();
+    //         if(registerApi.createOrderRequest(orderMst.getObject())){
+    //             alert("주문 담기 완료");
+    //             // location.reload();
+    //         }
+        
+    // }
 
     // saveOrder() {
     //     let today = new Date();
@@ -774,128 +788,8 @@ class CollectionsService {
     //             // location.reload();
     //         }
     // }
-
-  //  getOptions() {
-       
-        // responseData.forEach((product, i) => {
-        //     if(i < 4){
-        //         coldHotBox.innerHTML += `
-        //             <input type="radio" id="coldhot${i}" name="coldhots" value="${product.optionName}">
-        //             <label for="coldhot${i}">
-        //                 <span class="cup in-cold">
-        //                     <img class="option-img" src="/static/images/공차옵션사진/${product.optionOriginName}">${product.optionName}
-        //                 </span>
-        //             </label>
-        //         `;
-        //     } 
-        //     else if(i>=4 && i<7){
-        //         iceBox.innerHTML += `
-        //             <input type="radio" id="ice${i-4}" name="ices" value="${product.optionName}">
-        //             <label for="ice${i-4}">
-        //                 <span class="ice less-ice">
-        //                     <img class="option-img" src="/static/images/공차옵션사진/${product.optionOriginName}">${product.optionName}
-        //                 </span>
-        //             </label>
-        //         `;
-        //     }
-        //     else if(i>=7 && i<12){
-        //         sugarBox.innerHTML += `
-        //             <input type="radio" id="sugar${i-7}" name="sugars" value="${product.optionName}">
-        //             <label for="sugar${i-7}">
-        //                 <span class="sugar sugar-0" >
-        //                     <img class="option-img" src="/static/images/공차옵션사진/${product.optionOriginName}">${product.optionName}
-        //                 </span>
-        //             </label>
-        //         `;
-        //     }
-        //     else {
-        //         slides.innerHTML += `
-        //             <li>
-        //                 <input type="checkbox" id="topping${i-12}" name="topping" onclick="countCheck(this);">
-        //                 <label for="topping${i-12}">
-        //                     <span class="topping topping-">
-        //                         <img class="option-img" src="/static/images/공차옵션사진/${product.optionOriginName}">${product.optionName}
-        //                     </span>
-        //                 </label>
-        //             </li>
-        //         `;
-        //     }
-        // });
-   // }
-    
    
-
-    // 배열로 수정해야됨
-    // optionClick(responseData) {
-    //     console.log(responseData);
-
-    //     const radioOptions = document.querySelectorAll(".optionbox input[type=radio]");
-    //     const checkboxOptions = document.querySelectorAll(".optionbox input[type=checkbox]");
-    //     const option1 = document.querySelector(".option1");
-    //     // const option2 = document.querySelector(".option2");
-    //     // const option3 = document.querySelector(".option3");
-    //     // const option4 = document.querySelector(".option4");
-    //     // const option5 = document.querySelector(".option5");
-    //     // const option6 = document.querySelector(".option6");
-
-    //     for(let i=0; i<radioOptions.length; i++){
-    //         radioOptions[i].addEventListener('click', function(){
-    //             if( i>=0 && i<4 ){
-    //                 option1.innerHTML = `
-    //                     ${responseData[i].optionName}/
-    //                 `;
-    //             }
-    //             else if( i>=4 && i<7 ){
-    //                 option2.innerHTML = `
-    //                     ${responseData[i].optionName}/
-    //                 `;
-    //             }
-    //             else if( i>=7 && i<12 ){
-    //                 option3.innerHTML = `
-    //                     ${responseData[i].optionName}/
-    //                 `;
-    //             }
-                
-    //         })
-    //     }
-        // for (let i=0; i<checkboxOptions.length; i++) {
-        //     checkboxOptions[i].addEventListener('click', function(){
-        //         if(option4.innerHTML.length == 0){
-        //             option4.innerHTML = `
-        //                 ${responseData[i+12].optionName}/
-        //             `;
-        //         }
-        //         else if(option4.innerHTML.length > 0 && option5.innerHTML.length == 0){
-        //             option5.innerHTML = `
-        //                 ${responseData[i+12].optionName}/
-        //             `;
-        //         }
-        //         else if(option4.innerHTML.length > 0 && option5.innerHTML.length > 0) {
-        //             option6.innerHTML = `
-        //                 ${responseData[i+12].optionName}
-        //             `;
-        //         }
-        //     })
-        // }
-    
-    //}
 }
-
-// function countCheck(obj){
-//     const toppingLabels = document.querySelectorAll(".modal-toppingbox input[type=checkbox]");
-//     const option1 = document.querySelector(".option1");
-//     let checkCount = 0;
-    
-
-
-    
-    
-//             alert("3개까지 체크할 수 있습니다.");
-//             obj.checked = false;
-//             return false;
-    
-    
-// }
 
 function plus () {
     const count = document.querySelector(".count-zone");
