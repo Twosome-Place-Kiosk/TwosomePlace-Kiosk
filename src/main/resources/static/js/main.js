@@ -180,17 +180,23 @@ class Cart {
         totalprice.innerHTML = `${price}`;
         console.log(totalprice);
     }
-    //전체삭제 
+
     clearlist() {
         const clearButton = document.querySelector(".delete-button");
-
         
         clearButton.onclick = () => {
-            console.log("-------클릭이됨")
+            this.cartList.splice(0, this.cartList.length);
+            this.stockList.splice(0, this.stockList.length);
+            Cart.getInstance().createCart();
           }
-
+    
     }
+    
+   
 }
+    Cart.getInstance().clearlist();
+
+
 
 
 class CollectionsApi {
@@ -692,7 +698,7 @@ class CollectionsService {
         }) 
        
 
-        Cart.getInstance().clearlist();
+ 
 
 
     }
