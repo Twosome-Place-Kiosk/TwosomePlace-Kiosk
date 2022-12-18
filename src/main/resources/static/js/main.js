@@ -1,94 +1,94 @@
 const ordercheck = document.querySelector(".pay-button");
-ordercheck.addEventListener('click', function (event) {
+ordercheck.addEventListener('click', function(event){
 
-    const modalPop1 = document.querySelector(".modal-wrap1");
+    const modalPop1 = document.querySelector(".modal-wrap1"); 
     const modalBg1 = document.querySelector(".modal-bg1");
 
-    modalPop1.style.display = "block";
-    modalBg1.style.display = "block";
+    modalPop1.style.display ="block";
+    modalBg1.style.display ="block";
 })
 
 const modalClose = document.querySelector(".modal-close");
-modalClose.addEventListener('click', function (event) {
+modalClose.addEventListener('click', function(event){
     const modalPop1 = document.querySelector(".modal-wrap1");
     const modalBg1 = document.querySelector(".modal-bg1");
 
-    modalPop1.style.display = "none";
-    modalBg1.style.display = "none";
+    modalPop1.style.display ="none";
+    modalBg1.style.display ="none";
 
 })
 
 const modalPay = document.querySelector(".modal-pay");
-modalPay.addEventListener('click', function (event) {
+modalPay.addEventListener('click', function(event){
     const modalPop2 = document.querySelector(".modal-wrap2");
     const modalBg2 = document.querySelector(".modal-bg2");
 
-    modalPop2.style.display = "block";
-    modalBg2.style.display = "block";
+    modalPop2.style.display ="block";
+    modalBg2.style.display ="block";
 
     const modalPop1 = document.querySelector(".modal-wrap1");
     const modalBg1 = document.querySelector(".modal-bg1");
 
-    modalPop1.style.display = "none";
-    modalBg1.style.display = "none";
+    modalPop1.style.display ="none";
+    modalBg1.style.display ="none";
 
 })
 
 const payYes = document.querySelector(".pay-yes-btn");
-payYes.addEventListener('click', function (event) {
+payYes.addEventListener('click', function(event){
 
     const modalPop2 = document.querySelector(".modal-wrap2");
     const modalBg2 = document.querySelector(".modal-bg2");
 
-    modalPop2.style.display = "none";
-    modalBg2.style.display = "none";
+    modalPop2.style.display ="none";
+    modalBg2.style.display ="none";
 
 })
 
 const payNo = document.querySelector(".pay-no-btn");
-payNo.addEventListener('click', function (event) {
+payNo.addEventListener('click', function(event){
 
     const modalPop2 = document.querySelector(".modal-wrap2");
     const modalBg2 = document.querySelector(".modal-bg2");
 
-    modalPop2.style.display = "none";
-    modalBg2.style.display = "none";
+    modalPop2.style.display ="none";
+    modalBg2.style.display ="none";
 
 })
 
 const adminLoginBtn = document.querySelector(".admin-login-btn");
 adminLoginBtn.onclick = () => {
-    location.href = "/account/login";
+    location.href="/account/login";
 }
 
 const homeBtn = document.querySelector(".atag-white-btn");
 homeBtn.onclick = () => {
-    location.href = "/banner";
+    location.href="/banner";
 }
 
 
 const cart = {
-    pdtId: 0,
-    coldHot: 1,
+    pdtId : 0,
+    coldHot : 1,
     ice: 2,
     sugar: 2,
     // topping1: 3, 배열로 받아야하나..?
     // topping2: 3,
     // topping3: 3,
 
-}
+  }
 
 class ProductOption {
     optionId = null;
     optionName = null;
     optionPrice = null;
     toppingList = null;
-
+  
     constructor(optionId, optionName, optionPrice) {
-        this.optionId = optionId;
-        this.optionName = optionName;
-        this.optionPrice = optionPrice;
-        this.toppingList = new Array();
+      this.optionId = optionId;
+      this.optionName = optionName;
+      this.optionPrice = optionPrice;
+      this.toppingList = new Array();
     }
 }
 
@@ -97,10 +97,10 @@ class Product {
     productName = null;
     productPrice = null;
     productOptionList = null;
-
+    
     stockValue = null;
     mainImg = null;
-
+    
     constructor(productId, productName, productPrice, mainImg) {
         this.productId = productId;
         this.productName = productName;
@@ -108,36 +108,36 @@ class Product {
         this.stockValue = 1;
         this.mainImg = mainImg;
         this.productOptionList = new Array();
-
+        
     }
 }
 
 class Cart {
     static #instance = null;
     static getInstance() {
-        if (this.#instance == null) {
-            this.#instance = new Cart();
-        }
-        return this.#instance;
+      if(this.#instance == null) {
+        this.#instance = new Cart();
+      }
+      return this.#instance;
     }
-
+  
     cartList = null;
     stockList = null;
-
-
+  
+  
     constructor() {
-        this.cartList = new Array();
-        this.stockList = new Array();
-
+      this.cartList = new Array();
+      this.stockList = new Array();
+    
     }
-
+  
     addProduct(product) {
+      
+      this.cartList.push(product);
+      this.stockList.push(1);
 
-        this.cartList.push(product);
-        this.stockList.push(1);
-
-        console.log("stockList:" + this.stockList);
-        this.createCart();
+      console.log("stockList:"+this.stockList);
+      this.createCart();
     }
 
     createCart() {
@@ -146,8 +146,9 @@ class Cart {
         let totalprice = document.querySelector(".total-price1");
         let price = 0;
 
-        this.cartList.forEach(item => {
+        this.cartList.forEach(item =>{
             basket.innerHTML += `
+
             <div class="basket-product">
                 <img class="cart-image" src="/static/images/product/${item.mainImg}">
                 <div class="countbtn-box">
@@ -157,7 +158,7 @@ class Cart {
             </div>
             `
         })
-        for (let i = 0; i < this.cartList.length; i++) {
+        for(let i = 0; i<this.cartList.length; i++){
             price += this.cartList[i].productPrice;
         }
         totalprice.innerHTML = `${price}`;
@@ -166,23 +167,23 @@ class Cart {
 
     clearlist() {
         const clearButton = document.querySelector(".delete-button");
-
+        
         clearButton.onclick = () => {
             this.cartList.splice(0, this.cartList.length);
             this.stockList.splice(0, this.stockList.length);
             Cart.getInstance().createCart();
-        }
-
+          }
+    
     }
 
     payButtonClick(product) {
-
-        const orderInfo = document.querySelector(".order-info");
         
+        const orderInfo = document.querySelector(".order-info");
 
         ordercheck.onclick = () => {
             orderInfo.innerHTML = "";
-            this.cartList.forEach(item => {
+
+            this.cartList.forEach(item =>{
                 orderInfo.innerHTML += `
                 <table class="order-table">
                     <tr>
@@ -207,14 +208,14 @@ class Cart {
             })
         }
     }
-
+   
 }
 
 class CollectionsApi {
     static #instance = null;
 
     static getInstance() {
-        if (this.#instance == null) {
+        if(this.#instance == null) {
             this.#instance = new CollectionsApi();
         }
         return this.#instance;
@@ -251,7 +252,7 @@ class OptionApi {
     static #instance = null;
 
     static getInstance() {
-        if (this.#instance == null) {
+        if(this.#instance == null) {
             this.#instance = new OptionApi();
         }
         return this.#instance;
@@ -305,12 +306,12 @@ class OptionApi {
 //     #pdtStatus;
 //     #orderTime;
 //     #orderDate;
-
+   
 //     constructor(pdtStatus, orderTime, orderDate) {
 //         this.#pdtStatus = pdtStatus;
 //         this.#orderTime = orderTime;
 //         this.#orderDate = orderDate; 
-
+        
 //     }
 
 //     getPdtStatus(){return this.#pdtStatus;}
@@ -327,17 +328,17 @@ class OptionApi {
 //             pdtStatus : this.#pdtStatus,
 //             orderTime : this.#orderTime,   
 //             orderDate : this.#orderDate  
-
+            
 //         }
 //         return obj;
 //     }
-
+    
 // }
 
 class CollectionsService {
     static #instance = null;
     static getInstance() {
-        if (this.#instance == null) {
+        if(this.#instance == null) {
             this.#instance = new CollectionsService();
         }
         return this.#instance;
@@ -352,7 +353,7 @@ class CollectionsService {
         const responseData = CollectionsApi.getInstance().getCollections(this.collectionsEntity.page);
         console.log(responseData);
 
-        if (responseData.length > 0) {
+        if(responseData.length > 0) {
             this.collectionsEntity.totalCount = responseData[0].productTotalCount;
             // new PageNumber(this.collectionsEntity.page, this.collectionsEntity.totalCount);
             this.getCollections(responseData);
@@ -377,13 +378,13 @@ class CollectionsService {
                     <div class="product-info product-name">${product.productName}</div>
                     <div class="product-info product-price"> ${product.productPrice}원</div>
                 </li>
-            `;
+            `;            
         });
 
         OptionApi.getInstance().getOptions();
     }
 
-    addProductListEvent(response) {
+    addProductListEvent(response){
         const products = document.querySelectorAll(".product");
 
         const collectionOptions = document.querySelector(".option-header");
@@ -391,11 +392,11 @@ class CollectionsService {
         const iceBox = document.querySelector(".modal-icebox-radios");
         const sugarBox = document.querySelector(".modal-sugarbox-radios");
         const slides = document.querySelector(".slides");
-
+        
         const responseData = CollectionsApi.getInstance().getCollections(this.collectionsEntity.page);
         const option1 = document.querySelector(".option1");
         let modalOptionPrice = document.querySelector(".modal-option-price");
-
+        
 
         let checkcount = 0;
 
@@ -407,15 +408,15 @@ class CollectionsService {
 
         products.forEach((product, index) => {
             checkcount = 0;
-
+            
             product.onclick = () => {
                 cart['pdtId'] = responseData[index].pdtId;
 
                 const addcartList = document.querySelector(".btn-box");
-                const modalPop = document.querySelector(".modal-wrap");
+                const modalPop = document.querySelector(".modal-wrap"); 
                 const modalBg = document.querySelector(".modal-bg");
-                modalPop.style.display = "block";
-                modalBg.style.display = "block";
+                modalPop.style.display ="block";
+                modalBg.style.display ="block";
 
                 console.log(response.data); //옵션 데이터
 
@@ -511,7 +512,7 @@ class CollectionsService {
                         </span>
                     </label>
                 `;
-
+                
                 slides.innerHTML = `
                     <li>
                         <input type="checkbox" id="topping1" name="topping" value="${response.data[12].optionName}" class="topping1" >
@@ -634,7 +635,7 @@ class CollectionsService {
                         currentIdx -= 1;
                     }
                     console.log(
-                        `
+                    `
                     slideCount: ${slideCount}
                     currentIdx: ${currentIdx}
                     `
@@ -647,7 +648,7 @@ class CollectionsService {
                         currentIdx += 1;
                     }
                     console.log(
-                        `
+                    `
                     slideCount: ${slideCount}
                     currentIdx: ${currentIdx}
                     `
@@ -655,27 +656,27 @@ class CollectionsService {
                 }
 
                 let addOptionPrice = 0;
-                checkboxOptions.forEach((item, index1) => {
+                checkboxOptions.forEach((item, index1) =>{
                     option1.innerHTML = ``;
                     modalOptionPrice.innerHTML = `0`;
                     checkcount = 0;
-
-                    item.onclick = () => {
+                    
+                    item.onclick = () =>{ 
                         console.log(response.data);
-                        if (checkcount < 3) {
-                            if (item.checked == true) {
+                        if(checkcount < 3){
+                            if(item.checked == true){
                                 console.log("체크됨.");
                                 checkcount++;
                             }
-                            addOptionPrice += response.data[index1 + 12].optionPrice;
+                            addOptionPrice += response.data[index1+12].optionPrice;
                             console.log(addOptionPrice);
                         }
-                        else {
+                        else{
                             alert("3개까지 체크할 수 있습니다.");
                             item.checked = false;
                             return false;
                         }
-
+                        
                         option1.innerHTML += `${item.value}/`;
                         modalOptionPrice.innerHTML = `${addOptionPrice}`;
                     }
@@ -683,50 +684,50 @@ class CollectionsService {
 
                 const addBasketbutton = document.querySelector(".modal-addcart");
 
-                //추가버튼
+                    //추가버튼
                 addBasketbutton.onclick = () => {
                     var modalPop = document.querySelector(".modal-wrap");
                     var modalBg = document.querySelector(".modal-bg");
 
                     modalPop.style.display = "none";
                     modalBg.style.display = "none";
-
+                    
                     console.log(index);
-
+    
                     let product = new Product(responseData[index].pdtId, responseData[index].productName, responseData[index].productPrice, responseData[index].mainImg);
-
+    
                     let formData = new FormData(document.querySelector(".option-form"));
-
+    
                     let selectList = [formData.get("coldhots"), formData.get("ices"), formData.get("sugars")]
-
+                    
                     formData.forEach((value, key) => {
-                        if (key == "topping") {
+                        if(key == "topping"){
                             selectList.push(value);
                         }
                     });
-
-
+                    
+                    
                     console.log("selectList: " + selectList);
                     selectList.forEach(option => {
                         response.data.forEach(data => {
-                            if (data.optionName == option) {
+                            if(data.optionName == option){  
                                 let productOption = new ProductOption(data.id, data.optionName, data.optionPrice);
                                 product.productOptionList.push(productOption);
-
+                                
                             }
                         })
                     })
                     Number(product.productPrice);
-                    product.productPrice += addOptionPrice;
+                    product.productPrice +=  addOptionPrice;
                     console.log(product);
 
-                    Cart.getInstance().addProduct(product);
+                    Cart.getInstance().addProduct(product); 
                     Cart.getInstance().payButtonClick(product);
                 }
             }
         })
         Cart.getInstance().clearlist();
-
+        
     }
 
     moveSlide(num) {
@@ -735,8 +736,8 @@ class CollectionsService {
         this.currentIdx = num;
     }
 
-
-
+    
+                
     //     //order_mst에 넣기
     //     let today = new Date();
     //     let year = today.getFullYear();
@@ -760,7 +761,7 @@ class CollectionsService {
     //             alert("주문 담기 완료");
     //             // location.reload();
     //         }
-
+        
     // }
 
     // saveOrder() {
@@ -787,10 +788,10 @@ class CollectionsService {
     //             // location.reload();
     //         }
     // }
-
+   
 }
 
-function plus() {
+function plus () {
     const count = document.querySelector(".count-zone");
     let countInnerHtml = document.querySelector(".count-zone").textContent;
     let countNum = Number(countInnerHtml);
@@ -798,7 +799,7 @@ function plus() {
     count.innerHTML = `${countNum}`;
 }
 
-function minus() {
+function minus () {
     const count = document.querySelector(".count-zone");
     let countInnerHtml = document.querySelector(".count-zone").textContent;
     let countNum = Number(countInnerHtml);
