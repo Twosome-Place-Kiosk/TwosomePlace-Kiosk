@@ -224,25 +224,31 @@ class Cart {
    
     PayTotalCount(product) {
         const orderlast = document.querySelector(".order-last");
-        orderlast.innerHTML = "";
+        
         const add = function(stockList) {
             return stockList.reduce((a,b) => a + b, 0);
-          };
-          var sum = add(this.stockList);      
-              
+        };
+        var sum = add(this.stockList);      
+        
         this.cartList.forEach(item =>{   
-        orderlast.innerHTML += `
-        <table class="order-last-table">
-        <td class="order-last-productC">총수량</td>
-        <td class="order-last-product">${sum}개</td>
+            let payTotalPrice = 0;
+            for(let i = 0; i<this.cartList.length; i++){
+                payTotalPrice += this.cartList[i].productPrice;
+            }
+            
+            orderlast.innerHTML = "";
+            orderlast.innerHTML += `
+            <table class="order-last-table">
+            <td class="order-last-productC">총수량</td>
+            <td class="order-last-product">${sum}개</td>
+            
+            <td class="order-last-priceC">주문금액</td>
+            <td class="order-last-price"> ${payTotalPrice} 원</td>
+            </table>
+            `;
         
-        <td class="order-last-priceC">주문금액</td>
-        <td class="order-last-price"> ${item.productPrice} 원</td>
-        </table>
-        `;
-        
+        })
     }
-        )}
         
 }
 
