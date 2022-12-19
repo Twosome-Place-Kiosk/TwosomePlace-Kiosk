@@ -148,7 +148,6 @@ class Cart {
 
         this.cartList.forEach(item =>{
             basket.innerHTML += `
-
             <div class="basket-product">
                 <img class="cart-image" src="/static/images/product/${item.mainImg}">
                 <div class="countbtn-box">
@@ -163,6 +162,19 @@ class Cart {
         }
         totalprice.innerHTML = `${price}`;
         console.log(totalprice);
+
+        const plusBtn = document.querySelector(".plus-btn");
+        const minusBtn = document.querySelector(".minus-btn");
+        const count = document.querySelector(".count-zone");
+        
+
+        plusBtn.onclick = () => {
+            
+        }
+
+        minusBtn.onclick = () => {
+
+        }
     }
 
     clearlist() {
