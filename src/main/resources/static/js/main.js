@@ -184,6 +184,7 @@ class Cart {
         ordercheck.onclick = () => {
 
             this.cartList.forEach(item =>{
+                
                 orderInfo.innerHTML += `
                 <table class="order-table">
                     <tr>
@@ -209,6 +210,28 @@ class Cart {
         }
     }
    
+    PayTotalCount(product) {
+        const orderlast = document.querySelector(".order-last");
+        orderlast.innerHTML = "";
+        const add = function(stockList) {
+            return stockList.reduce((a,b) => a + b, 0);
+          };
+          var sum = add(this.stockList);      
+              
+        this.cartList.forEach(item =>{   
+        orderlast.innerHTML += `
+        <table class="order-last-table">
+        <td class="order-last-productC">총수량</td>
+        <td class="order-last-product">${sum}개</td>
+        
+        <td class="order-last-priceC">주문금액</td>
+        <td class="order-last-price"> ${item.productPrice} 원</td>
+        </table>
+        `;
+        
+    }
+        )}
+        
 }
 
 class CollectionsApi {
@@ -723,6 +746,7 @@ class CollectionsService {
 
                     Cart.getInstance().addProduct(product); 
                     Cart.getInstance().payButtonClick(product);
+                    Cart.getInstance().PayTotalCount();
                 }
             }
         })
