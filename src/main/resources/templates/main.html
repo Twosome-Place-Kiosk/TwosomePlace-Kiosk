@@ -8,6 +8,10 @@
     <script src="https://kit.fontawesome.com/770fb89c8e.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <!-- jQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+    <!-- iamport.payment.js -->
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 
     <link rel="stylesheet" href="/static/css/common.css">
     <link rel="stylesheet" href="/static/css/main.css">
@@ -332,9 +336,10 @@
     <div class="modal-pbox">
         <p class="pay-able">카카오페이, 삼성페이 결제가능<p>
     </div>
-
+<!--  onClick="javascript:payCheckOpen();" -->
     <div class="modal-pay-imgbox">
-        <img class ="paying-img" src="/static/images/order/pay.png" onClick="javascript:payCheckOpen();">
+        <img class ="paying-img" src="/static/images/order/pay.png">
+        <button class="btn payment-button" name="payment-button">결제하기</button>
     </div>
      
 <!-- <div class="pay-modal-bg" onClick="javascript:payCheckClose();"></div> -->
@@ -366,6 +371,7 @@
 <script src="/static/js/modal.js"></script>
 <script src=/static/js/option.js></script>
 <script src="/static/js/pay.js"></script>
+
 <!-- <script src="/static/js/slideShow.js"></script> -->
 
 </html>

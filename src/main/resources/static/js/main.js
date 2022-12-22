@@ -376,6 +376,46 @@ class OptionApi {
     
 // }
 
+class ImportApi {
+    #IMP = null;
+    
+    constructor() {
+        this.#IMP = window.IMP;
+        this.#IMP.init("imp00508123");
+        this.addPaymentEvent();
+    }
+    
+    addPaymentEvent(){
+        document.querySelector(".payment-button").onclick = () => {
+            this.requestPay();
+        }
+    }
+
+    requestPay() {
+            const pdtName = document.querySelector(".product-name");
+            const pdtPrice = document.querySelector(".total-price1").value;
+            // IMP.request_pay(param, callback) 결제창 호출
+            IMP.request_pay({ // param
+                pg: "kakaopay",
+                pay_method: "card",
+                merchant_uid: "order_"+ new Date().getTime(),
+                name: pdtName,
+                amount: pdtPrice,
+                buyer_tel: "010-1234-1234"
+            }, function (rsp) { // callback
+                if (rsp.success) {
+
+                } else {
+
+                }
+            });
+          
+
+    }
+
+}
+
+
 class CollectionsService {
     static #instance = null;
     static getInstance() {
@@ -853,6 +893,7 @@ function minus () {
 
 window.onload = () => {
     CollectionsService.getInstance().loadCollections();
+    new ImportApi();
 
 }
 
