@@ -151,9 +151,9 @@ class Cart {
             <div class="basket-product">
                 <img class="cart-image" src="/static/images/product/${item.mainImg}">
                 <div class="countbtn-box">
-                <div class="countbtn plus-btn"><i class="fa-solid fa-circle-plus"></i></div>
+                <div class="countbtn plus-btn${item.productId}"><i class="fa-solid fa-circle-plus"></i></div>
                 <div class="countbtn count-zone">1</div>
-                <div class="countbtn minus-btn"><i class="fa-solid fa-circle-minus"></i></div>
+                <div class="countbtn minus-btn${item.productId}"><i class="fa-solid fa-circle-minus"></i></div>
             </div>
             `
         })
@@ -169,11 +169,25 @@ class Cart {
         
 
         plusBtn.onclick = () => {
+           
+                const count = document.querySelector(".count-zone");
+                let countInnerHtml = document.querySelector(".count-zone").textContent;
+                let countNum = Number(countInnerHtml);
+                countNum += 1;
+                count.innerHTML = `${countNum}`;
+            
             
         }
 
         minusBtn.onclick = () => {
-
+           
+                const count = document.querySelector(".count-zone");
+                let countInnerHtml = document.querySelector(".count-zone").textContent;
+                let countNum = Number(countInnerHtml);
+            
+                countNum -= 1;
+                count.innerHTML = `${countNum}`;
+           
         }
     }
 
@@ -873,22 +887,22 @@ class CollectionsService {
    
 }
 
-function plus () {
-    const count = document.querySelector(".count-zone");
-    let countInnerHtml = document.querySelector(".count-zone").textContent;
-    let countNum = Number(countInnerHtml);
-    countNum += 1;
-    count.innerHTML = `${countNum}`;
-}
+// function plus () {
+//     const count = document.querySelector(".count-zone");
+//     let countInnerHtml = document.querySelector(".count-zone").textContent;
+//     let countNum = Number(countInnerHtml);
+//     countNum += 1;
+//     count.innerHTML = `${countNum}`;
+// }
 
-function minus () {
-    const count = document.querySelector(".count-zone");
-    let countInnerHtml = document.querySelector(".count-zone").textContent;
-    let countNum = Number(countInnerHtml);
+// function minus () {
+//     const count = document.querySelector(".count-zone");
+//     let countInnerHtml = document.querySelector(".count-zone").textContent;
+//     let countNum = Number(countInnerHtml);
 
-    countNum -= 1;
-    count.innerHTML = `${countNum}`;
-}
+//     countNum -= 1;
+//     count.innerHTML = `${countNum}`;
+// }
 
 
 window.onload = () => {
