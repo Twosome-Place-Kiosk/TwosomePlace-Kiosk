@@ -390,42 +390,7 @@ class OptionApi {
     
 // }
 
-class ImportApi {
-    #IMP = null;
-    
-    constructor() {
-        this.#IMP = window.IMP;
-        this.#IMP.init("imp00508123");
-        this.addPaymentEvent();
-    }
-    
-    addPaymentEvent(){
-        document.querySelector(".payment-button").onclick = () => {
-            this.requestPay();
-        }
-    }
 
-    requestPay() {
-            const pdtPrice = document.querySelector(".total-price1").value;
-            // IMP.request_pay(param, callback) 결제창 호출
-            IMP.request_pay({ // param
-                pg: "kakaopay",
-                pay_method: "card",
-                merchant_uid:"order_"+ new Date().getTime(),
-                amount: "10",
-                buyer_tel: "010-1234-1234"
-            }, function (rsp) { // callback
-                if (rsp.success) {
-
-                } else {
-
-                }
-            });
-          
-
-    }
-
-}
 
 
 class CollectionsService {
@@ -902,10 +867,47 @@ class CollectionsService {
 //     count.innerHTML = `${countNum}`;
 // }
 
+class ImportApi {
+    #IMP = null;
+    
+    constructor() {
+        this.#IMP = window.IMP;
+        this.#IMP.init("imp00508123");
+        this.addPaymentEvent();
+    }
+    
+    addPaymentEvent(){
+        document.querySelector(".paying-img").onclick = () => {
+            this.requestPay();
+        }
+    }
+
+    requestPay() {
+            const pdtPrice = document.querySelector(".total-price1").textContent;
+            console.log(pdtPrice);
+            IMP.request_pay({ // param
+                pg: "kakaopay.TC0ONETIME", //가맹점코드 넣어야함
+                pay_method: "card",
+                merchant_uid: "PRODUCT-" + new Date().getTime(),
+                name: "product",
+                amount : pdtPrice,
+                buyer_tel : "010-1234-1234",
+            }, function (rsp) { // callback
+                if (rsp.success) {
+    
+                } else {
+                    
+                }
+    
+            });
+        }
+    
+    }
+
 
 window.onload = () => {
     CollectionsService.getInstance().loadCollections();
-    new ImportApi();
+  new ImportApi();
 
 }
 
