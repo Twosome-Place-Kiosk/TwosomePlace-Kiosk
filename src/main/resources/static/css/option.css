@@ -46,8 +46,22 @@ html,body, .container {
     font-weight: 600;
 }
 
-.modal-option{
-    
+.modal-option-count{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.modal-optionbox{
+    width: 300px;
+}
+
+.modal-countbox {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 200px;
 }
 
 p{

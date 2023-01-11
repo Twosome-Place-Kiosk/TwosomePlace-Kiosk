@@ -112,6 +112,32 @@ class Product {
     }
 }
 
+
+
+const plusBtn = document.querySelector(".plus-btn");
+const minusBtn = document.querySelector(".minus-btn");
+const count = document.querySelector(".count-zone");
+
+plusBtn.onclick = () => {
+const count = document.querySelector(".count-zone");
+let countInnerHtml = document.querySelector(".count-zone").textContent;
+let countNum = Number(countInnerHtml);
+
+countNum += 1;
+count.innerHTML = `${countNum}`;
+}
+
+minusBtn.onclick = () => {
+const count = document.querySelector(".count-zone");
+let countInnerHtml = document.querySelector(".count-zone").textContent;
+let countNum = Number(countInnerHtml);
+
+if(countNum>1){
+countNum -= 1;
+count.innerHTML = `${countNum}`;}
+}  
+
+
 class Cart {
     static #instance = null;
     static getInstance() {
@@ -120,7 +146,8 @@ class Cart {
       }
       return this.#instance;
     }
-  
+
+    
     cartList = null;
     stockList = null;
   
@@ -140,56 +167,38 @@ class Cart {
       this.createCart();
     }
 
+
+
     createCart() {
         const basket = document.querySelector(".basket-product-list");
         basket.innerHTML = "";
         let totalprice = document.querySelector(".total-price1");
         let price = 0;
 
+        const count = document.querySelector(".count-zone");
+        let countInnerHtml = document.querySelector(".count-zone").textContent;
+        let countNum = Number(countInnerHtml);
+        console.log(countNum);
+        console.log(typeof(countNum));
+
         this.cartList.forEach(item =>{
             basket.innerHTML += `
             <div class="basket-product">
-                <img class="cart-image" src="/static/images/product/${item.mainImg}">
-                <div class="countbtn-box">
-                <div class="countbtn plus-btn${item.productId}"><i class="fa-solid fa-circle-plus"></i></div>
-                <div class="countbtn count-zone">1</div>
-                <div class="countbtn minus-btn${item.productId}"><i class="fa-solid fa-circle-minus"></i></div>
+                <div class="productcount">${countNum}</div>  
+                <div class="cart-imagebox">
+                    <img class="cart-image" src="/static/images/product/${item.mainImg}">
+                </div>
             </div>
+           
             `
+            //유진 count zone 숫자 = 총가격/하나가격 해서 나타낼거임
         })
         for(let i = 0; i<this.cartList.length; i++){
             price += this.cartList[i].productPrice;
         }
         totalprice.innerHTML = `${price}`;
         console.log(totalprice);
-
-        const plusBtn = document.querySelector(".plus-btn");
-        const minusBtn = document.querySelector(".minus-btn");
-        const count = document.querySelector(".count-zone");
-        
-
-        plusBtn.onclick = () => {
-           
-                const count = document.querySelector(".count-zone");
-                let countInnerHtml = document.querySelector(".count-zone").textContent;
-                let countNum = Number(countInnerHtml);
-                countNum += 1;
-                count.innerHTML = `${countNum}`;
-            
-            
-        }
-
-        minusBtn.onclick = () => {
-           
-                const count = document.querySelector(".count-zone");
-                let countInnerHtml = document.querySelector(".count-zone").textContent;
-                let countNum = Number(countInnerHtml);
-            
-                countNum -= 1;
-                count.innerHTML = `${countNum}`;
-           
-        }
-    }
+    } 
 
     clearlist() {
         const clearButton = document.querySelector(".delete-button");
@@ -199,8 +208,9 @@ class Cart {
             this.stockList.splice(0, this.stockList.length);
             Cart.getInstance().createCart();
           }
-    
+
     }
+
 
     payButtonClick(product) {
         
@@ -265,6 +275,8 @@ class Cart {
     }
         
 }
+
+
 
 class CollectionsApi {
     static #instance = null;
@@ -489,6 +501,8 @@ class CollectionsService {
                         <span class="modal-price">${responseData[index].productPrice}원</span>
                     </div>
                 `;
+
+
 
                 coldHotBox.innerHTML = `
                     <input type="radio" id="coldhot1" name="coldhots" value="${response.data[0].optionName}">
