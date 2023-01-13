@@ -128,10 +128,10 @@ count.innerHTML = `${countNum}`;
 }
 
 minusBtn.onclick = () => {
-const count = document.querySelector(".count-zone");
-let countInnerHtml = document.querySelector(".count-zone").textContent;
-let countNum = Number(countInnerHtml);
-
+    const count = document.querySelector(".count-zone");
+    let countInnerHtml = document.querySelector(".count-zone").textContent;
+    let countNum = Number(countInnerHtml);
+    
 if(countNum>1){
 countNum -= 1;
 count.innerHTML = `${countNum}`;}
@@ -191,7 +191,6 @@ class Cart {
             </div>
            
             `
-            //유진 count zone 숫자 = 총가격/하나가격 해서 나타낼거임
         })
         for(let i = 0; i<this.cartList.length; i++){
             price += this.cartList[i].productPrice;
